@@ -73,7 +73,7 @@
         <div class="services__grid" id="servicesGrid" style="margin-top:1.5rem;"></div>
       </div>
     </div>
-    <p style="padding-top:4rem;" class="content-justification-center text-align-center hero__subtitle">* Todos los modelos que aparecen pueden presentar errores en su descripción, falta de servicios y/o modelos, precios equívocos, etc. Por favor téngalo en cuenta, para cualquier duda
+    <p style="padding-top:4rem;" class="content-justification-center text-align-center hero__subtitle">* Todos los modelos que aparecen pueden presentar errores en su descripción, falta de servicios y/o variantes. Por favor téngalo en cuenta, para cualquier duda
       <a href="contacto.php" style="color: var(--accent-400)"> contactenos</a>.
     </p>
   </section>
