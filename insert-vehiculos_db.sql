@@ -94,14 +94,14 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (35, 'Aireadores con luces ambiente', 'Retrofit de aireadores con luces ambiente personalizables desde unidad de radio NTG.', 275.00, 'aireadoresLuzAmbienteBluetooth.png', 1),
 (36, 'Limpiaparabrisas automático', 'Requiere cambio de sensor, incluido en el precio.', NULL, 'limpiaAuto.png', 1),
 (38, 'Intermitente al realizar giro', 'Al realizar un giro se enciende automáticamente el intermitente  correspondiente en la dirección del giro.', 20.00, 'intermitenteRealizarGiro.png', 1),
-(39, 'Luces largas automáticas IHC', 'Si tu vehículo dispone de reconociento de señales de tráfico, podemos activar esta función adicionalmente si no dispone de ella.', 50.00, 'IHC.png', 1),
+(39, 'Luces largas automáticas IHC', 'Si tu vehículo dispone de reconociento de señales de tráfico, podemos activar esta función adicionalmente si no dispone de ella.', 75.00, 'IHC.png', 1),
 (40, 'Pack coding básico', 'Pack de coding básico para modelos donde la cantidad de servicios de coding es muy reducida.', 100.00, 'packCodingBasico.png', 1),
 (41, 'Pack coding avanzado', 'Pack de coding avanzado para modelos donde la cantidad de servicios de coding es más amplia.', 150.00, 'packCodingAvanzado.png', 1),
 (42, 'Coding faros halogenos a bixenon', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'halogenosaXenon.png', 1),
 (43, 'Coding faros halogenos a LED', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'halogenosaLED.png', 1),
 (44, 'Coding faros bixenon a LED', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'bixenonaLED.png', 1),
-(45, 'Coding A/C permanente', 'Siempre que enciendas la climatización se encenderá el modo A/C automáticamente.', NULL, 'ACauto.png', 1),
-(46, 'Coding recirculacion de aire permanente', 'Siempre que enciendas la climatización se activa automaticamente la recirculación de aire.', NULL, 'recirculacionAire.png', 1);
+(45, 'Coding A/C permanente', 'Siempre que enciendas la climatización se encenderá el modo A/C automáticamente.', 20, 'ACauto.png', 1),
+(46, 'Coding recirculacion de aire permanente', 'Siempre que enciendas la climatización se activa automaticamente la recirculación de aire.', 20, 'recirculacionAire.png', 1);
 
 
 -- Relaciones entre servicios/items y variantes (variant_id, service_id)
