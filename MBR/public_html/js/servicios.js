@@ -159,7 +159,7 @@ function renderServices(services, variantName) {
       </div>
       ${
         service.precio !== null
-          ? `<div class="service-item__price">${service.precio.toFixed(2)} €</div>`
+          ? `<div class="service-item__price">${parseInt(service.precio)} €</div>`
           : `<div class="service-item__price">Consultar</div>`
       }
     `;
