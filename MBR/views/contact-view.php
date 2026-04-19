@@ -147,7 +147,7 @@ require_once __DIR__ . '/../cfg/config.php';
       </div>
       <div class="footer__bottom">
         <span class="footer__copy">© <span id="year"></span> MBR Almería. Todos los derechos reservados.</span>
-        <span class="footer__made">MBR Almería · Mercedes-Benz Specialist</span>
+        <span class="footer__made">MBR Almería - Mercedes-Benz Specialist</span>
       </div>
     </div>
   </footer>

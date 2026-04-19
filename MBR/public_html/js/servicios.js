@@ -1,7 +1,7 @@
 const API = {
-  vehicles: "../cfg/vehicles.php",
-  variants: (id) => `../cfg/variants.php?id_vehicle=${id}`,
-  services: (id) => `../cfg/services.php?id_variant=${id}`,
+  vehicles: "api/vehicles.php",
+  variants: (id) => `api/variants.php?id_vehicle=${id}`,
+  services: (id) => `api/services.php?id_variant=${id}`,
 };
 
 // ── Helpers ───────────────────────────────────────────────────

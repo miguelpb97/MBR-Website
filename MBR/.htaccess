@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirigir index.php a la home limpia
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^index\.php$ https://www.mbretrofitalmeria.es/ [R=301,L]
+
+# MB Retrofit - Router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

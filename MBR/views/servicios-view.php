@@ -82,7 +82,7 @@
     <div class="footer__inner">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-name">MB Retrofit Almería</div>
+          <div class="footer__brand-name">MBR Almería</div>
           <div class="footer__brand-sub">Mercedes Specialist</div>
           <p class="footer__brand-text">Especialistas en coding y retrofits para vehículos Mercedes-Benz. Diagnóstico profesional con herramientas de fabricante.</p>
         </div>
@@ -103,8 +103,8 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span class="footer__copy">© <span id="year"></span> MB Retrofit Almería. Todos los derechos reservados.</span>
-        <span class="footer__made">MB Retrofit Almería · Mercedes-Benz Specialist</span>
+        <span class="footer__copy">© <span id="year"></span> MBR Almería. Todos los derechos reservados.</span>
+        <span class="footer__made">MBR Almería - Mercedes-Benz Specialist</span>
       </div>
     </div>
   </footer>
