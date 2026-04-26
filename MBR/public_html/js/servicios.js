@@ -102,9 +102,9 @@ function renderVariants(variants, modelName) {
     list.appendChild(btn);
   });
 
-  // Selecciona la primera automáticamente
+  /* // Selecciona la primera automáticamente
   const first = list.querySelector(".variant-btn");
-  if (first) first.click();
+  if (first) first.click();*/
 }
 
 // ── Seleccionar variante → carga servicios ────────────────────

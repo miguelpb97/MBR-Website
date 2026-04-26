@@ -32,6 +32,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// Honeypot anti-spam
+if (!empty($body['empresa'])) {
+    http_response_code(200);
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 // Validación Turnstile
 $turnstileToken  = $body['turnstileToken'] ?? '';
 $turnstileSecret = CF_SECRET_TEST;

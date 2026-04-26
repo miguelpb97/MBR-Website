@@ -60,16 +60,16 @@ INSERT INTO `variant` VALUES(35,"W447","W447.png",16);
 -- Items/Servicios (id_service, name, descripcion, price, image_url, stock)
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
 (1, 'Desactivar Start-Stop', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
-(2, 'Alarma perimetral EDW', 'Alarma básica EDW, se activa cuando detecta una apertura de cualquier puerta del vehículo estando bloqueado.', 20.00, 'EDW.png', 1),
-(3, 'Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos.', 20.00, 'kpaBar.png', 1),
-(4, 'Pitido al bloquear el vehículo', 'Breve pitido al bloquear el vehículo (modificable la duración de dicho pitido).', 20.00, 'pitidoDesbloquearVehiculo.png', 1),
-(5, 'Sonido de parktronic en el rango amarillo', 'Hacemos que tu parktronic avise acústicamente en el rango amarillo, no solo en el rango rojo como viene de origen.', 20.00, 'sonidoParktronicRangoAmarillo.png', 1),
-(6, 'Intermitentes 3 a 6 pulsaciones', 'Al usar la función rápida del intermitente, en vez de 3 pulsaciones, hará 6 (valor personalizable).', 20.00, 'intermitentes.png', 1),
-(7, 'Desactivar aviso acústico del cinturón de seguridad', 'Desactivamos el aviso acústico del cinturón de seguridad emitido por el cuadro de instrumentos.', 20.00, 'avisoAcusticoCinturon.png', 1),
-(8, 'Test de agujas al dar contacto', 'Si tu coche es compatible pero no lo trae de origen.', 20.00, 'testAgujas.png', 1),
-(9, 'Aviso tapa combustible abierta', 'Activamos el aviso de tapa de combustible abierta en el cuadro de instrumentos.', 20.00, 'avisoTapaCombustible.png', 1),
+(2, 'Alarma perimetral EDW', 'Alarma básica EDW, se activa cuando detecta una apertura de cualquier puerta del vehículo estando bloqueado.', 35.00, 'EDW.png', 1),
+(3, 'Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos.', 35.00, 'kpaBar.png', 1),
+(4, 'Pitido al bloquear el vehículo', 'Breve pitido al bloquear el vehículo (modificable la duración de dicho pitido).', 35.00, 'pitidoDesbloquearVehiculo.png', 1),
+(5, 'Sonido de parktronic en el rango amarillo', 'Hacemos que tu parktronic avise acústicamente en el rango amarillo, no solo en el rango rojo como viene de origen.', 35.00, 'sonidoParktronicRangoAmarillo.png', 1),
+(6, 'Intermitentes 3 a 6 pulsaciones', 'Al usar la función rápida del intermitente, en vez de 3 pulsaciones, hará 6 (valor personalizable).', 35.00, 'intermitentes.png', 1),
+(7, 'Desactivar aviso acústico del cinturón de seguridad', 'Desactivamos el aviso acústico del cinturón de seguridad emitido por el cuadro de instrumentos.', 35.00, 'avisoAcusticoCinturon.png', 1),
+(8, 'Test de agujas al dar contacto', 'Si tu coche es compatible pero no lo trae de origen.', 35.00, 'testAgujas.png', 1),
+(9, 'Aviso tapa combustible abierta', 'Activamos el aviso de tapa de combustible abierta en el cuadro de instrumentos.', 35.00, 'avisoTapaCombustible.png', 1),
 (10, 'Deslimitar velocidad máxima (No AMG)', 'Eliminamos la limitación electrónica de velocidad máxima de su vehículo.', 75.00, 'noLimit.png', 1),
-(11, 'Deslimitar velocidad máxima (AMG)', 'Eliminamos la limitación electrónica de velocidad máxima de su vehículo de 250km/h.', 150.00, 'noLimitAMG.pmg', 1),
+(11, 'Deslimitar velocidad máxima (AMG)', 'Eliminamos la limitación electrónica de velocidad máxima de su vehículo de 250km/h.', 100.00, 'noLimitAMG.pmg', 1),
 (12, 'Emotion Start (AMG)', 'Breves pops and bangs al arrancar, solo en temperatura de servicio.', 75.00, 'emotionStart.png', 1),
 (13, 'Comprobar kilometraje real', '¿Dudas sobre si el kilometraje de su vehículo ha sido manipulado? Te ayudamos a descubrirlo.', 50.00, 'comprobarKmReales.png', 1),
 (14, 'Diagnostico básico', 'Lectura y/o borrado de fallos.', 35.00, 'diagBasico.png', 1),
@@ -79,29 +79,32 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (18, 'Retrofit Cámara visión trasera original', 'Reequipamos la cámara de visión trasera original en caso de no disponer de dicho extra Código SA 218.', NULL, 'camaraTraseraMFA.png', 1),
 (19, 'Espejos plegables eléctricamente', 'Reequipamos el extra de espejos plegables eléctricamente Código SA 500.', NULL, 'espejosElectricos.png', 1),
 (20, 'Activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 50.00, 'carPlay.png', 1),
-(21, 'Alargar tiempo luces de bienvenida', 'Alargamos el tiempo de dicha animación a 8 segundos (tiempo personalizable).', 20.00, 'lucesBienvenida.png', 1),
-(22, 'Activar menú de luces ambiente en radio', 'Si tu vehículo es compatible activamos dicho menú en la unidad NTG y el coding requerido en la unidad SAM.', 20.00, 'menuLucesAmbiente.png', 1),
+(21, 'Alargar tiempo luces de bienvenida', 'Alargamos el tiempo de dicha animación a 8 segundos (tiempo personalizable).', 35.00, 'lucesBienvenida.png', 1),
+(22, 'Activar menú de luces ambiente en radio', 'Si tu vehículo es compatible activamos dicho menú en la unidad NTG y el coding requerido en la unidad SAM.', 35.00, 'menuLucesAmbiente.png', 1),
 (23, 'Retrofit Comand NTG5S1', 'Si tu vehiculó tiene NTG 5.0 o Garmin te ayudamos a reequipar unidad NTG5S1.', NULL, 'retrofitComandNTG5.png', 1),
-(24, 'Luces cortas al abrir el vehículo', 'Al desbloquear el vehículo se encenderán las luces cortas.', 20.00, 'lucesCortasAbrirVehiculo.png', 1),
+(24, 'Luces cortas al abrir el vehículo', 'Al desbloquear el vehículo se encenderán las luces cortas.', 35.00, 'lucesCortasAbrirVehiculo.png', 1),
 (26, 'Memoria de modo de conducción', 'Con este coding, tu coche memorizará el ultimo modo de conducción que usaste.', 40.00, 'memoriaModoConduccion.png', 1),
 (27, 'Mostrar litros de combustible restantes', 'El cuadro de instrumentos mostrará la cantidad de litros de combustible del deposito.', 30.00, 'litrosRestantes.png', 1),
 (28, 'Mostrar rango de km restantes', 'Con esta activación siempre nos mostrará el rango restante en km en vez de el icono de repostar.', 30.00, 'rangoKmRestantes.png', 1),
-(29, 'Cambio de volumen y frecuencia del parktronic', 'Cambiamos el volumen y la frecuencia del aviso acústico del sistema parktronic.', 20.00, 'volumenParktronic.png', 1),
-(30, 'Usar luces de niebla para los giros', 'Al realizar giros se encenderá la luz de niebla de la posición correspondiente al giro.', 20.00, 'luzNieblaGiros.png', 1),
-(31, 'Alargar tiempo retardo de apagado unidad radio', 'Alargamos el tiempo en la que la unidad se apaga después de quitar el contacto.', 20.00, 'retardoApagadoComand.png', 1),
-(32, 'Permitir reproducción de vídeo en movimiento en la unidad radio', 'Activamos la reproducción de video en movimiento en tu unidad Comand.', 20.00, 'videoMovimientoComand.png', 1),
+(29, 'Cambio de volumen y frecuencia del parktronic', 'Cambiamos el volumen y la frecuencia del aviso acústico del sistema parktronic.', 35.00, 'volumenParktronic.png', 1),
+(30, 'Usar luces de niebla para los giros', 'Al realizar giros se encenderá la luz de niebla de la posición correspondiente al giro.', 35.00, 'luzNieblaGiros.png', 1),
+(31, 'Alargar tiempo retardo de apagado unidad radio', 'Alargamos el tiempo en la que la unidad se apaga después de quitar el contacto.', 35.00, 'retardoApagadoComand.png', 1),
+(32, 'Permitir reproducción de vídeo en movimiento en la unidad radio', 'Activamos la reproducción de video en movimiento en tu unidad Comand.', 35.00, 'videoMovimientoComand.png', 1),
 (34, 'Aireadores con luces ambiente', 'Retrofit de aireadores con luces ambiente personalizables desde una App.', 250.00, 'aireadoresLuzAmbienteNTG.png', 1),
 (35, 'Aireadores con luces ambiente', 'Retrofit de aireadores con luces ambiente personalizables desde unidad de radio NTG.', 275.00, 'aireadoresLuzAmbienteBluetooth.png', 1),
 (36, 'Limpiaparabrisas automático', 'Requiere cambio de sensor, incluido en el precio.', NULL, 'limpiaAuto.png', 1),
-(38, 'Intermitente al realizar giro', 'Al realizar un giro se enciende automáticamente el intermitente  correspondiente en la dirección del giro.', 20.00, 'intermitenteRealizarGiro.png', 1),
+(38, 'Intermitente al realizar giro', 'Al realizar un giro se enciende automáticamente el intermitente  correspondiente en la dirección del giro.', 35.00, 'intermitenteRealizarGiro.png', 1),
 (39, 'Luces largas automáticas IHC', 'Si tu vehículo dispone de reconociento de señales de tráfico, podemos activar esta función adicionalmente si no dispone de ella.', 50.00, 'IHC.png', 1),
 (40, 'Pack coding básico', 'Pack de coding básico para modelos donde la cantidad de servicios de coding es muy reducida.', 100.00, 'packCodingBasico.png', 1),
 (41, 'Pack coding avanzado', 'Pack de coding avanzado para modelos donde la cantidad de servicios de coding es más amplia.', 150.00, 'packCodingAvanzado.png', 1),
 (42, 'Coding faros halogenos a bixenon', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'halogenosaXenon.png', 1),
 (43, 'Coding faros halogenos a LED', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'halogenosaLED.png', 1),
 (44, 'Coding faros bixenon a LED', 'Si vas a reequipar dichos faros, te ayudamos a codificarlos.', NULL, 'bixenonaLED.png', 1),
-(45, 'Coding A/C permanente', 'Siempre que enciendas la climatización se encenderá el modo A/C automáticamente.', NULL, 'ACauto.png', 1),
-(46, 'Coding recirculacion de aire permanente', 'Siempre que enciendas la climatización se activa automaticamente la recirculación de aire.', NULL, 'recirculacionAire.png', 1);
+(45, 'Coding A/C permanente', 'Siempre que enciendas la climatización se encenderá el modo A/C automáticamente.', 35, 'ACauto.png', 1),
+(46, 'Coding recirculacion de aire permanente', 'Siempre que enciendas la climatización se activa automaticamente la recirculación de aire.', 35, 'recirculacionAire.png', 1),
+(47, 'Coding luces traseras encendidas de dia', 'Con este coding los faros traseros se encenderan tambien con las luces diurnas.', 35, 'lucesTraserasEncendidasEnDiurno.png', 1),
+(48, 'Coding renovar cuadro de instrumentos', 'Si has instalado un cuadro de instrumentos usado, te ayudamos a renovarlo y emparejarlo con la EZS.', 130, 'renovarIC.png', 1),
+(49, 'Coding menú AMG en cuadro de intrumentos', 'Codificamos el Menú AMG en tu cuadro de instrumentos', 100, 'menuAMGCluster.png', 1);
 
 
 -- Relaciones entre servicios/items y variantes (variant_id, service_id)
@@ -135,6 +138,9 @@ INSERT INTO `variant_has_service` VALUES(1,42);
 INSERT INTO `variant_has_service` VALUES(1,44);
 INSERT INTO `variant_has_service` VALUES(1,45);
 INSERT INTO `variant_has_service` VALUES(1,46);
+INSERT INTO `variant_has_service` VALUES(1,48);
+INSERT INTO `variant_has_service` VALUES(1,49);
+INSERT INTO `variant_has_service` VALUES(1,20);
 
 -- W176 facelift
 INSERT INTO `variant_has_service` VALUES(2,1);
@@ -166,6 +172,8 @@ INSERT INTO `variant_has_service` VALUES(2,41);
 INSERT INTO `variant_has_service` VALUES(2,43);
 INSERT INTO `variant_has_service` VALUES(2,45);
 INSERT INTO `variant_has_service` VALUES(2,46);
+INSERT INTO `variant_has_service` VALUES(2,49);
+INSERT INTO `variant_has_service` VALUES(2,20);
 
 -- W177 prefacelift
 INSERT INTO `variant_has_service` VALUES(3,1);
@@ -185,6 +193,9 @@ INSERT INTO `variant_has_service` VALUES(3,16);
 INSERT INTO `variant_has_service` VALUES(3,39);
 INSERT INTO `variant_has_service` VALUES(3,40);
 INSERT INTO `variant_has_service` VALUES(3,41);
+INSERT INTO `variant_has_service` VALUES(3,48);
+INSERT INTO `variant_has_service` VALUES(3,49);
+INSERT INTO `variant_has_service` VALUES(3,20);
 
 -- W177 facelift
 INSERT INTO `variant_has_service` VALUES(4,1);
@@ -204,6 +215,9 @@ INSERT INTO `variant_has_service` VALUES(4,16);
 INSERT INTO `variant_has_service` VALUES(4,39);
 INSERT INTO `variant_has_service` VALUES(4,40);
 INSERT INTO `variant_has_service` VALUES(4,41);
+INSERT INTO `variant_has_service` VALUES(4,48);
+INSERT INTO `variant_has_service` VALUES(4,49);
+INSERT INTO `variant_has_service` VALUES(4,20);
 
 -- W246 prefacelift
 INSERT INTO `variant_has_service` VALUES(5,1);
@@ -232,6 +246,9 @@ INSERT INTO `variant_has_service` VALUES(5,42);
 INSERT INTO `variant_has_service` VALUES(5,44);
 INSERT INTO `variant_has_service` VALUES(5,45);
 INSERT INTO `variant_has_service` VALUES(5,46);
+INSERT INTO `variant_has_service` VALUES(5,48);
+INSERT INTO `variant_has_service` VALUES(5,49);
+INSERT INTO `variant_has_service` VALUES(5,20);
 
 -- W246 facelift
 INSERT INTO `variant_has_service` VALUES(6,1);
@@ -260,6 +277,9 @@ INSERT INTO `variant_has_service` VALUES(6,41);
 INSERT INTO `variant_has_service` VALUES(6,43);
 INSERT INTO `variant_has_service` VALUES(6,45);
 INSERT INTO `variant_has_service` VALUES(6,46);
+INSERT INTO `variant_has_service` VALUES(6,48);
+INSERT INTO `variant_has_service` VALUES(6,49);
+INSERT INTO `variant_has_service` VALUES(6,20);
 
 -- W247 prefacelift
 INSERT INTO `variant_has_service` VALUES(7,1);
@@ -289,6 +309,7 @@ INSERT INTO `variant_has_service` VALUES(8,29);
 INSERT INTO `variant_has_service` VALUES(8,30);
 INSERT INTO `variant_has_service` VALUES(8,31);
 INSERT INTO `variant_has_service` VALUES(8,32);
+INSERT INTO `variant_has_service` VALUES(8,48);
 
 -- W204/S204/X204
 INSERT INTO `variant_has_service` VALUES(9,1);
@@ -301,6 +322,8 @@ INSERT INTO `variant_has_service` VALUES(9,29);
 INSERT INTO `variant_has_service` VALUES(9,30);
 INSERT INTO `variant_has_service` VALUES(9,31);
 INSERT INTO `variant_has_service` VALUES(9,32);
+INSERT INTO `variant_has_service` VALUES(9,48);
+INSERT INTO `variant_has_service` VALUES(9,49);
 
 -- W204/S204/X204 Facelift
 INSERT INTO `variant_has_service` VALUES(10,1);
@@ -314,6 +337,8 @@ INSERT INTO `variant_has_service` VALUES(10,30);
 INSERT INTO `variant_has_service` VALUES(10,31);
 INSERT INTO `variant_has_service` VALUES(10,32);
 INSERT INTO `variant_has_service` VALUES(10,33);
+INSERT INTO `variant_has_service` VALUES(10,48);
+INSERT INTO `variant_has_service` VALUES(10,49);
 
 -- W205/S205/X253
 INSERT INTO `variant_has_service` VALUES(11,1);
@@ -334,6 +359,8 @@ INSERT INTO `variant_has_service` VALUES(11,33);
 INSERT INTO `variant_has_service` VALUES(11,39);
 INSERT INTO `variant_has_service` VALUES(11,40);
 INSERT INTO `variant_has_service` VALUES(11,41);
+INSERT INTO `variant_has_service` VALUES(11,48);
+INSERT INTO `variant_has_service` VALUES(11,49);
 
 -- C117/X117 prefacelift
 INSERT INTO `variant_has_service` VALUES(12,1);
@@ -365,6 +392,10 @@ INSERT INTO `variant_has_service` VALUES(12,42);
 INSERT INTO `variant_has_service` VALUES(12,44);
 INSERT INTO `variant_has_service` VALUES(12,45);
 INSERT INTO `variant_has_service` VALUES(12,46);
+INSERT INTO `variant_has_service` VALUES(12,47);
+INSERT INTO `variant_has_service` VALUES(12,48);
+INSERT INTO `variant_has_service` VALUES(12,49);
+INSERT INTO `variant_has_service` VALUES(12,20);
 
 -- C117/X117 facelift
 INSERT INTO `variant_has_service` VALUES(13,1);
@@ -396,6 +427,10 @@ INSERT INTO `variant_has_service` VALUES(13,41);
 INSERT INTO `variant_has_service` VALUES(13,43);
 INSERT INTO `variant_has_service` VALUES(13,45);
 INSERT INTO `variant_has_service` VALUES(13,46);
+INSERT INTO `variant_has_service` VALUES(13,47);
+INSERT INTO `variant_has_service` VALUES(13,48);
+INSERT INTO `variant_has_service` VALUES(13,49);
+INSERT INTO `variant_has_service` VALUES(13,20);
 
 -- C118 prefacelift
 INSERT INTO `variant_has_service` VALUES(14,1);
@@ -415,6 +450,8 @@ INSERT INTO `variant_has_service` VALUES(14,16);
 INSERT INTO `variant_has_service` VALUES(14,39);
 INSERT INTO `variant_has_service` VALUES(14,40);
 INSERT INTO `variant_has_service` VALUES(14,41);
+INSERT INTO `variant_has_service` VALUES(14,48);
+INSERT INTO `variant_has_service` VALUES(14,49);
 
 -- W209 
 INSERT INTO `variant_has_service` VALUES(15,7);
@@ -430,6 +467,8 @@ INSERT INTO `variant_has_service` VALUES(15,13);
 INSERT INTO `variant_has_service` VALUES(15,14);
 INSERT INTO `variant_has_service` VALUES(15,15);
 INSERT INTO `variant_has_service` VALUES(15,16);
+INSERT INTO `variant_has_service` VALUES(15,48);
+INSERT INTO `variant_has_service` VALUES(15,49);
 
 -- W219/C219
 INSERT INTO `variant_has_service` VALUES(16,7);
@@ -445,6 +484,8 @@ INSERT INTO `variant_has_service` VALUES(16,13);
 INSERT INTO `variant_has_service` VALUES(16,14);
 INSERT INTO `variant_has_service` VALUES(16,15);
 INSERT INTO `variant_has_service` VALUES(16,16);
+INSERT INTO `variant_has_service` VALUES(16,48);
+INSERT INTO `variant_has_service` VALUES(16,49);
 
 -- W218/X218
 INSERT INTO `variant_has_service` VALUES(17,7);
@@ -460,6 +501,8 @@ INSERT INTO `variant_has_service` VALUES(17,13);
 INSERT INTO `variant_has_service` VALUES(17,14);
 INSERT INTO `variant_has_service` VALUES(17,15);
 INSERT INTO `variant_has_service` VALUES(17,16);
+INSERT INTO `variant_has_service` VALUES(17,48);
+INSERT INTO `variant_has_service` VALUES(17,49);
 
 -- W211/S211
 INSERT INTO `variant_has_service` VALUES(18,7);
@@ -515,6 +558,8 @@ INSERT INTO `variant_has_service` VALUES(21,16);
 INSERT INTO `variant_has_service` VALUES(21,39);
 INSERT INTO `variant_has_service` VALUES(21,40);
 INSERT INTO `variant_has_service` VALUES(21,41);
+INSERT INTO `variant_has_service` VALUES(21,48);
+INSERT INTO `variant_has_service` VALUES(21,49);
 
 -- W463
 INSERT INTO `variant_has_service` VALUES(22,7);
@@ -561,6 +606,9 @@ INSERT INTO `variant_has_service` VALUES(23,42);
 INSERT INTO `variant_has_service` VALUES(23,44);
 INSERT INTO `variant_has_service` VALUES(23,45);
 INSERT INTO `variant_has_service` VALUES(23,46);
+INSERT INTO `variant_has_service` VALUES(23,48);
+INSERT INTO `variant_has_service` VALUES(23,49);
+INSERT INTO `variant_has_service` VALUES(23,20);
 
 -- X156 facelift
 INSERT INTO `variant_has_service` VALUES(24,1);
@@ -592,6 +640,9 @@ INSERT INTO `variant_has_service` VALUES(24,41);
 INSERT INTO `variant_has_service` VALUES(24,43);
 INSERT INTO `variant_has_service` VALUES(24,45);
 INSERT INTO `variant_has_service` VALUES(24,46);
+INSERT INTO `variant_has_service` VALUES(24,48);
+INSERT INTO `variant_has_service` VALUES(24,49);
+INSERT INTO `variant_has_service` VALUES(24,20);
 
 -- X157 prefacelift
 INSERT INTO `variant_has_service` VALUES(25,1);
@@ -611,6 +662,8 @@ INSERT INTO `variant_has_service` VALUES(25,16);
 INSERT INTO `variant_has_service` VALUES(25,39);
 INSERT INTO `variant_has_service` VALUES(25,40);
 INSERT INTO `variant_has_service` VALUES(25,41);
+INSERT INTO `variant_has_service` VALUES(25,48);
+INSERT INTO `variant_has_service` VALUES(25,49);
 
 -- W164/X164
 INSERT INTO `variant_has_service` VALUES(26,7);
@@ -641,6 +694,8 @@ INSERT INTO `variant_has_service` VALUES(27,13);
 INSERT INTO `variant_has_service` VALUES(27,14);
 INSERT INTO `variant_has_service` VALUES(27,15);
 INSERT INTO `variant_has_service` VALUES(27,16);
+INSERT INTO `variant_has_service` VALUES(27,48);
+INSERT INTO `variant_has_service` VALUES(27,49);
 
 -- W251
 INSERT INTO `variant_has_service` VALUES(28,7);
@@ -683,6 +738,8 @@ INSERT INTO `variant_has_service` VALUES(30,13);
 INSERT INTO `variant_has_service` VALUES(30,14);
 INSERT INTO `variant_has_service` VALUES(30,15);
 INSERT INTO `variant_has_service` VALUES(30,16);
+INSERT INTO `variant_has_service` VALUES(30,48);
+INSERT INTO `variant_has_service` VALUES(30,49);
 
 -- R171
 INSERT INTO `variant_has_service` VALUES(31,7);
@@ -714,6 +771,8 @@ INSERT INTO `variant_has_service` VALUES(32,13);
 INSERT INTO `variant_has_service` VALUES(32,14);
 INSERT INTO `variant_has_service` VALUES(32,15);
 INSERT INTO `variant_has_service` VALUES(32,16);
+INSERT INTO `variant_has_service` VALUES(32,48);
+INSERT INTO `variant_has_service` VALUES(32,49);
 
 -- R230
 INSERT INTO `variant_has_service` VALUES(33,7);
@@ -745,6 +804,8 @@ INSERT INTO `variant_has_service` VALUES(34,13);
 INSERT INTO `variant_has_service` VALUES(34,14);
 INSERT INTO `variant_has_service` VALUES(34,15);
 INSERT INTO `variant_has_service` VALUES(34,16);
+INSERT INTO `variant_has_service` VALUES(34,48);
+INSERT INTO `variant_has_service` VALUES(34,49);
 
 -- W447
 INSERT INTO `variant_has_service` VALUES(35,1);
@@ -758,6 +819,8 @@ INSERT INTO `variant_has_service` VALUES(35,13);
 INSERT INTO `variant_has_service` VALUES(35,14);
 INSERT INTO `variant_has_service` VALUES(35,15);
 INSERT INTO `variant_has_service` VALUES(35,16);
+INSERT INTO `variant_has_service` VALUES(35,48);
+INSERT INTO `variant_has_service` VALUES(35,49);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
