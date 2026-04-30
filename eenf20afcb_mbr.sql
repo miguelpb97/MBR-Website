@@ -75,7 +75,7 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (15, 'Diagnostico avanzado', 'Lectura y/o borrado de fallos, valores reales, test de componentes, etc..', 50.00, 'diagAvanzado.png', 1),
 (16, 'Ayuda con Retrofit', 'Te ayudamos con cualquier retrofit que requiera SCN coding. El precio puede variar en función de la dificultad del mismo.', NULL, 'ayudaRetrofit.png', 1),
 (17, 'Retrofit unidad NTG5.0, NTG5S1 o Garmin', 'Si tu vehículo tiene NTG 4.5 o 4.7 te ayudamos a reequipar NTG5.0, NTG5S1 o Garmin.', NULL, 'retrofitNTG4aNTG5MFA.png', 1),
-(18, 'Retrofit cámara visión trasera original', 'Reequipamos la cámara de visión trasera original en caso de no disponer de dicho extra Código SA 218.', NULL, 'camaraTraseraMFA.png', 1),
+(18, 'Retrofit cámara visión trasera original', 'Reequipamos la cámara de visión trasera original código SA 218.', NULL, 'camaraTraseraMFA.png', 1),
 (19, 'Retrofit espejos plegables eléctricamente', 'Reequipamos el extra de espejos plegables eléctricamente Código SA 500.', NULL, 'espejosElectricos.png', 1),
 (20, 'Coding activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 35.00, 'carPlay.png', 1),
 (21, 'Coding alargar tiempo luces de bienvenida', 'Alargamos el tiempo de dicha animación a 8 segundos (tiempo personalizable).', 35.00, 'lucesBienvenida.png', 1),
@@ -83,8 +83,8 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (23, 'Retrofit Comand NTG5S1', 'Si tu vehiculó tiene NTG 5.0 o Garmin te ayudamos a reequipar unidad NTG5S1.', NULL, 'retrofitComandNTG5.png', 1),
 (24, 'Coding luces cortas al abrir el vehículo', 'Al desbloquear el vehículo se encenderán las luces cortas.', 35.00, 'lucesCortasAbrirVehiculo.png', 1),
 (26, 'Coding memoria de modo de conducción', 'Con este coding, tu coche memorizará el ultimo modo de conducción que usaste.', 40.00, 'memoriaModoConduccion.png', 1),
-(27, 'Coding mostrar litros de combustible restantes', 'El cuadro de instrumentos mostrará la cantidad de litros de combustible del deposito.', 30.00, 'litrosRestantes.png', 1),
-(28, 'Coding mostrar rango de km restantes', 'Con esta activación siempre nos mostrará el rango restante en km en vez de el icono de repostar.', 30.00, 'rangoKmRestantes.png', 1),
+(27, 'Coding mostrar litros de combustible restantes', 'El cuadro de instrumentos mostrará la cantidad de litros de combustible del deposito.', 30.00, 'litrosRestantes.png', 0),
+(28, 'Coding mostrar rango de km restantes', 'Con esta activación siempre nos mostrará el rango restante en km en vez de el icono de repostar.', 30.00, 'rangoKmRestantes.png', 0),
 (29, 'Coding cambio de volumen y frecuencia del parktronic', 'Cambiamos el volumen y la frecuencia del aviso acústico del sistema parktronic.', 35.00, 'volumenParktronic.png', 1),
 (30, 'Coding usar luces de niebla para los giros', 'Al realizar giros se encenderá la luz de niebla de la posición correspondiente al giro.', 35.00, 'luzNieblaGiros.png', 1),
 (31, 'Coding alargar tiempo retardo de apagado unidad radio', 'Alargamos el tiempo en la que la unidad se apaga después de quitar el contacto.', 35.00, 'retardoApagadoComand.png', 1),
@@ -104,7 +104,7 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (47, 'Coding luces traseras encendidas de dia', 'Con este coding los faros traseros se encenderan tambien con las luces diurnas.', 35.00, 'lucesTraserasEncendidasEnDiurno.png', 1),
 (48, 'Coding renovar cuadro de instrumentos', 'Si has instalado un cuadro de instrumentos usado, te ayudamos a renovarlo y emparejarlo con la EZS.', 130.00, 'renovarIC.png', 1),
 (49, 'Coding menú AMG en cuadro de intrumentos', 'Codificamos el Menú AMG en tu cuadro de instrumentos', 100.00, 'menuAMGCluster.png', 1),
-(50, 'Retrofit aireadores con luces ambiente traseros', 'Sustituimos también aireadores traseros con luz ambiente si dispone de ellos.', NULL, 'aireadoresLuzAmbienteTraseros.png', 1),
+(50, 'Retrofit aireadores con luces ambiente traseros', 'Sustituimos también aireadores traseros con luz ambiente si dispone de ellos.', NULL, 'aireadoresLuzAmbienteTraseros.png', 0),
 (51, 'Retrofit Apple Carplay/Android Auto', 'Si su unidad de audio no es compatible, instalamos un modulo para hacer compatible dicha función.', NULL, 'retrofitCarPlay.png', 1);
 
 -- --------------------------------------------------------
