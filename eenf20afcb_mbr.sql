@@ -77,7 +77,7 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (17, 'Retrofit unidad NTG5.0, NTG5S1 o Garmin', 'Si tu vehículo tiene NTG 4.5 o 4.7 te ayudamos a reequipar NTG5.0, NTG5S1 o Garmin.', NULL, 'retrofitNTG4aNTG5MFA.png', 1),
 (18, 'Retrofit cámara visión trasera original', 'Reequipamos la cámara de visión trasera original en caso de no disponer de dicho extra Código SA 218.', NULL, 'camaraTraseraMFA.png', 1),
 (19, 'Retrofit espejos plegables eléctricamente', 'Reequipamos el extra de espejos plegables eléctricamente Código SA 500.', NULL, 'espejosElectricos.png', 1),
-(20, 'Coding activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 50.00, 'carPlay.png', 1),
+(20, 'Coding activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 35.00, 'carPlay.png', 1),
 (21, 'Coding alargar tiempo luces de bienvenida', 'Alargamos el tiempo de dicha animación a 8 segundos (tiempo personalizable).', 35.00, 'lucesBienvenida.png', 1),
 (22, 'Coding activar menú de luces ambiente en radio', 'Si tu vehículo es compatible activamos dicho menú en la unidad NTG y el coding requerido en la unidad SAM.', 35.00, 'menuLucesAmbiente.png', 1),
 (23, 'Retrofit Comand NTG5S1', 'Si tu vehiculó tiene NTG 5.0 o Garmin te ayudamos a reequipar unidad NTG5S1.', NULL, 'retrofitComandNTG5.png', 1),
