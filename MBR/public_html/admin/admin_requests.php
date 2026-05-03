@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../../src/Auth.php';
 require_once __DIR__ . '/../../src/ConsultaRepository.php';
+require_once __DIR__ . '/../../cfg/config.php';
+
 
 Auth::requireLogin();
 

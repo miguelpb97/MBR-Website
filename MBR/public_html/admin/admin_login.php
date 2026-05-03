@@ -30,14 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['bloqueado_hasta'] <= tim
     } else {
         $_SESSION['intentos']++;
 
-        if ($_SESSION['intentos'] >= $MAX_INTENTOS) {
-            $_SESSION['bloqueado_hasta'] = time() + $TIEMPO_BLOQUEO;
+        if ($_SESSION['intentos'] >= MAX_INTENTOS) {
+            $_SESSION['bloqueado_hasta'] = time() + TIEMPO_BLOQUEO;
             $error = 'Demasiados intentos fallidos. Usuario bloqueado temporalmente.';
         } else {
-            $restantes = $MAX_INTENTOS - $_SESSION['intentos'];
+            $restantes = MAX_INTENTOS - $_SESSION['intentos'];
             $error = "Usuario o contraseña incorrectos. Te quedan $restantes intentos.";
         }
     }
 }
 
-require_once __DIR__ . '/../../views/admin_login-view.php';
+require_once __DIR__ . '/../../views/admin/admin_login-view.php';
