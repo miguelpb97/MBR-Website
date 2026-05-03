@@ -1,10 +1,12 @@
 <?php
 require_once __DIR__ . '/../../src/Auth.php';
-require_once __DIR__ . '/../../cfg/config.php';
 
 Auth::startSession();
 
 $error = null;
+$max_intentos = 3;
+$tiempo_bloqueo = 600;
+
 
 // Inicializar variables de sesión si no existen
 if (!isset($_SESSION['intentos'])) {
@@ -30,11 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['bloqueado_hasta'] <= tim
     } else {
         $_SESSION['intentos']++;
 
-        if ($_SESSION['intentos'] >= MAX_INTENTOS) {
-            $_SESSION['bloqueado_hasta'] = time() + TIEMPO_BLOQUEO;
+        if ($_SESSION['intentos'] >= $max_intentos) {
+            $_SESSION['bloqueado_hasta'] = time() + $tiempo_bloqueo;
             $error = 'Demasiados intentos fallidos. Usuario bloqueado temporalmente.';
         } else {
-            $restantes = MAX_INTENTOS - $_SESSION['intentos'];
+            $restantes = $max_intentos - $_SESSION['intentos'];
             $error = "Usuario o contraseña incorrectos. Te quedan $restantes intentos.";
         }
     }

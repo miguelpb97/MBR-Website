@@ -10,12 +10,6 @@ define('DB_PASS', 'example');
 define('ADMIN_USER', 'admin');
 define('ADMIN_PASS', 'example');
 
-/* Admin panel cfg */
-define('TIEMPO_BLOQUEO', 600);
-define('MAX_INTENTOS', 3);
-define('RESULTADOS_POR_PAGINA', 20);
-
-
 /* CloudFlare Keys */
 define('CF_SITEKEY', 'example');
 define('CF_SECRET', 'example');
