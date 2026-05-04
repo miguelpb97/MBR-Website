@@ -48,7 +48,7 @@ if (isset($_GET['descargar']) && $_GET['descargar'] === 'csv') {
 $busqueda = isset($_GET['buscar']) ? trim($_GET['buscar']) : '';
 $pagina_actual = isset($_GET['p']) ? max(1, (int) $_GET['p']) : 1;
 
-$data = $repo->buscarConsultas($busqueda, $pagina_actual, $por_pagina);
+$data = $repo->buscarConsultas($busqueda, $pagina_actual, $resultados_por_pagina);
 $consultas = $data['consultas'];
 $total = $data['total'];
 $paginas = (int) ceil($total / $resultados_por_pagina);
