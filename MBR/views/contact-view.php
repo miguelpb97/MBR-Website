@@ -47,10 +47,10 @@ require_once __DIR__ . '/../cfg/config.php';
         Para cualquier consulta, puedes escribirnos directamente a través del
         siguiente formulario, por
         <a
-              href="mailto:mbretrofitalmeria@gmail.com"
+              href="<?= CORREO_CONTACTO ?>"
               style="color: var(--accent-400)"
               > correo electrónico</a>, o por
-        <a id="link_wp" href="https://api.whatsapp.com/send/?phone=34645482782">WhatsApp<img
+        <a id="link_wp" href="<?= WHATSAPP_CONTACTO ?>">WhatsApp<img
           src="./img/whatsapp_icon.png"
           alt="WhatsApp Icon"
           width="20"
@@ -58,6 +58,8 @@ require_once __DIR__ . '/../cfg/config.php';
         /></a>
         <br />
         Le atenderemos lo antes posible.
+        <br />
+        Horario: <?= HORARIO ?>
       </p>
     </div>
   </div>
