@@ -12,7 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <title>MBR - Consultas Recibidas</title>
-    <link rel="icon" type="image/png" href="../img/ic_setting.png" />
+    <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/admin-panel_styles.css" />
     <script>

@@ -8,8 +8,8 @@ require_once __DIR__ . '/../cfg/config.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Contacta con MBR Almería para solicitar información sobre nuestros servicios de coding y retrofits." />
   <title>Contacto - MBR Almería</title>
-  <link rel="icon" href="./img/mbr_logo.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="./img/mbr_logo.ico" type="image/x-icon" />
+  <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
