@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <title>MBR - Login</title>
-    <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
-    <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
+    <link rel="icon" href="../img/mbr_logo_new.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="../img/mbr_logo_new.svg" color="#000000" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/admin-panel_styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
