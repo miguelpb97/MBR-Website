@@ -11,6 +11,7 @@ require_once __DIR__ . '/../cfg/config.php';
   <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
   <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/chat-widget.css" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -52,10 +53,7 @@ require_once __DIR__ . '/../cfg/config.php';
               > correo electrónico</a>, o por
         <a id="link_wp" href="<?= WHATSAPP_CONTACTO ?>">WhatsApp<img
           src="./img/whatsapp_icon.png"
-          alt="WhatsApp Icon"
-          width="20"
-          height="20"
-        /></a>
+          alt="WhatsApp Icon" /></a>
         <br />
         Le atenderemos lo antes posible.
         <br />
@@ -104,7 +102,7 @@ require_once __DIR__ . '/../cfg/config.php';
 
             <!-- Turnstile -->
             <div class="form__group">
-              <div class="cf-turnstile" data-sitekey="<?= htmlspecialchars(CF_SITEKEY_TEST) ?>" data-theme="dark"></div>
+              <div class="cf-turnstile" data-sitekey="<?= htmlspecialchars(CF_SITEKEY) ?>" data-theme="dark"></div>
             </div>
 
             <div id="formError" class="form__error" style="display:none;"></div>
@@ -129,7 +127,7 @@ require_once __DIR__ . '/../cfg/config.php';
         <div>
           <div class="footer__brand-name">MBR Almería</div>
           <div class="footer__brand-sub">Mercedes Specialist</div>
-          <p class="footer__brand-text">Especialistas en coding y retrofits para vehículos Mercedes-Benz. Diagnóstico profesional con herramientas de fabricante.</p>
+          <p class="footer__brand-text">Especialistas en coding SCN y retrofits para Mercedes-Benz en Almería. Diagnóstico oficial con Xentry, Vediamo y DTS Monaco. Garantía 1 año.</p>
         </div>
         <div>
           <p class="footer__col-title">Navegación</p>
@@ -156,5 +154,6 @@ require_once __DIR__ . '/../cfg/config.php';
 
   <script src="js/main.js"></script>
   <script src="js/contacto.js"></script>
+  <script src="js/chat-widget.js"></script>
 </body>
 </html>
