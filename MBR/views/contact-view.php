@@ -45,19 +45,13 @@ require_once __DIR__ . '/../cfg/config.php';
       <div class="accent-line"></div>
       <span class="section-label">Contacto</span>
       <p class="content-justification-center text-align-center hero__subtitle">
-        Para cualquier consulta, puedes escribirnos directamente a través del
+        Puedes escribirnos directamente a través del
         siguiente formulario, por
-        <a
-              href="<?= CORREO_CONTACTO ?>"
-              style="color: var(--accent-400)"
-              > correo electrónico</a>, o por
-        <a id="link_wp" href="<?= WHATSAPP_CONTACTO ?>">WhatsApp<img
-          src="./img/whatsapp_icon.png"
-          alt="WhatsApp Icon" /></a>
-        <br />
-        Le atenderemos lo antes posible.
-        <br />
-        Horario: <?= HORARIO ?>
+        <a href="<?= CORREO_CONTACTO ?>" style="color: var(--accent-400)"> correo electrónico</a>
+        , o por
+        <a style="color: var(--color-wp)" href="<?= WHATSAPP_CONTACTO ?>">WhatsApp</a>.
+        <br>
+        Horario de atención: <?= HORARIO ?>
       </p>
     </div>
   </div>

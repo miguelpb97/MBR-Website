@@ -1277,28 +1277,6 @@ select {
   }
 }
 
-/* Enlace WhatsApp */
-#link_wp {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  line-height: 1;
-  font-weight: 300;
-  font-size: inherit;
-  color: var(--color-wp);
-}
-
-#link_wp:hover {
-  color: var(--color-wp-hover);
-}
-
-#link_wp img {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
-}
-
 /* Captcha CloudFlare */
 .cf-turnstile {
   display: flex;
