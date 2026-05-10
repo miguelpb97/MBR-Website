@@ -25,7 +25,6 @@ const widgetHTML = `
     </div>
     <div id="chat-body">
       <div class="chat-bubble chat-bubble--in" id="bubble1" style="opacity:0;">👋 ¡Hola! ¿En qué podemos ayudarte con tu Mercedes?</div>
-      <div class="chat-bubble chat-bubble--in" id="bubble2" style="opacity:0;">Escríbenos por WhatsApp o llámanos directamente 👇</div>
     </div>
     <div id="chat-actions">
       <a href="https://api.whatsapp.com/send/?phone=${PHONE}&text=${WP_MSG}" target="_blank" id="chat-wp">

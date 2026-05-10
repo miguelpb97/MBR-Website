@@ -96,7 +96,7 @@ require_once __DIR__ . '/../cfg/config.php';
 
             <!-- Turnstile -->
             <div class="form__group">
-              <div class="cf-turnstile" data-sitekey="<?= htmlspecialchars(CF_SITEKEY) ?>" data-theme="dark"></div>
+              <div class="cf-turnstile" data-sitekey="<?= htmlspecialchars(CF_SITEKEY_TEST) ?>" data-theme="dark"></div>
             </div>
 
             <div id="formError" class="form__error" style="display:none;"></div>
