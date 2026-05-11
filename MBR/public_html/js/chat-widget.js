@@ -58,10 +58,7 @@ toggle.addEventListener("click", () => {
     bubblesShown = true;
     setTimeout(() => {
       document.getElementById("bubble1").style.opacity = "1";
-    }, 300);
-    setTimeout(() => {
-      document.getElementById("bubble2").style.opacity = "1";
-    }, 900);
+    }, 400);
   }
 });
 
