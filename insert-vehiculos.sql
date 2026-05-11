@@ -3,59 +3,63 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- Vehiculos (id_vehicle, name, image_url)
-INSERT INTO `vehicle` VALUES(1,"Clase A","W177FL.png");
-INSERT INTO `vehicle` VALUES(2,"Clase B","W247PF.png");
-INSERT INTO `vehicle` VALUES(3,"Clase C","W205.png");
-INSERT INTO `vehicle` VALUES(4,"Clase CLA","C118PF.png");
-INSERT INTO `vehicle` VALUES(5,"Clase CLK","W209.png");
-INSERT INTO `vehicle` VALUES(6,"Clase CLS","W218.png");
-INSERT INTO `vehicle` VALUES(7,"Clase E","W213.png");
-INSERT INTO `vehicle` VALUES(8,"Clase G","W463.png");
-INSERT INTO `vehicle` VALUES(9,"Clase GLA","X157PF.png");
-INSERT INTO `vehicle` VALUES(10,"Clase M","X164.png");
-INSERT INTO `vehicle` VALUES(11,"Clase ML","W166.png");
-INSERT INTO `vehicle` VALUES(12,"Clase R","W251.png");
-INSERT INTO `vehicle` VALUES(13,"Clase S","W222.png");
-INSERT INTO `vehicle` VALUES(14,"Clase SLK","R172.png");
-INSERT INTO `vehicle` VALUES(15,"Clase SL","R231.png");
-INSERT INTO `vehicle` VALUES(16,"Clase V","W447.png");
+INSERT INTO `vehicle` (`id_vehicle`, `name`, `image_url`) VALUES
+(1, 'Clase A', 'W177FL.png'),
+(2, 'Clase B', 'W247PF.png'),
+(3, 'Clase C', 'W205.png'),
+(4, 'Clase CLA', 'C118PF.png'),
+(5, 'Clase CLK', 'W209.png'),
+(6, 'Clase CLS', 'W218.png'),
+(7, 'Clase E', 'W213.png'),
+(8, 'Clase G', 'W463.png'),
+(9, 'Clase GLA', 'X157PF.png'),
+(10, 'Clase M', 'X164.png'),
+(11, 'Clase ML', 'W166.png'),
+(12, 'Clase R', 'W251.png'),
+(13, 'Clase S', 'W222.png'),
+(14, 'Clase SLK', 'R172.png'),
+(15, 'Clase SL', 'R231.png'),
+(16, 'Clase V', 'W447.png');
+
 
 -- Variantes (id_variant, name, image_url, vehicle_id)
-INSERT INTO `variant` VALUES(1,"W176 Pre-facelift","W176PF.png",1);
-INSERT INTO `variant` VALUES(2,"W176 Facelift","W176FL.png",1);
-INSERT INTO `variant` VALUES(3,"W177 Pre-facelift","W177PF.png",1);
-INSERT INTO `variant` VALUES(4,"W177 Facelift","W177FL.png",1);
-INSERT INTO `variant` VALUES(5,"W246 Pre-facelift","W246PF.png",2);
-INSERT INTO `variant` VALUES(6,"W246 Facelift","W246FL.png",2);
-INSERT INTO `variant` VALUES(7,"W247 Pre-facelift","W247PF.png",2);
-INSERT INTO `variant` VALUES(8,"W203/S203","W203.png",3);
-INSERT INTO `variant` VALUES(9,"W204/S204/X204","W204.png",3);
-INSERT INTO `variant` VALUES(10,"W204/S204/X204 Facelift","W204FL.png",3);
-INSERT INTO `variant` VALUES(11,"W205/S205/X253","W205.png",3);
-INSERT INTO `variant` VALUES(12,"C117/X117 Pre-facelift","C117PF.png",4);
-INSERT INTO `variant` VALUES(13,"C117/X117 Facelift","C117FL.png",4);
-INSERT INTO `variant` VALUES(14,"C118/X118 Pre-facelift","C118PF.png",4);
-INSERT INTO `variant` VALUES(15,"W209","W209.png",5);
-INSERT INTO `variant` VALUES(16,"W219/C219","W219.png",6);
-INSERT INTO `variant` VALUES(17,"W218/C218","W218.png",6);
-INSERT INTO `variant` VALUES(18,"W211/S211","W211.png",7);
-INSERT INTO `variant` VALUES(19,"W212/S212/A207/C207","W212.png",7);
-INSERT INTO `variant` VALUES(20,"W212 Facelift","W212FL.png",7);
-INSERT INTO `variant` VALUES(21,"W213","W213.png",7);
-INSERT INTO `variant` VALUES(22,"W463","W463.png",8);
-INSERT INTO `variant` VALUES(23,"X156 Pre-facelift","X156PF.png",9);
-INSERT INTO `variant` VALUES(24,"X156 Facelift","X156FL.png",9);
-INSERT INTO `variant` VALUES(25,"X157 Pre-facelift","X157PF.png",9);
-INSERT INTO `variant` VALUES(26,"W164/X164","X164.png",10);
-INSERT INTO `variant` VALUES(27,"W166/X166","W166.png",11);
-INSERT INTO `variant` VALUES(28,"W251","W251.png",12);
-INSERT INTO `variant` VALUES(29,"S221/W216","S221.png",13);
-INSERT INTO `variant` VALUES(30,"S222/W217","W222.png",13);
-INSERT INTO `variant` VALUES(31,"R171","R171.png",14);
-INSERT INTO `variant` VALUES(32,"R172","R172.png",14);
-INSERT INTO `variant` VALUES(33,"R230","R230.png",15);
-INSERT INTO `variant` VALUES(34,"R231","R231.png",15);
-INSERT INTO `variant` VALUES(35,"W447","W447.png",16);
+INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
+(1, 'W176 Pre-facelift', 'W176PF.png', 1),
+(2, 'W176 Facelift', 'W176FL.png', 1),
+(3, 'W177 Pre-facelift', 'W177PF.png', 1),
+(4, 'W177 Facelift', 'W177FL.png', 1),
+(5, 'W246 Pre-facelift', 'W246PF.png', 2),
+(6, 'W246 Facelift', 'W246FL.png', 2),
+(7, 'W247 Pre-facelift', 'W247PF.png', 2),
+(8, 'W203/S203', 'W203.png', 3),
+(9, 'W204/S204/X204', 'W204.png', 3),
+(10, 'W204/S204/X204 Facelift', 'W204FL.png', 3),
+(11, 'W205/S205/X253', 'W205.png', 3),
+(12, 'C117/X117 Pre-facelift', 'C117PF.png', 4),
+(13, 'C117/X117 Facelift', 'C117FL.png', 4),
+(14, 'C118/X118 Pre-facelift', 'C118PF.png', 4),
+(15, 'W209', 'W209.png', 5),
+(16, 'W219/C219', 'W219.png', 6),
+(17, 'W218/C218', 'W218.png', 6),
+(18, 'W211/S211', 'W211.png', 7),
+(19, 'W212/S212/A207/C207', 'W212.png', 7),
+(20, 'W212 Facelift', 'W212FL.png', 7),
+(21, 'W213', 'W213.png', 7),
+(22, 'W463', 'W463.png', 8),
+(23, 'X156 Pre-facelift', 'X156PF.png', 9),
+(24, 'X156 Facelift', 'X156FL.png', 9),
+(25, 'X157 Pre-facelift', 'X157PF.png', 9),
+(26, 'W164/X164', 'X164.png', 10),
+(27, 'W166/X166', 'W166.png', 11),
+(28, 'W251', 'W251.png', 12),
+(29, 'S221/W216', 'S221.png', 13),
+(30, 'S222/W217', 'W222.png', 13),
+(31, 'R171', 'R171.png', 14),
+(32, 'R172', 'R172.png', 14),
+(33, 'R230', 'R230.png', 15),
+(34, 'R231', 'R231.png', 15),
+(35, 'W447', 'W447.png', 16);
+
 
 -- Items/Servicios (id_service, name, descripcion, price, image_url, stock)
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES

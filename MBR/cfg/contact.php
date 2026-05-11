@@ -41,7 +41,7 @@ if (!empty($body['empresa'])) {
 
 // Validación Turnstile
 $turnstileToken  = $body['turnstileToken'] ?? '';
-$turnstileSecret = CF_SECRET_TEST;
+$turnstileSecret = CF_SECRET;
 
 if ($turnstileToken) {
     $verify = file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false,

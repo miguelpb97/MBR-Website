@@ -16,10 +16,8 @@ define('ADMIN_USER', 'admin');
 define('ADMIN_PASS', 'example');
 
 /* CloudFlare Keys */
-define('CF_SITEKEY', 'example');
-define('CF_SECRET', 'example');
-define('CF_SITEKEY_TEST', '1x00000000000000000000AA');
-define('CF_SECRET_TEST', '1x0000000000000000000000000000000AA');
+define('CF_SITEKEY', '1x00000000000000000000AA');
+define('CF_SECRET', '1x0000000000000000000000000000000AA');
 
 function getDB(): PDO {
     static $pdo = null;
