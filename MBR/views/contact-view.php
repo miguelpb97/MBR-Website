@@ -47,11 +47,11 @@ require_once __DIR__ . '/../cfg/config.php';
       <p class="content-justification-center text-align-center hero__subtitle">
         Puedes escribirnos directamente a través del
         siguiente formulario, por
-        <a href="<?= CORREO_CONTACTO ?>" style="color: var(--accent-400)"> correo electrónico</a>
+        <a href="mailto:mbretrofitalmeria@gmail.com" style="color: var(--accent-400)"> correo electrónico</a>
         , o por
-        <a style="color: var(--color-wp)" href="<?= WHATSAPP_CONTACTO ?>">WhatsApp</a>.
+        <a style="color: var(--color-wp)" href="https://api.whatsapp.com/send/?phone=34645482782">WhatsApp</a>.
         <br>
-        Horario de atención: <?= HORARIO ?>
+        Le atenderemos lo antes posible.
       </p>
     </div>
   </div>
