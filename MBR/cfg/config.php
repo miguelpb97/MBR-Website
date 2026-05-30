@@ -6,11 +6,6 @@ define('DB_NAME', 'example');
 define('DB_USER', 'example');
 define('DB_PASS', 'example');
 
-/* Datos de la empresa para contacto etc..  */ 
-define('HORARIO', 'example');
-define('WHATSAPP_CONTACTO', 'example');
-define('CORREO_CONTACTO', 'example');
-
 /* Admin User */
 define('ADMIN_USER', 'admin');
 define('ADMIN_PASS', 'example');
