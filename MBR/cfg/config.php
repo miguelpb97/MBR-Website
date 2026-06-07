@@ -2,7 +2,7 @@
 
 /* BBDD Consultas */
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'example');
+define('DB_NAME', 'mbr');
 define('DB_USER', 'example');
 define('DB_PASS', 'example');
 
