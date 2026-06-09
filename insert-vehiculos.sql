@@ -63,7 +63,7 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 
 -- Items/Servicios (id_service, name, descripcion, price, image_url, stock)
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
-(1, 'Desactivar Start-Stop', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
+(1, 'Desactivar Start-Stop automático', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
 (2, 'Coding Alarma perimetral EDW', 'Alarma básica EDW, se activa cuando detecta una apertura de cualquier puerta del vehículo estando bloqueado.', 30.00, 'EDW.png', 1),
 (3, 'Coding Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos.', 30.00, 'kpaBar.png', 1),
 (4, 'Coding Pitido al bloquear el vehículo', 'Breve pitido al bloquear el vehículo (modificable la duración de dicho pitido).', 30.00, 'pitidoDesbloquearVehiculo.png', 1),
@@ -82,7 +82,7 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (17, 'Retrofit NTG5.0, NTG5S1 o Garmin', 'Si tu vehículo tiene NTG 4.5 o 4.7 te ayudamos a reequipar NTG5.0, NTG5S1 o Garmin.', NULL, 'retrofitNTG4aNTG5MFA.png', 1),
 (18, 'Retrofit Cámara visión trasera original', 'Reequipamos la cámara de visión trasera original Código SA 218.', NULL, 'camaraTraseraMFA.png', 1),
 (19, 'Retrofit Espejos plegables eléctricamente', 'Reequipamos el extra de espejos plegables eléctricamente Código SA 500.', NULL, 'espejosElectricos.png', 1),
-(20, 'Coding Activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 30.00, 'carPlay.png', 1),
+(20, 'Coding Activación de Apple CarPlay/Android Auto', 'Activamos dicha función si tu unidad NTG es compatible.', 50.00, 'carPlay.png', 1),
 (21, 'Coding Alargar tiempo luces de bienvenida', 'Alargamos el tiempo de dicha animación a 8 segundos (tiempo personalizable).', 30.00, 'lucesBienvenida.png', 1),
 (22, 'Coding Activar menú de luces ambiente en radio', 'Si tu vehículo es compatible activamos dicho menú en la unidad NTG y el coding requerido en la unidad SAM.', 30.00, 'menuLucesAmbiente.png', 1),
 (23, 'Retrofit Comand NTG5S1', 'Si tu vehiculó tiene NTG 5.0 o Garmin te ayudamos a reequipar unidad NTG5S1.', NULL, 'retrofitComandNTG5.png', 1),
