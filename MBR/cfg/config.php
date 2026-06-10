@@ -1,6 +1,7 @@
 <?php
 
 /* BBDD Consultas */
+define('DB_CHARSET', 'utf8mb4');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'mbr');
 define('DB_USER', 'example');
@@ -19,7 +20,7 @@ function getDB(): PDO {
     if ($pdo === null) {
         try {
             $pdo = new PDO(
-                'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
+                'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET,
                 DB_USER,
                 DB_PASS,
                 [

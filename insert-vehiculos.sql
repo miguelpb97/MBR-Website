@@ -27,7 +27,6 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 (1, 'W176 Pre-facelift', 'W176PF.png', 1),
 (2, 'W176 Facelift', 'W176FL.png', 1),
 (3, 'W177 Pre-facelift', 'W177PF.png', 1),
-(4, 'W177 Facelift', 'W177FL.png', 1),
 (5, 'W246 Pre-facelift', 'W246PF.png', 2),
 (6, 'W246 Facelift', 'W246FL.png', 2),
 (7, 'W247 Pre-facelift', 'W247PF.png', 2),
@@ -63,7 +62,7 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 
 -- Items/Servicios (id_service, name, descripcion, price, image_url, stock)
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
-(1, 'Desactivar Start-Stop automático', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
+(1, 'Coding Desactivar Start-Stop automático', 'Al arrancar el motor, el sistema Start-Stop automático se quedará apagado por defecto o con memoria.', 50.00, 'startStop.png', 1),
 (2, 'Coding Alarma perimetral EDW', 'Alarma básica EDW, se activa cuando detecta una apertura de cualquier puerta del vehículo estando bloqueado.', 30.00, 'EDW.png', 1),
 (3, 'Coding Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos.', 30.00, 'kpaBar.png', 1),
 (4, 'Coding Pitido al bloquear el vehículo', 'Breve pitido al bloquear el vehículo (modificable la duración de dicho pitido).', 30.00, 'pitidoDesbloquearVehiculo.png', 1),
@@ -200,28 +199,6 @@ INSERT INTO `variant_has_service` VALUES(3,41);
 INSERT INTO `variant_has_service` VALUES(3,48);
 INSERT INTO `variant_has_service` VALUES(3,49);
 INSERT INTO `variant_has_service` VALUES(3,20);
-
--- W177 facelift
-INSERT INTO `variant_has_service` VALUES(4,1);
-INSERT INTO `variant_has_service` VALUES(4,2);
-INSERT INTO `variant_has_service` VALUES(4,3);
-INSERT INTO `variant_has_service` VALUES(4,24);
-INSERT INTO `variant_has_service` VALUES(4,26);
-INSERT INTO `variant_has_service` VALUES(4,6);
-INSERT INTO `variant_has_service` VALUES(4,7);
-INSERT INTO `variant_has_service` VALUES(4,9);
-INSERT INTO `variant_has_service` VALUES(4,10);
-INSERT INTO `variant_has_service` VALUES(4,11);
-INSERT INTO `variant_has_service` VALUES(4,13);
-INSERT INTO `variant_has_service` VALUES(4,14);
-INSERT INTO `variant_has_service` VALUES(4,15);
-INSERT INTO `variant_has_service` VALUES(4,16);
-INSERT INTO `variant_has_service` VALUES(4,39);
-INSERT INTO `variant_has_service` VALUES(4,40);
-INSERT INTO `variant_has_service` VALUES(4,41);
-INSERT INTO `variant_has_service` VALUES(4,48);
-INSERT INTO `variant_has_service` VALUES(4,49);
-INSERT INTO `variant_has_service` VALUES(4,20);
 
 -- W246 prefacelift
 INSERT INTO `variant_has_service` VALUES(5,1);
