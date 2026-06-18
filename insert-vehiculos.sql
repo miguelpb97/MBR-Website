@@ -63,7 +63,7 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 
 -- Items/Servicios (id_service, name, descripcion, price, image_url, stock)
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
-(1, 'Desactivar Start-Stop automático', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
+(1, 'Coding Desactivar Start-Stop automático', 'Sistema Start/Stop por defecto a OFF o Last Mode, depende del tipo de motor.', 50.00, 'startStop.png', 1),
 (2, 'Coding Alarma perimetral EDW', 'Alarma básica EDW, se activa cuando detecta una apertura de cualquier puerta del vehículo estando bloqueado.', 30.00, 'EDW.png', 1),
 (3, 'Coding Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos.', 30.00, 'kpaBar.png', 1),
 (4, 'Coding Pitido al bloquear el vehículo', 'Breve pitido al bloquear el vehículo (modificable la duración de dicho pitido).', 30.00, 'pitidoDesbloquearVehiculo.png', 1),
