@@ -157,6 +157,11 @@ function renderServices(services, variantName) {
           }
         </div>
       </div>
+      ${
+        service.precio !== null
+          ? `<div class="service-item__price">${parseInt(service.precio)} €</div>`
+          : `<div class="service-item__price">Consultar</div>`
+      }
     `;
     grid.appendChild(item);
   });
