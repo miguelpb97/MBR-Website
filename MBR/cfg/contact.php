@@ -67,6 +67,40 @@ if ($turnstileToken) {
 $telefono = trim($body['phone']  ?? '') ?: null;
 $modelo   = trim($body['model']  ?? '') ?: null;
 
+// ─── Función de notificación ntfy ────────────────────────────────────────────
+function enviar_notificacion_ntfy(string $nombre, string $email, ?string $telefono, ?string $modelo, string $mensaje): void
+{
+    // CAMBIA ESTE VALOR por el nombre de topic que elijas (sólo tú lo sabrás)
+    $topic = 'example';
+
+    $lineas = [];
+    $lineas[] = "$email";
+    if ($telefono) $lineas[] = "$telefono";
+    if ($modelo)   $lineas[] = "Modelo: $modelo";
+    $lineas[] = "";
+    $lineas[] = $mensaje;
+
+    $payload = json_encode([
+        'topic'    => $topic,
+        'title'    => "Nueva consulta de $nombre",
+        'message'  => implode("\n", $lineas),
+        'priority' => 4,         // 4 = alta, 3 = normal
+        'tags'     => ['envelope'],
+    ]);
+
+    $ch = curl_init('https://ntfy.sh');
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $payload,
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,   // no bloquea la respuesta al cliente si ntfy tarda
+    ]);
+    curl_exec($ch);
+    curl_close($ch);
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 try {
     $pdo  = getDB();
     $stmt = $pdo->prepare("
@@ -80,6 +114,9 @@ try {
         ':modelo'   => $modelo,
         ':mensaje'  => $mensaje,
     ]);
+
+    // Notificación push — se lanza solo si el INSERT fue bien
+    enviar_notificacion_ntfy($nombre, $email, $telefono, $modelo, $mensaje);
 
     http_response_code(201);
     echo json_encode(['success' => true, 'message' => 'Consulta recibida correctamente']);
