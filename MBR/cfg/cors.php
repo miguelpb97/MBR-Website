@@ -1,7 +1,8 @@
 <?php
-// Cambia '*' por tu dominio cuando lo tengas configurado
-// Ejemplo: 'https://tudominio.es'
-$allowedOrigin = '*';
+require_once __DIR__ . '/config.php';
+
+// Domain URL
+$allowedOrigin = CORS_URL;
 
 header('Access-Control-Allow-Origin: ' . $allowedOrigin);
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');

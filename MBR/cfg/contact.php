@@ -44,7 +44,7 @@ $turnstileToken  = $body['turnstileToken'] ?? '';
 $turnstileSecret = CF_SECRET;
 
 if ($turnstileToken) {
-    $verify = file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false,
+    $verify = file_get_contents(CF_URL, false,
         stream_context_create([
             'http' => [
                 'method'  => 'POST',
@@ -67,11 +67,10 @@ if ($turnstileToken) {
 $telefono = trim($body['phone']  ?? '') ?: null;
 $modelo   = trim($body['model']  ?? '') ?: null;
 
-// ─── Función de notificación ntfy ────────────────────────────────────────────
+// Función de notificaciones ntfy
 function enviar_notificacion_ntfy(string $nombre, string $email, ?string $telefono, ?string $modelo, string $mensaje): void
 {
-    // CAMBIA ESTE VALOR por el nombre de topic que elijas (sólo tú lo sabrás)
-    $topic = 'example';
+    $topic = TOPIC_NAME;
 
     $lineas = [];
     $lineas[] = "$email";
@@ -99,7 +98,6 @@ function enviar_notificacion_ntfy(string $nombre, string $email, ?string $telefo
     curl_exec($ch);
     curl_close($ch);
 }
-// ─────────────────────────────────────────────────────────────────────────────
 
 try {
     $pdo  = getDB();
@@ -115,7 +113,6 @@ try {
         ':mensaje'  => $mensaje,
     ]);
 
-    // Notificación push — se lanza solo si el INSERT fue bien
     enviar_notificacion_ntfy($nombre, $email, $telefono, $modelo, $mensaje);
 
     http_response_code(201);

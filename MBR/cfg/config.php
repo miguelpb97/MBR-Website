@@ -10,9 +10,14 @@ define('DB_PASS', 'example');
 define('ADMIN_USER', 'admin');
 define('ADMIN_PASS', 'example');
 
-/* CloudFlare Keys */
+/* CloudFlare */
 define('CF_SITEKEY', '1x00000000000000000000AA');
 define('CF_SECRET', '1x0000000000000000000000000000000AA');
+define('CF_URL', 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
+
+/* Others */
+define('CORS_URL', '*');
+define('TOPIC_NAME', 'example');
 
 function getDB(): PDO {
     static $pdo = null;
