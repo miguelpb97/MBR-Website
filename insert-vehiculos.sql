@@ -76,7 +76,7 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (11, 'Deslimitar velocidad máxima (AMG)', 'Eliminamos la limitación electrónica de velocidad máxima de su vehículo de 250km/h.', 100.00, 'noLimitAMG.pmg', 1),
 (12, 'Coding Emotion Start (AMG)', 'Breves pops and bangs al arrancar, solo en temperatura de servicio.', 70.00, 'emotionStart.png', 1),
 (13, 'Comprobar kilometraje real', '¿Dudas sobre si el kilometraje de su vehículo ha sido manipulado? Te ayudamos a descubrirlo.', 50.00, 'comprobarKmReales.png', 1),
-(14, 'Diagnostico básico', 'Lectura y/o borrado de fallos.', NULL, 'diagBasico.png', 1),
+(14, 'Diagnostico básico', 'Lectura y/o borrado de fallos.', 30.00, 'diagBasico.png', 1),
 (15, 'Diagnostico avanzado', 'Lectura y/o borrado de fallos, valores reales, test de componentes, etc..', NULL, 'diagAvanzado.png', 1),
 (16, 'Ayuda con Retrofit', 'Te ayudamos con cualquier retrofit que requiera SCN coding. El precio puede variar en función de la dificultad del mismo.', NULL, 'ayudaRetrofit.png', 1),
 (17, 'Retrofit NTG5.0, NTG5S1 o Garmin', 'Si tu vehículo tiene NTG 4.5 o 4.7 te ayudamos a reequipar NTG5.0, NTG5S1 o Garmin.', NULL, 'retrofitNTG4aNTG5MFA.png', 1),
