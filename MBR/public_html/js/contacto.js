@@ -9,7 +9,7 @@ if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Honeypot — si está relleno es un bot
+    // Honeypot (si está relleno es un bot)
     if (form.empresa?.value) return;
 
     // Turnstile

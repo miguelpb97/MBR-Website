@@ -1,9 +1,9 @@
-// ── Año en footer ────────────────────────────────────────────
+// Año en footer
 document.querySelectorAll("#year").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
 
-// ── Navbar scroll ────────────────────────────────────────────
+// Navbar scroll
 const navbar = document.getElementById("navbar");
 if (navbar && !navbar.classList.contains("scrolled")) {
   window.addEventListener("scroll", () => {
@@ -11,7 +11,7 @@ if (navbar && !navbar.classList.contains("scrolled")) {
   });
 }
 
-// ── Burger menu ──────────────────────────────────────────────
+// "Burger" menu
 const burger = document.getElementById("burger");
 const mobileMenu = document.getElementById("mobileMenu");
 
@@ -30,7 +30,7 @@ if (burger && mobileMenu) {
   });
 }
 
-// ── Slider about ─────────────────────────────────────────────
+// Slider about
 const slides = document.querySelectorAll(".about__slide");
 if (slides.length > 1) {
   let current = 0;
@@ -41,7 +41,7 @@ if (slides.length > 1) {
   }, 8000);
 }
 
-// ── FAQ accordion ────────────────────────────────────────────
+// FAQ accordion
 document.querySelectorAll(".faq__question").forEach((btn) => {
   btn.addEventListener("click", () => {
     const answer = btn.nextElementSibling;

@@ -1,9 +1,4 @@
-/* ============================================================
-   ADMIN · login + panel de consultas
-   Hereda las variables de styles.css
-   ============================================================ */
-
-/* ── Base ───────────────────────────────────────────────────── */
+/* Base */
 body {
   background-color: var(--carbon-950);
   color: var(--carbon-100);
@@ -12,9 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================================
-   LOGIN
-   ============================================================ */
+/* Login */
 body:has(form[method="POST"]) {
   display: flex;
   align-items: center;
@@ -87,7 +80,7 @@ form[method="POST"] input::placeholder {
 
 form[method="POST"] button[type="submit"] {
   background: var(--accent-400);
-  color: #000;
+  color: var(--color-black);
   border: none;
   padding: 0.75rem 1rem;
   font-family: var(--font-body);
@@ -117,9 +110,7 @@ form[method="POST"] button[type="submit"]:hover {
   border: 1px solid rgba(248, 113, 113, 0.2);
 }
 
-/* ============================================================
-   PANEL — CONSULTAS
-   ============================================================ */
+/* Panel consultas */
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -329,10 +320,10 @@ a.delete:hover {
 .pagination a.active {
   background: var(--accent-400);
   border-color: var(--accent-400);
-  color: #000;
+  color: var(--color-black);
 }
 
-/* ── Responsive tabla ───────────────────────────────────────── */
+/* Responsive tabla */
 @media (max-width: 768px) {
   table thead {
     display: none;

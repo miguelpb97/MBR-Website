@@ -1,5 +1,6 @@
 const PHONE = "34645482782";
 const PHONE_TEL = "+34645482782";
+
 const WP_MSG = encodeURIComponent(
   "Hola, me interesa obtener información sobre vuestros servicios de coding/retrofit para mi Mercedes.",
 );
@@ -43,6 +44,7 @@ const panel = document.getElementById("chat-panel");
 const iconOpen = document.getElementById("chat-icon-open");
 const iconClose = document.getElementById("chat-icon-close");
 const badge = document.getElementById("chat-badge");
+
 let opened = false;
 let bubblesShown = false;
 

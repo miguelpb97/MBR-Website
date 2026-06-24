@@ -68,7 +68,7 @@ $telefono = trim($body['phone']  ?? '') ?: null;
 $modelo   = trim($body['model']  ?? '') ?: null;
 
 // Función de notificaciones ntfy
-function enviar_notificacion_ntfy(string $nombre, string $email, ?string $telefono, ?string $modelo, string $mensaje): void
+function enviarNotificacionNTFY(string $nombre, string $email, ?string $telefono, ?string $modelo, string $mensaje): void
 {
     $topic = TOPIC_NAME;
 
@@ -113,7 +113,7 @@ try {
         ':mensaje'  => $mensaje,
     ]);
 
-    enviar_notificacion_ntfy($nombre, $email, $telefono, $modelo, $mensaje);
+    enviarNotificacionNTFY($nombre, $email, $telefono, $modelo, $mensaje);
 
     http_response_code(201);
     echo json_encode(['success' => true, 'message' => 'Consulta recibida correctamente']);

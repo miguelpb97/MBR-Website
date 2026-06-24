@@ -4,7 +4,7 @@ const API = {
   services: (id) => `api/services.php?id_variant=${id}`,
 };
 
-// ── Helpers ───────────────────────────────────────────────────
+// Helpers
 function showError(container, msg) {
   container.innerHTML = `<p style="color:var(--carbon-500);font-family:var(--font-mono);font-size:.8rem;">${msg}</p>`;
 }
@@ -13,7 +13,7 @@ function imgSrc(path, folder) {
   return path ? `img/${folder}/${path}` : null;
 }
 
-// ── Render modelos ────────────────────────────────────────────
+// Render modelos
 function renderModels(vehicles) {
   const grid = document.getElementById("modelsGrid");
   grid.innerHTML = "";
@@ -38,7 +38,7 @@ function renderModels(vehicles) {
   });
 }
 
-// ── Seleccionar modelo → carga variantes ──────────────────────
+// Seleccionar modelo --> carga variantes
 async function selectModel(vehicle, btn) {
   document
     .querySelectorAll(".model-card")
@@ -102,7 +102,7 @@ function renderVariants(variants, modelName) {
     list.appendChild(btn);
   });
 
-  /* // Selecciona la primera automáticamente
+  /* // Selecciona la primera variante automáticamente
   const first = list.querySelector(".variant-btn");
   if (first) first.click();*/
 }

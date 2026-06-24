@@ -1,11 +1,7 @@
-/* ============================================================
-   IMPORTS
-   ============================================================ */
+/* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap");
 
-/* ============================================================
-   VARIABLES
-   ============================================================ */
+/* Variables */
 :root {
   /* Accent (azul) */
   --accent-300: #93c5fd;
@@ -28,6 +24,9 @@
 
   --color-wp: rgb(101, 205, 115);
   --color-wp-hover: rgb(101, 205, 115);
+  --color-black: rgb(0, 0, 0);
+  --color-white: rgb(255, 255, 255);
+  --color-red: #ef4444;
 
   /* Tipografía */
   --font-display: "Cormorant Garamond", serif;
@@ -46,9 +45,7 @@
   --transition: 300ms ease;
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
+/* Reset & Base */
 *,
 *::before,
 *::after {
@@ -121,9 +118,7 @@ select {
   color: #000;
 }
 
-/* ============================================================
-   UTILIDADES TIPOGRÁFICAS
-   ============================================================ */
+/* Utilidades */
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -160,9 +155,7 @@ select {
   margin-right: auto;
 }
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
+/* Layout */
 .container-contact {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -195,9 +188,7 @@ select {
   justify-content: center;
 }
 
-/* ============================================================
-   BOTONES
-   ============================================================ */
+/* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -237,9 +228,7 @@ select {
   transform: scale(0.97);
 }
 
-/* ============================================================
-   CARDS
-   ============================================================ */
+/* Cards */
 .card {
   background: var(--carbon-800);
   border: 1px solid var(--carbon-700);
@@ -274,9 +263,7 @@ select {
   line-height: 1.7;
 }
 
-/* ============================================================
-   NAVBAR
-   ============================================================ */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -412,9 +399,7 @@ select {
   font-size: 0.875rem;
 }
 
-/* ============================================================
-   HERO
-   ============================================================ */
+/* Hero */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -508,9 +493,7 @@ select {
   letter-spacing: 0.2em;
 }
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
+/* About */
 .about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -557,9 +540,7 @@ select {
   opacity: 1;
 }
 
-/* ============================================================
-   WHAT WE DO
-   ============================================================ */
+/* What we do block */
 .whatwedo__header {
   text-align: center;
   margin-bottom: 4rem;
@@ -583,9 +564,7 @@ select {
   stroke-width: 1.5;
 }
 
-/* ============================================================
-   TOOLS
-   ============================================================ */
+/* Tools */
 .tools__header {
   margin-bottom: 4rem;
 }
@@ -632,9 +611,7 @@ select {
   line-height: 1.6;
 }
 
-/* ============================================================
-   FAQ
-   ============================================================ */
+/* FAQ */
 .faq__header {
   text-align: center;
   margin-bottom: 4rem;
@@ -703,9 +680,7 @@ select {
   padding-bottom: 1.5rem;
 }
 
-/* ============================================================
-   SERVICIOS
-   ============================================================ */
+/* Servicios */
 .services__header {
   margin-bottom: 4rem;
 }
@@ -854,9 +829,7 @@ select {
   animation: fadeUp 0.4s ease forwards;
 }
 
-/* ============================================================
-   CONTACTO
-   ============================================================ */
+/* Contacto */
 .contact__container {
   display: block;
   grid-template-columns: 1fr 1.5fr;
@@ -976,9 +949,7 @@ select {
   font-size: 0.875rem;
 }
 
-/* ============================================================
-   LEGAL (privacidad / términos)
-   ============================================================ */
+/* Legal (privacidad / términos) */
 .legal__content {
   max-width: 48rem;
   margin: 0 auto;
@@ -1024,9 +995,7 @@ select {
   flex-shrink: 0;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* Footer */
 .footer {
   border-top: 1px solid var(--carbon-800);
   background: var(--carbon-950);
@@ -1111,9 +1080,7 @@ select {
   color: var(--carbon-600);
 }
 
-/* ============================================================
-   ANIMACIONES
-   ============================================================ */
+/* Animaciones */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -1148,9 +1115,7 @@ select {
   animation: fadeUp 0.5s ease forwards;
 }
 
-/* ============================================================
-   SKELETON LOADER
-   ============================================================ */
+/* Skeleton loader */
 .skeleton {
   background: linear-gradient(
     90deg,
@@ -1172,9 +1137,7 @@ select {
   }
 }
 
-/* ============================================================
-   PAGE HEADER (servicios, contacto, legal)
-   ============================================================ */
+/* Page header (servicios, contacto, legal) */
 .page-header {
   padding: 10rem 1.5rem 4rem;
   background: var(--carbon-950);
@@ -1185,9 +1148,7 @@ select {
   margin: 0 auto;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* Responsive */
 @media (max-width: 1024px) {
   .tools__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1271,13 +1232,14 @@ select {
     grid-template-columns: 1fr;
   }
 
+  /* Captcha CloudFlare responsive layout */
   .cf-turnstile {
     transform: scale(0.85);
     transform-origin: center;
   }
 }
 
-/* Captcha CloudFlare */
+/* Captcha CloudFlare normal layout */
 .cf-turnstile {
   display: flex;
   justify-content: center;
