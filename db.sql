@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS `consultas` (
   PRIMARY KEY (`id_consulta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
 -- Tabla service
 CREATE TABLE IF NOT EXISTS `service` (
   `id_service` INT NOT NULL AUTO_INCREMENT,

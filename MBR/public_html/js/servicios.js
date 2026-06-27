@@ -77,7 +77,7 @@ async function selectModel(vehicle, btn) {
   }
 }
 
-// ── Render variantes ──────────────────────────────────────────
+// Render variantes
 function renderVariants(variants, modelName) {
   const list = document.getElementById("variantsList");
   list.innerHTML = "";
@@ -107,7 +107,7 @@ function renderVariants(variants, modelName) {
   if (first) first.click();*/
 }
 
-// ── Seleccionar variante → carga servicios ────────────────────
+// ── Seleccionar variante --> carga servicios ────────────────────
 async function selectVariant(variant, modelName) {
   const servicesSection = document.getElementById("servicesSection");
   servicesSection.style.display = "block";
@@ -131,7 +131,7 @@ async function selectVariant(variant, modelName) {
   }
 }
 
-// ── Render servicios ──────────────────────────────────────────
+// Render servicios
 function renderServices(services, variantName) {
   const grid = document.getElementById("servicesGrid");
   grid.innerHTML = "";

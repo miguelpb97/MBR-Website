@@ -61,7 +61,7 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 
 
 -- Servicios (id_service, name, descripcion, price, image_url, stock) 
-INSERT INTO service (id_service, name, description, price, image_url, stock) VALUES
+INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
 (1, 'Coding Desactivar Start-Stop automático', 'Mediante este coding, su vehículo no activará el Start/Stop automático cada vez que arranque. Lo hacemos mediante el método oficial, sin manipular cableado original ni añadir aparatos "bypass".', 50.00, 'startStop.png', 1),
 (2, 'Coding Alarma perimetral EDW', 'Te activamos la alarma perimetral EDW. Se activa cuando detecta la apertura de cualquier puerta del vehículo estando bloqueado. El 90% de los vehículos de la marca no incorporan este extra de serie.', 50.00, 'EDW.png', 1),
 (3, 'Coding Visualizar presión neumáticos de kPa a bar', 'Cambiamos la unidad de medición de la presión de los neumáticos en tu cuadro de instrumentos de kPa a bar.', 30.00, 'kpaBar.png', 1),
@@ -112,38 +112,39 @@ INSERT INTO service (id_service, name, description, price, image_url, stock) VAL
 
 -- Relaciones entre servicios/items y variantes (variant_id, service_id)
 -- W176 prefacelift
-INSERT INTO `variant_has_service` VALUES(1,1);
-INSERT INTO `variant_has_service` VALUES(1,2);
-INSERT INTO `variant_has_service` VALUES(1,3);
-INSERT INTO `variant_has_service` VALUES(1,4);
-INSERT INTO `variant_has_service` VALUES(1,5);
-INSERT INTO `variant_has_service` VALUES(1,29);
-INSERT INTO `variant_has_service` VALUES(1,6);
-INSERT INTO `variant_has_service` VALUES(1,7);
-INSERT INTO `variant_has_service` VALUES(1,8);
-INSERT INTO `variant_has_service` VALUES(1,9);
-INSERT INTO `variant_has_service` VALUES(1,10);
-INSERT INTO `variant_has_service` VALUES(1,11);
-INSERT INTO `variant_has_service` VALUES(1,12);
-INSERT INTO `variant_has_service` VALUES(1,13);
-INSERT INTO `variant_has_service` VALUES(1,14);
-INSERT INTO `variant_has_service` VALUES(1,15);
-INSERT INTO `variant_has_service` VALUES(1,16);
-INSERT INTO `variant_has_service` VALUES(1,17);
-INSERT INTO `variant_has_service` VALUES(1,18);
-INSERT INTO `variant_has_service` VALUES(1,19);
-INSERT INTO `variant_has_service` VALUES(1,34);
-INSERT INTO `variant_has_service` VALUES(1,36);
-INSERT INTO `variant_has_service` VALUES(1,39);
-INSERT INTO `variant_has_service` VALUES(1,40);
-INSERT INTO `variant_has_service` VALUES(1,41);
-INSERT INTO `variant_has_service` VALUES(1,42);
-INSERT INTO `variant_has_service` VALUES(1,44);
-INSERT INTO `variant_has_service` VALUES(1,45);
-INSERT INTO `variant_has_service` VALUES(1,46);
-INSERT INTO `variant_has_service` VALUES(1,48);
-INSERT INTO `variant_has_service` VALUES(1,49);
-INSERT INTO `variant_has_service` VALUES(1,20);
+INSERT INTO `variant_has_service` (`variant_id`, `service_id`) VALUES
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+(1,29),
+(1,6),
+(1,7),
+(1,8),
+(1,9),
+(1,10),
+(1,11),
+(1,12),
+(1,13),
+(1,14),
+(1,15),
+(1,16),
+(1,17),
+(1,18),
+(1,19),
+(1,34),
+(1,36),
+(1,39),
+(1,40),
+(1,41),
+(1,42),
+(1,44),
+(1,45),
+(1,46),
+(1,48),
+(1,49),
+(1,20);
 
 -- W176 facelift
 INSERT INTO `variant_has_service` VALUES(2,1);
