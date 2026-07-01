@@ -134,8 +134,8 @@ require_once __DIR__ . '/../cfg/config.php';
         <div>
           <p class="footer__col-title">Legal</p>
           <div class="footer__links">
-            <a href="privacidad.php" class="footer__link">Política de privacidad</a>
-            <a href="terminos.php" class="footer__link">Términos y condiciones</a>
+            <a href="politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
+            <a href="terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
           </div>
         </div>
       </div>

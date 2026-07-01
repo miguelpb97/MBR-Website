@@ -5,9 +5,7 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
 RewriteRule ^index\.php$ https://www.mbretrofitalmeria.es/ [R=301,L]
 
-
 # Redirecciones de URLs antiguas a nuevas (301)
-
 RewriteCond %{THE_REQUEST} \s/+servicios\.php[\s?] [NC]
 RewriteRule ^servicios\.php$ /servicios [R=301,L]
 
@@ -20,19 +18,15 @@ RewriteRule ^terminos-y-condiciones\.php$ /terminos-y-condiciones [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+politica-de-privacidad\.php[\s?] [NC]
 RewriteRule ^politica-de-privacidad\.php$ /politica-de-privacidad [R=301,L]
 
+# Servicios individuales con slug de variante + servicio
+RewriteRule ^servicio/([a-z0-9-]+)/([a-z0-9-]+)/?$ servicio.php?variante=$1&servicio=$2 [L,QSA]
 
 # URLs limpias internas
-
 RewriteRule ^$ index.php [QSA,L]
-
 RewriteRule ^servicios/?$ servicios.php [QSA,L]
-
 RewriteRule ^contacto/?$ contacto.php [QSA,L]
-
 RewriteRule ^terminos-y-condiciones/?$ terminos-y-condiciones.php [QSA,L]
-
 RewriteRule ^politica-de-privacidad/?$ politica-de-privacidad.php [QSA,L]
-
 
 # Router genérico
 RewriteCond %{REQUEST_FILENAME} !-f

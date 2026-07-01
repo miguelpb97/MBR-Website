@@ -136,10 +136,10 @@
           <div>
             <p class="footer__col-title">Legal</p>
             <div class="footer__links">
-              <a href="privacidad.php" class="footer__link"
+              <a href="politica-de-privacidad.php" class="footer__link"
                 >Política de privacidad</a
               >
-              <a href="terminos.php" class="footer__link"
+              <a href="terminos-y-condiciones.php" class="footer__link"
                 >Términos y condiciones</a
               >
             </div>

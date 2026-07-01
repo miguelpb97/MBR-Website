@@ -13,6 +13,19 @@ function imgSrc(path, folder) {
   return path ? `img/${folder}/${path}` : null;
 }
 
+// Convierte "Coding Luces LED" -> "coding-luces-led"
+function slugify(text) {
+  return (
+    text
+      .toString()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "") // quita tildes
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "servicio"
+  );
+}
+
 // Render modelos
 function renderModels(vehicles) {
   const grid = document.getElementById("modelsGrid");
@@ -101,13 +114,9 @@ function renderVariants(variants, modelName) {
     });
     list.appendChild(btn);
   });
-
-  /* // Selecciona la primera variante automáticamente
-  const first = list.querySelector(".variant-btn");
-  if (first) first.click();*/
 }
 
-// ── Seleccionar variante --> carga servicios ────────────────────
+// Seleccionar variante --> carga servicios
 async function selectVariant(variant, modelName) {
   const servicesSection = document.getElementById("servicesSection");
   servicesSection.style.display = "block";
@@ -122,6 +131,12 @@ async function selectVariant(variant, modelName) {
     <div class="skeleton" style="height:80px;"></div>
   `;
 
+  setTimeout(
+    () =>
+      servicesSection.scrollIntoView({ behavior: "smooth", block: "start" }),
+    100,
+  );
+
   try {
     const res = await fetch(API.services(variant.id_variant));
     const services = await res.json();
@@ -131,7 +146,7 @@ async function selectVariant(variant, modelName) {
   }
 }
 
-// Render servicios
+// Render servicios — ahora con <a> real para SEO
 function renderServices(services, variantName) {
   const grid = document.getElementById("servicesGrid");
   grid.innerHTML = "";
@@ -143,8 +158,16 @@ function renderServices(services, variantName) {
   }
 
   services.forEach((service) => {
-    const item = document.createElement("div");
+    // <a> con href real → Google puede rastrear la URL
+    const item = document.createElement("a");
     item.className = "service-item";
+    item.href = `${BASE_URL}/servicio/${slugify(service.variante)}/${slugify(service.titulo)}`;
+
+    // Precio formateado
+    const precioHTML =
+      service.precio !== null
+        ? `<div class="service-item__price">${parseInt(service.precio)} €</div>`
+        : `<div class="service-item__price">Consultar</div>`;
 
     item.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:1rem;flex:1;">
@@ -157,17 +180,14 @@ function renderServices(services, variantName) {
           }
         </div>
       </div>
-      ${
-        service.precio !== null
-          ? `<div class="service-item__price">${parseInt(service.precio)} €</div>`
-          : `<div class="service-item__price">Consultar</div>`
-      }
+      ${precioHTML}
     `;
+
     grid.appendChild(item);
   });
 }
 
-// ── Init ──────────────────────────────────────────────────────
+// Init
 async function init() {
   const grid = document.getElementById("modelsGrid");
   try {
