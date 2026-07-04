@@ -147,5 +147,10 @@ require_once __DIR__ . '/../cfg/config.php';
 
   <script src="js/main.js"></script>
   <script src="js/contacto.js"></script>
+      <script>
+      const BASE_URL = <?= json_encode(BASE_URL) ?>;
+      const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
+    </script>
+    <script src="js/chat-widget.js"></script>
 </body>
 </html>

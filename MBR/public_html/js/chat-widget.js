@@ -1,5 +1,5 @@
 const WP_MSG = encodeURIComponent(
-  "Hola, me interesa obtener información sobre vuestros servicios de coding/retrofit para mi Mercedes.",
+  "Hola, me interesaría obtener información sobre vuestros servicios...",
 );
 
 const widgetHTML = `

@@ -540,6 +540,71 @@ select {
   opacity: 1;
 }
 
+/* Service detail page */
+.service-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: stretch;
+}
+
+.service-detail__image {
+  overflow: hidden;
+  background: var(--carbon-800);
+  border: 1px solid var(--carbon-700);
+  min-height: 420px;
+}
+
+.service-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.compat__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.compat__chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  background: var(--carbon-900);
+  border: 1px solid var(--carbon-700);
+  padding: 0.5rem 0.9rem;
+  white-space: nowrap;
+}
+
+.compat__chip strong {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--carbon-100);
+  font-weight: 400;
+}
+
+.compat__chip span {
+  color: var(--carbon-500);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .service-detail__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .service-detail__image {
+    min-height: 280px;
+  }
+
+  .compat__chip {
+    white-space: normal;
+  }
+}
+
 /* What we do block */
 .whatwedo__header {
   text-align: center;
@@ -846,7 +911,7 @@ select {
 
 /* Form */
 .form__group {
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .form__row {
@@ -1139,7 +1204,7 @@ select {
 
 /* Page header (servicios, contacto, legal) */
 .page-header {
-  padding: 6rem 1.5rem 3rem;
+  padding: 10rem 1.5rem 4rem;
   background: var(--carbon-950);
 }
 
@@ -1216,30 +1281,6 @@ select {
   .models__grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .page-header {
-    padding: 6rem 1.5rem 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tools__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .models__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cf-turnstile {
-    transform: scale(0.85);
-    transform-origin: center;
-  }
 }
 
 @media (max-width: 360px) {
@@ -1258,7 +1299,7 @@ select {
 
   /* Captcha CloudFlare responsive layout */
   .cf-turnstile {
-    transform: scale(0.75);
+    transform: scale(0.85);
     transform-origin: center;
   }
 }
@@ -1267,5 +1308,6 @@ select {
 .cf-turnstile {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

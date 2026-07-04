@@ -181,15 +181,14 @@ if (!$not_found) {
     <!-- CONTENIDO PRINCIPAL -->
     <section class="section section--dark" style="padding-top:3rem;padding-bottom:6rem;">
       <div class="container">
-        <div class="about__grid" style="align-items: flex-start;">
+        <div class="service-detail__grid">
 
           <!-- Imagen -->
-          <div class="about__image">
+          <div class="service-detail__image">
             <?php if ($servicio['imagen']): ?>
               <img
-                src="<?= BASE_URL ?>/img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
+                src="img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
                 alt="<?= htmlspecialchars($servicio['titulo']) ?> para <?= htmlspecialchars($servicio['modelo']) ?>"
-                style="width:100%;height:100%;object-fit:cover;"
               />
             <?php else: ?>
               <div style="width:100%;height:100%;min-height:260px;display:flex;align-items:center;justify-content:center;">
@@ -201,29 +200,29 @@ if (!$not_found) {
           <!-- Info -->
           <div class="about__text" style="display:flex;flex-direction:column;gap:2rem;">
 
-          <!-- Precio + CTAs -->
-          <div style="border-bottom:1px solid var(--carbon-800);padding-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;">
-            <div>
-              <span class="section-label">Precio</span>
-              <?php if ($servicio['precio'] !== null): ?>
-                <div style="font-family:var(--font-body);font-size:3.5rem;font-weight:600;color:var(--carbon-50);line-height:1.1;">
-                  <?= number_format($servicio['precio'], 0, ',', '.') ?>&thinsp;€
-                </div>
-                <!-- <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p> -->
-              <?php else: ?>
-                <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--carbon-400);">Consultar</div>
-              <?php endif; ?>
-            </div>
+            <!-- Precio + CTAs -->
+            <div style="border-bottom:1px solid var(--carbon-800);padding-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;">
+              <div>
+                <span class="section-label">Precio</span>
+                <?php if ($servicio['precio'] !== null): ?>
+                  <div style="font-family:var(--font-body);font-size:3.5rem;font-weight:600;color:var(--carbon-50);line-height:1.1;">
+                    <?= number_format($servicio['precio'], 0, ',', '.') ?>&thinsp;€
+                  </div>
+                  <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p>
+                <?php else: ?>
+                  <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--carbon-400);">Consultar</div>
+                <?php endif; ?>
+              </div>
 
-            <div class="hero__actions" style="justify-content:flex-end;margin:0;">
-              <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
-                Pedir cita
-              </a>
-              <a href="<?= BASE_URL ?>/servicios.php" class="btn btn--outline">
-                ← Volver
-              </a>
+              <div class="hero__actions" style="justify-content:flex-end;margin:0;">
+                <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
+                  Pedir cita
+                </a>
+                <a href="<?= BASE_URL ?>/servicios.php" class="btn btn--outline">
+                  ← Volver
+                </a>
+              </div>
             </div>
-          </div>
 
             <!-- Descripción -->
             <?php if ($servicio['descripcion']): ?>
@@ -235,24 +234,23 @@ if (!$not_found) {
             </div>
             <?php endif; ?>
 
-            <!-- Compatibilidad -->
-            <div class="tool-card">
-              <div class="tool-card__line"></div>
-              <p class="tool-card__name">Compatible con</p>
-              <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:.6rem;">
-                <?php foreach ($compatibilidad as $modelo => $variantes): ?>
-                  <p style="font-family:var(--font-display);font-size:1rem;color:var(--carbon-100);">
-                    <?= htmlspecialchars($modelo) ?>
-                    <span style="color:var(--carbon-500);font-size:.85rem;">
-                      — <?= htmlspecialchars(implode(', ', $variantes)) ?>
-                    </span>
-                  </p>
-                <?php endforeach; ?>
-              </div>
-            </div>
-
           </div>
         </div>
+
+        <!-- Compatibilidad — ancho completo -->
+        <div class="tool-card" style="margin-top:3rem;">
+          <div class="tool-card__line"></div>
+          <p class="tool-card__name">Compatible con</p>
+          <div class="compat__grid" style="margin-top:.75rem;">
+            <?php foreach ($compatibilidad as $modelo => $variantes): ?>
+              <div class="compat__chip">
+                <strong><?= htmlspecialchars($modelo) ?></strong>
+                <span>— <?= htmlspecialchars(implode(', ', $variantes)) ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
       </div>
     </section>
 
