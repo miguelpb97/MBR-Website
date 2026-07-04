@@ -1,7 +1,7 @@
 const API = {
-  vehicles: "api/vehicles.php",
-  variants: (id) => `api/variants.php?id_vehicle=${id}`,
-  services: (id) => `api/services.php?id_variant=${id}`,
+  vehicles: `${BASE_URL}/api/vehicles.php`,
+  variants: (id) => `${BASE_URL}/api/variants.php?id_vehicle=${id}`,
+  services: (id) => `${BASE_URL}/api/services.php?id_variant=${id}`,
 };
 
 // Helpers
@@ -10,7 +10,7 @@ function showError(container, msg) {
 }
 
 function imgSrc(path, folder) {
-  return path ? `img/${folder}/${path}` : null;
+  return path ? `${BASE_URL}/img/${folder}/${path}` : null;
 }
 
 // Convierte "Coding Luces LED" -> "coding-luces-led"
@@ -173,11 +173,6 @@ function renderServices(services, variantName) {
       <div style="display:flex;align-items:flex-start;gap:1rem;flex:1;">
         <div>
           <div class="service-item__name">${service.titulo}</div>
-          ${
-            service.descripcion
-              ? `<div class="service-item__desc">${service.descripcion}</div>`
-              : ""
-          }
         </div>
       </div>
       ${precioHTML}

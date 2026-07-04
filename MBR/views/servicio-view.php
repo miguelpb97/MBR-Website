@@ -1,18 +1,11 @@
-<!doctype html>
 <?php
-function slugify(string $text): string {
-    $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
-    $text = strtolower($text);
-    $text = preg_replace('/[^a-z0-9]+/', '-', $text);
-    $text = trim($text, '-');
-    return $text ?: 'servicio';
-}
+require_once __DIR__ . '/../cfg/data.php';
 
 $slug_variante = $_GET['variante'] ?? '';
 $slug_servicio = $_GET['servicio'] ?? '';
 
 if (!$slug_variante || !$slug_servicio) {
-    header('Location: servicios.php');
+    header('Location: /servicios');
     exit;
 }
 
@@ -20,45 +13,14 @@ $servicio  = null;
 $not_found = false;
 
 try {
-    require_once __DIR__ . '/../cfg/config.php';
-
-    $pdo  = getDB();
-    $stmt = $pdo->prepare("
-        SELECT
-            s.id_service  AS id,
-            s.name        AS titulo,
-            s.description AS descripcion,
-            s.price       AS precio,
-            s.image_url   AS imagen,
-            v.id_variant  AS id_variante,
-            v.name        AS variante,
-            vh.id_vehicle AS id_modelo,
-            vh.name       AS modelo
-        FROM service s
-        JOIN variant_has_service vhs ON vhs.service_id = s.id_service
-        JOIN variant             v   ON v.id_variant   = vhs.variant_id
-        JOIN vehicle             vh  ON vh.id_vehicle  = v.vehicle_id
-        WHERE s.stock = 1
-        ORDER BY s.name ASC
-    ");
-    $stmt->execute();
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Buscar por slug de variante y slug de servicio
-    $found = null;
-    foreach ($rows as $row) {
-        if (slugify($row['variante']) === $slug_variante && slugify($row['titulo']) === $slug_servicio) {
-            $found = $row;
-            break;
-        }
-    }
+    $found = buscarServicioPorSlug($slug_variante, $slug_servicio);
 
     if (!$found) {
         $not_found = true;
         http_response_code(404);
     } else {
-        $found['precio'] = $found['precio'] !== null ? (float) $found['precio'] : null;
         $servicio = $found;
+        $compatibilidad = cargarCompatibilidad($servicio['id']);
     }
 
 } catch (PDOException $e) {
@@ -98,6 +60,7 @@ if (!$not_found) {
     }
 }
 ?>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -144,24 +107,24 @@ if (!$not_found) {
     </script>
     <?php endif; ?>
 
-    <link rel="icon"        href="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/img/mbr_logo_new.ico"  type="image/x-icon" />
-    <link rel="mask-icon"   href="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/img/mbr_logo_new.svg"  color="#000000" />
-    <link rel="stylesheet"  href="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/css/styles.css" />
-    <link rel="stylesheet"  href="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/css/chat-widget.css" />
+    <link rel="icon"        href="<?= BASE_URL ?>/img/mbr_logo_new.ico"  type="image/x-icon" />
+    <link rel="mask-icon"   href="<?= BASE_URL ?>/img/mbr_logo_new.svg"  color="#000000" />
+    <link rel="stylesheet"  href="<?= BASE_URL ?>/css/styles.css" />
+    <link rel="stylesheet"  href="<?= BASE_URL ?>/css/chat-widget.css" />
   </head>
   <body>
 
     <!-- NAVBAR -->
     <nav class="navbar scrolled" id="navbar">
       <div class="navbar__inner">
-        <a href="index.php" class="navbar__logo">
-          <img class="navbar__logo" src="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/img/mbr_logo_blanco_sin_fondo.png" alt="Logo" height="75rem" width="75rem" />
+        <a href="<?= BASE_URL ?>/index.php" class="navbar__logo">
+          <img class="navbar__logo" src="<?= BASE_URL ?>/img/mbr_logo_blanco_sin_fondo.png" alt="Logo" height="75rem" width="75rem" />
         </a>
         <div class="navbar__links">
-          <a href="index.php"     class="navbar__link">Inicio</a>
-          <a href="servicios.php" class="navbar__link active">Servicios</a>
-          <a href="contacto.php"  class="navbar__link">Contacto</a>
-          <a href="contacto.php"  class="btn btn--primary navbar__cta">Pedir Cita</a>
+          <a href="<?= BASE_URL ?>/index.php"     class="navbar__link">Inicio</a>
+          <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
+          <a href="<?= BASE_URL ?>/contacto.php"  class="navbar__link">Contacto</a>
+          <a href="<?= BASE_URL ?>/contacto.php"  class="btn btn--primary navbar__cta">Pedir Cita</a>
         </div>
         <button class="navbar__burger" id="burger" aria-label="Menú">
           <span></span><span></span><span></span>
@@ -170,10 +133,10 @@ if (!$not_found) {
     </nav>
 
     <div class="navbar__mobile" id="mobileMenu">
-      <a href="index.php"     class="navbar__link">Inicio</a>
-      <a href="servicios.php" class="navbar__link active">Servicios</a>
-      <a href="contacto.php"  class="navbar__link">Contacto</a>
-      <a href="contacto.php"  class="btn btn--primary">Pedir Cita</a>
+      <a href="<?= BASE_URL ?>/index.php"     class="navbar__link">Inicio</a>
+      <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
+      <a href="<?= BASE_URL ?>/contacto.php"  class="navbar__link">Contacto</a>
+      <a href="<?= BASE_URL ?>/contacto.php"  class="btn btn--primary">Pedir Cita</a>
     </div>
 
     <?php if ($not_found): ?>
@@ -218,13 +181,13 @@ if (!$not_found) {
     <!-- CONTENIDO PRINCIPAL -->
     <section class="section section--dark" style="padding-top:3rem;padding-bottom:6rem;">
       <div class="container">
-        <div class="about__grid">
+        <div class="about__grid" style="align-items: flex-start;">
 
           <!-- Imagen -->
           <div class="about__image">
             <?php if ($servicio['imagen']): ?>
               <img
-                src="img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
+                src="<?= BASE_URL ?>/img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
                 alt="<?= htmlspecialchars($servicio['titulo']) ?> para <?= htmlspecialchars($servicio['modelo']) ?>"
                 style="width:100%;height:100%;object-fit:cover;"
               />
@@ -238,18 +201,29 @@ if (!$not_found) {
           <!-- Info -->
           <div class="about__text" style="display:flex;flex-direction:column;gap:2rem;">
 
-            <!-- Precio -->
-            <div style="border-bottom:1px solid var(--carbon-800);padding-bottom:1.5rem;">
+          <!-- Precio + CTAs -->
+          <div style="border-bottom:1px solid var(--carbon-800);padding-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;">
+            <div>
               <span class="section-label">Precio</span>
               <?php if ($servicio['precio'] !== null): ?>
-                <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:var(--accent-400);line-height:1.1;">
+                <div style="font-family:var(--font-body);font-size:3.5rem;font-weight:600;color:var(--carbon-50);line-height:1.1;">
                   <?= number_format($servicio['precio'], 0, ',', '.') ?>&thinsp;€
                 </div>
-                <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p>
+                <!-- <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p> -->
               <?php else: ?>
                 <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--carbon-400);">Consultar</div>
               <?php endif; ?>
             </div>
+
+            <div class="hero__actions" style="justify-content:flex-end;margin:0;">
+              <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
+                Pedir cita
+              </a>
+              <a href="<?= BASE_URL ?>/servicios.php" class="btn btn--outline">
+                ← Volver
+              </a>
+            </div>
+          </div>
 
             <!-- Descripción -->
             <?php if ($servicio['descripcion']): ?>
@@ -265,20 +239,16 @@ if (!$not_found) {
             <div class="tool-card">
               <div class="tool-card__line"></div>
               <p class="tool-card__name">Compatible con</p>
-              <p style="font-family:var(--font-display);font-size:1.1rem;color:var(--carbon-100);margin-top:.25rem;">
-                <?= htmlspecialchars($servicio['modelo']) ?>
-                <span style="color:var(--carbon-500);font-size:.9rem;"> — <?= htmlspecialchars($servicio['variante']) ?></span>
-              </p>
-            </div>
-
-            <!-- CTAs -->
-            <div class="hero__actions" style="justify-content:flex-start;">
-              <a href="contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
-                Pedir cita
-              </a>
-              <a href="servicios.php" class="btn btn--outline">
-                ← Volver
-              </a>
+              <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:.6rem;">
+                <?php foreach ($compatibilidad as $modelo => $variantes): ?>
+                  <p style="font-family:var(--font-display);font-size:1rem;color:var(--carbon-100);">
+                    <?= htmlspecialchars($modelo) ?>
+                    <span style="color:var(--carbon-500);font-size:.85rem;">
+                      — <?= htmlspecialchars(implode(', ', $variantes)) ?>
+                    </span>
+                  </p>
+                <?php endforeach; ?>
+              </div>
             </div>
 
           </div>
@@ -303,16 +273,16 @@ if (!$not_found) {
           <div>
             <p class="footer__col-title">Navegación</p>
             <div class="footer__links">
-              <a href="index.php"     class="footer__link">Inicio</a>
-              <a href="servicios.php" class="footer__link">Servicios</a>
-              <a href="contacto.php"  class="footer__link">Contacto</a>
+              <a href="<?= BASE_URL ?>/index.php"     class="footer__link">Inicio</a>
+              <a href="<?= BASE_URL ?>/servicios.php" class="footer__link">Servicios</a>
+              <a href="<?= BASE_URL ?>/contacto.php"  class="footer__link">Contacto</a>
             </div>
           </div>
           <div>
             <p class="footer__col-title">Legal</p>
             <div class="footer__links">
-              <a href="politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
-              <a href="terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
+              <a href="<?= BASE_URL ?>/politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
+              <a href="<?= BASE_URL ?>/terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
             </div>
           </div>
         </div>
@@ -323,11 +293,11 @@ if (!$not_found) {
       </div>
     </footer>
 
-    <script src="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/js/main.js"></script>
-    <script src="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/js/chat-widget.js"></script>
+    <script src="<?= BASE_URL ?>/js/main.js"></script>
     <script>
-      const BASE_URL = "<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>";
+      const URL = <?= json_encode(BASE_URL) ?>;
+      const PHONE_NUM = <?= json_encode(PHONE_NUMBER) ?>;
     </script>
-    <script src="<?= rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') ?>/js/servicios.js"></script>
+    <script src="<?= BASE_URL ?>/js/chat-widget.js"></script>
   </body>
 </html>

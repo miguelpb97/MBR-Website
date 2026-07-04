@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../cfg/config.php';
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -404,6 +407,10 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      const URL = <?= json_encode(BASE_URL) ?>;
+      const PHONE_NUM = <?= json_encode(PHONE_NUMBER) ?>;
+    </script>
     <script src="js/chat-widget.js"></script>
   </body>
 </html>

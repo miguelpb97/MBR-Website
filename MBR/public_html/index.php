@@ -9,12 +9,12 @@ $path = preg_replace('#^/index\.php#', '', $path);
 $path = rtrim($path, '/') ?: '/';
 
 $views = [
-    '/'                 => 'index-view.html',
-    '/index'            => 'index-view.html',
-    '/servicios'        => 'servicios-view.html',
-    '/contacto'         => 'contacto-view.html',
-    '/privacidad'       => 'privacidad-view.html',
-    '/terminos'         => 'terminos-view.html',
+    '/'                 => 'index-view.php',
+    '/index'            => 'index-view.php',
+    '/servicios'        => 'servicios-view.php',
+    '/contacto'         => 'contacto-view.php',
+    '/politica-de-privacidad'       => 'privacidad-view.php',
+    '/terminos-y-condiciones'       => 'terminos-view.php',
 ];
 
 if (isset($views[$path])) {

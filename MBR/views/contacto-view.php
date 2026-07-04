@@ -47,11 +47,10 @@ require_once __DIR__ . '/../cfg/config.php';
       <p class="content-justification-center text-align-center hero__subtitle">
         Puedes escribirnos directamente a través del
         siguiente formulario, por
-        <a href="mailto:mbretrofitalmeria@gmail.com" style="color: var(--accent-400)"> correo electrónico</a>
+        <a href="mailto:<?= EMAIL ?>" style="color: var(--accent-400)"> correo electrónico</a>
         , o por
-        <a style="color: var(--color-wp)" href="https://api.whatsapp.com/send/?phone=34645482782">WhatsApp</a>.
-        <br>
-        Le atenderemos lo antes posible.
+        <a style="color: var(--color-wp)" href="https://api.whatsapp.com/send/?phone=<?= PHONE_NUMBER ?>">WhatsApp</a>.<br>
+        Le atenderemos lo antes posible. (Horario: <?= SCHEDULE ?>)
       </p>
     </div>
   </div>
@@ -106,7 +105,7 @@ require_once __DIR__ . '/../cfg/config.php';
             </button>
 
             <p class="form__legal">
-              Al enviar aceptas nuestra <a href="privacidad.php">política de privacidad</a>
+              Al enviar aceptas nuestra <a href="politica-de-privacidad.php">política de privacidad</a>.
             </p>
 
           </form>
@@ -148,6 +147,5 @@ require_once __DIR__ . '/../cfg/config.php';
 
   <script src="js/main.js"></script>
   <script src="js/contacto.js"></script>
-  <script src="js/chat-widget.js"></script>
 </body>
 </html>

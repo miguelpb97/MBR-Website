@@ -846,7 +846,7 @@ select {
 
 /* Form */
 .form__group {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .form__row {
@@ -1139,7 +1139,7 @@ select {
 
 /* Page header (servicios, contacto, legal) */
 .page-header {
-  padding: 10rem 1.5rem 4rem;
+  padding: 6rem 1.5rem 3rem;
   background: var(--carbon-950);
 }
 
@@ -1216,6 +1216,30 @@ select {
   .models__grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .page-header {
+    padding: 6rem 1.5rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tools__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .models__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-turnstile {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1234,7 +1258,7 @@ select {
 
   /* Captcha CloudFlare responsive layout */
   .cf-turnstile {
-    transform: scale(0.85);
+    transform: scale(0.75);
     transform-origin: center;
   }
 }
@@ -1243,6 +1267,5 @@ select {
 .cf-turnstile {
   display: flex;
   justify-content: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
 }

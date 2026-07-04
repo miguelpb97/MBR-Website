@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/cors.php';
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/data.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
@@ -9,15 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 try {
-    $pdo  = getDB();
-    $rows = $pdo->query("
-        SELECT id_vehicle, name AS nombre, image_url AS imagen
-        FROM vehicle
-        ORDER BY name ASC
-    ")->fetchAll();
-
-    echo json_encode(array_values($rows), JSON_UNESCAPED_UNICODE);
-
+    $modelos = cargarModelos();
+    echo json_encode(array_values($modelos), JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => 'Error al obtener los modelos']);

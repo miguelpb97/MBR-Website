@@ -21,7 +21,6 @@ INSERT INTO `vehicle` (`id_vehicle`, `name`, `image_url`) VALUES
 (15, 'Clase SL', 'R231.png'),
 (16, 'Clase V', 'W447.png');
 
-
 -- Variantes (id_variant, name, image_url, vehicle_id)
 INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 (1, 'W176 Pre-facelift', 'W176PF.png', 1),
@@ -58,7 +57,6 @@ INSERT INTO `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`) VALUES
 (33, 'R230', 'R230.png', 15),
 (34, 'R231', 'R231.png', 15),
 (35, 'W447', 'W447.png', 16);
-
 
 -- Servicios (id_service, name, descripcion, price, image_url, stock) 
 INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`, `stock`) VALUES
@@ -109,7 +107,6 @@ INSERT INTO `service` (`id_service`, `name`, `description`, `price`, `image_url`
 (48, 'Coding Renovar cuadro de instrumentos', 'Si has instalado un cuadro de instrumentos usado, te ayudamos a virginizarlo y emparejarlo con la EZS.', 130.00, 'renovarIC.png', 1),
 (49, 'Coding Menú AMG en cuadro de instrumentos', 'Codificamos el menú AMG en tu cuadro de instrumentos.', 100.00, 'menuAMGCluster.png', 1);
 
-
 -- Relaciones entre servicios/items y variantes (variant_id, service_id)
 -- W176 prefacelift
 INSERT INTO `variant_has_service` (`variant_id`, `service_id`) VALUES
@@ -147,37 +144,38 @@ INSERT INTO `variant_has_service` (`variant_id`, `service_id`) VALUES
 (1,20);
 
 -- W176 facelift
-INSERT INTO `variant_has_service` VALUES(2,1);
-INSERT INTO `variant_has_service` VALUES(2,2);
-INSERT INTO `variant_has_service` VALUES(2,3);
-INSERT INTO `variant_has_service` VALUES(2,4);
-INSERT INTO `variant_has_service` VALUES(2,5);
-INSERT INTO `variant_has_service` VALUES(2,29);
-INSERT INTO `variant_has_service` VALUES(2,6);
-INSERT INTO `variant_has_service` VALUES(2,7);
-INSERT INTO `variant_has_service` VALUES(2,8);
-INSERT INTO `variant_has_service` VALUES(2,9);
-INSERT INTO `variant_has_service` VALUES(2,10);
-INSERT INTO `variant_has_service` VALUES(2,11);
-INSERT INTO `variant_has_service` VALUES(2,12);
-INSERT INTO `variant_has_service` VALUES(2,13);
-INSERT INTO `variant_has_service` VALUES(2,14);
-INSERT INTO `variant_has_service` VALUES(2,15);
-INSERT INTO `variant_has_service` VALUES(2,16);
-INSERT INTO `variant_has_service` VALUES(2,21);
-INSERT INTO `variant_has_service` VALUES(2,23);
-INSERT INTO `variant_has_service` VALUES(2,18);
-INSERT INTO `variant_has_service` VALUES(2,19);
-INSERT INTO `variant_has_service` VALUES(2,35);
-INSERT INTO `variant_has_service` VALUES(2,36);
-INSERT INTO `variant_has_service` VALUES(2,39);
-INSERT INTO `variant_has_service` VALUES(2,40);
-INSERT INTO `variant_has_service` VALUES(2,41);
-INSERT INTO `variant_has_service` VALUES(2,43);
-INSERT INTO `variant_has_service` VALUES(2,45);
-INSERT INTO `variant_has_service` VALUES(2,46);
-INSERT INTO `variant_has_service` VALUES(2,49);
-INSERT INTO `variant_has_service` VALUES(2,20);
+INSERT INTO `variant_has_service` (`variant_id`, `service_id`) VALUES
+(2,1),
+(2,2),
+(2,3),
+(2,4),
+(2,5),
+(2,29),
+(2,6),
+(2,7),
+(2,8),
+(2,9),
+(2,10),
+(2,11),
+(2,12),
+(2,13),
+(2,14),
+(2,15),
+(2,16),
+(2,21),
+(2,23),
+(2,18),
+(2,19),
+(2,35),
+(2,36),
+(2,39),
+(2,40),
+(2,41),
+(2,43),
+(2,45),
+(2,46),
+(2,49),
+(2,20);
 
 -- W177 prefacelift
 INSERT INTO `variant_has_service` VALUES(3,1);
@@ -200,7 +198,6 @@ INSERT INTO `variant_has_service` VALUES(3,41);
 INSERT INTO `variant_has_service` VALUES(3,48);
 INSERT INTO `variant_has_service` VALUES(3,49);
 INSERT INTO `variant_has_service` VALUES(3,20);
-
 
 -- W246 prefacelift
 INSERT INTO `variant_has_service` VALUES(5,1);
