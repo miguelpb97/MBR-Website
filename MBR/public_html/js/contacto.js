@@ -1,5 +1,4 @@
-const API_URL = "api/contact.php";
-
+const API_URL = BASE_URL + "/api/contact.php";
 const form = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const errorDiv = document.getElementById("formError");

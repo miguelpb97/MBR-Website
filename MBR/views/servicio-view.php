@@ -205,11 +205,13 @@ if (!$not_found) {
               </div>
 
               <div class="hero__actions" style="justify-content:flex-end;margin:0;">
-                <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
-                  Pedir cita
-                </a>
-                <a href="<?= BASE_URL ?>/servicios.php" class="btn btn--outline">
-                  ← Volver
+               <!-- 
+              <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
+                  Me interesa
+                </a> 
+                -->
+                <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--outline">
+                  Me interesa
                 </a>
               </div>
             </div>
