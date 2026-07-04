@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../cfg/data.php';
+require_once __DIR__ . '/../cfg/config.php';
 
 $slug_variante = $_GET['variante'] ?? '';
 $slug_servicio = $_GET['servicio'] ?? '';
@@ -158,17 +159,6 @@ if (!$not_found) {
 
     <?php else: ?>
 
-    <!-- BREADCRUMB -->
-    <nav aria-label="Breadcrumb" style="background:var(--carbon-950);padding:.75rem 0;border-bottom:1px solid var(--carbon-800);">
-      <div class="container" style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--carbon-500);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
-        <a href="index.php" style="color:var(--carbon-400);transition:color .3s;">Inicio</a>
-        <span style="color:var(--carbon-700);">/</span>
-        <a href="servicios.php" style="color:var(--carbon-400);transition:color .3s;">Servicios</a>
-        <span style="color:var(--carbon-700);">/</span>
-        <span style="color:var(--accent-400);"><?= htmlspecialchars($servicio['titulo']) ?></span>
-      </div>
-    </nav>
-
     <!-- PAGE HEADER -->
     <div class="page-header">
       <div class="page-header__inner">
@@ -187,7 +177,7 @@ if (!$not_found) {
           <div class="service-detail__image">
             <?php if ($servicio['imagen']): ?>
               <img
-                src="img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
+                src="<?= BASE_URL ?>/img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
                 alt="<?= htmlspecialchars($servicio['titulo']) ?> para <?= htmlspecialchars($servicio['modelo']) ?>"
               />
             <?php else: ?>

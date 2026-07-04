@@ -911,7 +911,7 @@ select {
 
 /* Form */
 .form__group {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .form__row {
@@ -1204,7 +1204,7 @@ select {
 
 /* Page header (servicios, contacto, legal) */
 .page-header {
-  padding: 10rem 1.5rem 4rem;
+  padding: 6rem 1.5rem 3rem;
   background: var(--carbon-950);
 }
 
@@ -1283,7 +1283,7 @@ select {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .hero__actions {
     flex-direction: column;
     align-items: center;
@@ -1304,10 +1304,30 @@ select {
   }
 }
 
+@media (max-width: 360px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tools__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .models__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Captcha CloudFlare responsive layout */
+  .cf-turnstile {
+    transform: scale(0.75);
+    transform-origin: center;
+  }
+}
+
 /* Captcha CloudFlare normal layout */
 .cf-turnstile {
   display: flex;
   justify-content: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
 }
