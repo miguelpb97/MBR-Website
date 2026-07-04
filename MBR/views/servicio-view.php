@@ -295,8 +295,8 @@ if (!$not_found) {
 
     <script src="<?= BASE_URL ?>/js/main.js"></script>
     <script>
-      const URL = <?= json_encode(BASE_URL) ?>;
-      const PHONE_NUM = <?= json_encode(PHONE_NUMBER) ?>;
+      const BASE_URL = <?= json_encode(BASE_URL) ?>;
+      const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
     </script>
     <script src="<?= BASE_URL ?>/js/chat-widget.js"></script>
   </body>

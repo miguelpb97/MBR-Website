@@ -19,7 +19,7 @@ define('CF_URL', 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
 define('TOPIC_NAME', 'example');
 
 /* Correccion URL para slugs de SEO */
-define('BASE_URL', '/MBR-Web_v2/MBR/public_html'); // local
+define('BASE_URL', '/MBR-Website/MBR/public_html'); // local
 // define('BASE_URL', ''); // producción
 
 /* Datos de contacto/redes sociales para widgets y enlaces */

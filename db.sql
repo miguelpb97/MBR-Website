@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `consultas` (
 CREATE TABLE IF NOT EXISTS `service` (
   `id_service` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(80) NOT NULL,
-  `description` VARCHAR(200) NULL,
+  `description` TEXT NULL,
   `price` DECIMAL(10,2) NULL,
   `image_url` VARCHAR(100) NULL,
   `stock` TINYINT(1) DEFAULT 0,
