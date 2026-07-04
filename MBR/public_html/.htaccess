@@ -28,6 +28,8 @@ RewriteRule ^contacto/?$ contacto.php [QSA,L]
 RewriteRule ^terminos-y-condiciones/?$ terminos-y-condiciones.php [QSA,L]
 RewriteRule ^politica-de-privacidad/?$ politica-de-privacidad.php [QSA,L]
 
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
 # Router genérico
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
