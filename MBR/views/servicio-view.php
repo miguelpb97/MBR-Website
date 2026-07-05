@@ -198,19 +198,14 @@ if (!$not_found) {
                   <div style="font-family:var(--font-body);font-size:3.5rem;font-weight:600;color:var(--carbon-50);line-height:1.1;">
                     <?= number_format($servicio['precio'], 0, ',', '.') ?>&thinsp;€
                   </div>
-                  <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p>
+                  <!-- <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--carbon-600);margin-top:.4rem;letter-spacing:.1em;">IVA NO INCLUIDO</p> -->
                 <?php else: ?>
                   <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--carbon-400);">Consultar</div>
                 <?php endif; ?>
               </div>
 
               <div class="hero__actions" style="justify-content:flex-end;margin:0;">
-               <!-- 
-              <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['modelo']) ?>" class="btn btn--primary">
-                  Me interesa
-                </a> 
-                -->
-                <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--outline">
+                <a href="<?= BASE_URL ?>/contacto.php?servicio=<?= urlencode($servicio['titulo']) ?>&modelo=<?= urlencode($servicio['variante']) ?>" class="btn btn--outline">
                   Me interesa
                 </a>
               </div>

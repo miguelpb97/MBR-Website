@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/../cfg/config.php';
+
+$VARIANTE = $_GET['modelo'] ?? '';
+$SERVICIO = $_GET['servicio'] ?? '';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -60,7 +64,7 @@ require_once __DIR__ . '/../cfg/config.php';
       <div style="max-width:640px; margin:0 auto;">
         <div id="formWrapper">
           <form id="contactForm" novalidate>
-
+ 
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="nombre">Nombre *</label>
@@ -79,13 +83,13 @@ require_once __DIR__ . '/../cfg/config.php';
               </div>
               <div class="form__group">
                 <label class="form__label" for="modelo">Modelo</label>
-                <input class="form__input" type="text" id="modelo" name="modelo" placeholder="Ej: C220d W205 2018" />
+                <input class="form__input" type="text" id="modelo" name="modelo" placeholder="Ej: C220d W205 2018" value="<?= htmlspecialchars(empty($VARIANTE) ? '' : $VARIANTE) ?>"/>
               </div>
             </div>
 
             <div class="form__group">
               <label class="form__label" for="mensaje">Mensaje *</label>
-              <textarea class="form__textarea" id="mensaje" name="mensaje" placeholder="Describe qué servicio necesitas..." required></textarea>
+              <textarea class="form__textarea" id="mensaje" name="mensaje" placeholder="Describe qué servicio necesitas..." required><?= htmlspecialchars(empty($SERVICIO) ? '' : $SERVICIO) ?></textarea>
             </div>
 
             <!-- Honeypot anti-spam -->
