@@ -7,6 +7,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,6 +19,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
   <link rel="stylesheet" href="css/chat-widget.css" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
+
 <body>
 
   <nav class="navbar scrolled" id="navbar">
@@ -64,7 +66,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
       <div style="max-width:640px; margin:0 auto;">
         <div id="formWrapper">
           <form id="contactForm" novalidate>
- 
+
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="nombre">Nombre *</label>
@@ -83,7 +85,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
               </div>
               <div class="form__group">
                 <label class="form__label" for="modelo">Modelo</label>
-                <input class="form__input" type="text" id="modelo" name="modelo" placeholder="Ej: C220d W205 2018" value="<?= htmlspecialchars(empty($VARIANTE) ? '' : $VARIANTE) ?>"/>
+                <input class="form__input" type="text" id="modelo" name="modelo" placeholder="Ej: C220d W205 2018" value="<?= htmlspecialchars(empty($VARIANTE) ? '' : $VARIANTE) ?>" />
               </div>
             </div>
 
@@ -157,4 +159,5 @@ $SERVICIO = $_GET['servicio'] ?? '';
   <script src="js/chat-widget.js"></script>
   <script src="js/contacto.js"></script>
 </body>
+
 </html>

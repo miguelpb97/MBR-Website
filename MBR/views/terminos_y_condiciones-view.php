@@ -3,217 +3,209 @@ require_once __DIR__ . '/../cfg/config.php';
 ?>
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Términos y Condiciones - MBR Almería</title>
-    <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
-    <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/chat-widget.css" />
-  </head>
-  <body>
-    <nav class="navbar" id="navbar">
-      <div class="navbar__inner">
-        <a href="index.php" class="navbar__logo">
-          <img
-            class="navbar__logo"
-            src="./img/mbr_logo_blanco_sin_fondo.png"
-            alt="Logo"
-            height="75rem"
-            width="75rem"
-          />
-        </a>
-        <div class="navbar__links">
-          <a href="index.php" class="navbar__link">Inicio</a>
-          <a href="servicios.php" class="navbar__link">Servicios</a>
-          <a href="contacto.php" class="navbar__link">Contacto</a>
-          <a href="contacto.php" class="btn btn--primary navbar__cta"
-            >Pedir Cita</a
-          >
-        </div>
-        <button class="navbar__burger" id="burger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
 
-    <div class="navbar__mobile" id="mobileMenu">
-      <a href="index.php" class="navbar__link">Inicio</a>
-      <a href="servicios.php" class="navbar__link">Servicios</a>
-      <a href="contacto.php" class="navbar__link">Contacto</a>
-      <a href="contacto.php" class="btn btn--primary">Pedir Cita</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos y Condiciones - MBR Almería</title>
+  <link rel="icon" href="./img/mbr_logo_new.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="./img/mbr_logo_new.svg" color="#000000" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/chat-widget.css" />
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.php" class="navbar__logo">
+        <img
+          class="navbar__logo"
+          src="./img/mbr_logo_blanco_sin_fondo.png"
+          alt="Logo"
+          height="75rem"
+          width="75rem" />
+      </a>
+      <div class="navbar__links">
+        <a href="index.php" class="navbar__link">Inicio</a>
+        <a href="servicios.php" class="navbar__link">Servicios</a>
+        <a href="contacto.php" class="navbar__link">Contacto</a>
+        <a href="contacto.php" class="btn btn--primary navbar__cta">Pedir Cita</a>
+      </div>
+      <button class="navbar__burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <div class="page-header">
-      <div class="page-header__inner">
-        <div class="accent-line"></div>
-        <span class="section-label">Legal</span>
-        <h1 class="section-title">Términos y<br /><em>condiciones</em></h1>
+  <div class="navbar__mobile" id="mobileMenu">
+    <a href="index.php" class="navbar__link">Inicio</a>
+    <a href="servicios.php" class="navbar__link">Servicios</a>
+    <a href="contacto.php" class="navbar__link">Contacto</a>
+    <a href="contacto.php" class="btn btn--primary">Pedir Cita</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header__inner">
+      <div class="accent-line"></div>
+      <span class="section-label">Legal</span>
+      <h1 class="section-title">Términos y<br /><em>condiciones</em></h1>
+    </div>
+  </div>
+
+  <section class="section section--dark" style="padding-top: 2rem">
+    <div class="container">
+      <div class="legal__content">
+        <h2>1. Introducción</h2>
+        <p>
+          Bienvenido a MBR Almería (en adelante, "nosotros" o "nuestro
+          sitio"). Al acceder y utilizar nuestro sitio web, aceptas estar
+          sujeto a estos Términos y Condiciones, así como a nuestra Política
+          de Privacidad. Si no estás de acuerdo con alguna parte de estos
+          términos, te pedimos que no utilices nuestro sitio.
+        </p>
+
+        <h2>2. Descripción del servicio</h2>
+        <p>
+          MBR Almería ofrece servicios especializados de coding, diagnóstico y
+          retrofit para vehículos Mercedes-Benz. A través de nuestro
+          formulario de contacto, los usuarios pueden solicitar información
+          adicional o ponerse en contacto con nosotros para obtener más
+          detalles sobre nuestros servicios.
+        </p>
+
+        <h2>3. Presupuesto y aceptación del servicio</h2>
+        <p>
+          Todo trabajo irá precedido de un presupuesto detallado comunicado al
+          cliente antes de iniciar cualquier intervención. La aceptación
+          expresa del presupuesto, ya sea de forma verbal, escrita o por
+          conducta concluyente, constituye autorización para ejecutar los
+          trabajos acordados. MBR Almería se reserva el derecho de no iniciar
+          ningún trabajo sin dicha aceptación previa.
+        </p>
+
+        <h2>4. Garantía</h2>
+        <p>
+          Ofrecemos garantía de 1 año para cualquier trabajo de coding o
+          retrofit realizado. La garantía cubre exclusivamente los trabajos
+          ejecutados por MBR Almería y no incluye daños derivados de
+          manipulaciones posteriores por parte del cliente o de terceros, ni
+          de hardware no homologado instalado en el vehículo.
+        </p>
+
+        <h2>5. Responsabilidad</h2>
+        <p>
+          Los servicios se realizan con herramientas de diagnóstico oficial
+          Mercedes-Benz. No nos responsabilizamos de daños derivados de
+          modificaciones previas no declaradas por el cliente, de hardware de
+          terceros instalado en el vehículo, ni del uso indebido de las
+          funciones activadas tras el servicio. El uso de nuestro sitio web es
+          bajo tu propio riesgo. No nos hacemos responsables por daños
+          directos, indirectos, incidentales o consecuentes derivados del uso
+          de la web o de la imposibilidad de acceso a la misma.
+        </p>
+
+        <h2>6. Desplazamiento</h2>
+        <p>
+          Los servicios realizados en Almería capital no tienen coste de
+          desplazamiento. Los trabajos fuera de la capital o provincia
+          llevarán un recargo adicional por desplazamiento, que será acordado
+          previamente con el cliente e incluido en el presupuesto.
+        </p>
+
+        <h2>7. Asistencia remota</h2>
+        <p>
+          Para asistencia remota, el cliente deberá disponer del hardware
+          necesario, conexión a internet estable y software de asistencia
+          remota (TeamViewer o AnyDesk). En caso de no disponer del software
+          de codificación del vehículo, MB Retrofit Almería lo proporcionará
+          bajo las condiciones acordadas.
+        </p>
+
+        <h2>8. Uso del sitio</h2>
+        <p>
+          Al utilizar este sitio, te comprometes a no realizar actividades
+          ilegales ni prohibidas por estos Términos, no infringir los derechos
+          de propiedad intelectual de MB Retrofit Almería ni de terceros, y no
+          utilizar nuestro sitio para propagar contenido malicioso, spam o
+          virus informáticos. Nos reservamos el derecho de suspender o
+          cancelar el acceso al sitio si detectamos un uso indebido.
+        </p>
+
+        <h2>9. Propiedad intelectual</h2>
+        <p>
+          Todo el contenido de este sitio web, incluyendo textos, gráficos,
+          logotipos, imágenes y software, está protegido por derechos de autor
+          y otras leyes de propiedad intelectual. No puedes reproducir,
+          distribuir, modificar ni utilizar este contenido sin nuestro
+          consentimiento explícito.
+        </p>
+
+        <h2>10. Enlaces a terceros</h2>
+        <p>
+          Nuestro sitio puede contener enlaces a otros sitios web. No somos
+          responsables del contenido ni de las políticas de privacidad de
+          estos sitios externos.
+        </p>
+
+        <h2>11. Modificaciones de los términos</h2>
+        <p>
+          Nos reservamos el derecho de modificar estos Términos y Condiciones
+          en cualquier momento. Cualquier cambio será publicado en esta página
+          con una actualización de la fecha.
+        </p>
+
+        <h2>12. Ley aplicable</h2>
+        <p>
+          Estos Términos y Condiciones se rigen por las leyes de España.
+          Cualquier disputa relacionada con el uso del sitio o con la
+          prestación de servicios será resuelta en los tribunales de Almería.
+        </p>
       </div>
     </div>
+  </section>
 
-    <section class="section section--dark" style="padding-top: 2rem">
-      <div class="container">
-        <div class="legal__content">
-          <h2>1. Introducción</h2>
-          <p>
-            Bienvenido a MBR Almería (en adelante, "nosotros" o "nuestro
-            sitio"). Al acceder y utilizar nuestro sitio web, aceptas estar
-            sujeto a estos Términos y Condiciones, así como a nuestra Política
-            de Privacidad. Si no estás de acuerdo con alguna parte de estos
-            términos, te pedimos que no utilices nuestro sitio.
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">MBR Almería</div>
+          <div class="footer__brand-sub">Mercedes Specialist</div>
+          <p class="footer__brand-text">
+            Especialistas en coding SCN y retrofits para Mercedes-Benz en
+            Almería. Diagnóstico oficial con Xentry, Vediamo y DTS Monaco.
+            Garantía 1 año.
           </p>
-
-          <h2>2. Descripción del servicio</h2>
-          <p>
-            MBR Almería ofrece servicios especializados de coding, diagnóstico y
-            retrofit para vehículos Mercedes-Benz. A través de nuestro
-            formulario de contacto, los usuarios pueden solicitar información
-            adicional o ponerse en contacto con nosotros para obtener más
-            detalles sobre nuestros servicios.
-          </p>
-
-          <h2>3. Presupuesto y aceptación del servicio</h2>
-          <p>
-            Todo trabajo irá precedido de un presupuesto detallado comunicado al
-            cliente antes de iniciar cualquier intervención. La aceptación
-            expresa del presupuesto, ya sea de forma verbal, escrita o por
-            conducta concluyente, constituye autorización para ejecutar los
-            trabajos acordados. MBR Almería se reserva el derecho de no iniciar
-            ningún trabajo sin dicha aceptación previa.
-          </p>
-
-          <h2>4. Garantía</h2>
-          <p>
-            Ofrecemos garantía de 1 año para cualquier trabajo de coding o
-            retrofit realizado. La garantía cubre exclusivamente los trabajos
-            ejecutados por MBR Almería y no incluye daños derivados de
-            manipulaciones posteriores por parte del cliente o de terceros, ni
-            de hardware no homologado instalado en el vehículo.
-          </p>
-
-          <h2>5. Responsabilidad</h2>
-          <p>
-            Los servicios se realizan con herramientas de diagnóstico oficial
-            Mercedes-Benz. No nos responsabilizamos de daños derivados de
-            modificaciones previas no declaradas por el cliente, de hardware de
-            terceros instalado en el vehículo, ni del uso indebido de las
-            funciones activadas tras el servicio. El uso de nuestro sitio web es
-            bajo tu propio riesgo. No nos hacemos responsables por daños
-            directos, indirectos, incidentales o consecuentes derivados del uso
-            de la web o de la imposibilidad de acceso a la misma.
-          </p>
-
-          <h2>6. Desplazamiento</h2>
-          <p>
-            Los servicios realizados en Almería capital no tienen coste de
-            desplazamiento. Los trabajos fuera de la capital o provincia
-            llevarán un recargo adicional por desplazamiento, que será acordado
-            previamente con el cliente e incluido en el presupuesto.
-          </p>
-
-          <h2>7. Asistencia remota</h2>
-          <p>
-            Para asistencia remota, el cliente deberá disponer del hardware
-            necesario, conexión a internet estable y software de asistencia
-            remota (TeamViewer o AnyDesk). En caso de no disponer del software
-            de codificación del vehículo, MB Retrofit Almería lo proporcionará
-            bajo las condiciones acordadas.
-          </p>
-
-          <h2>8. Uso del sitio</h2>
-          <p>
-            Al utilizar este sitio, te comprometes a no realizar actividades
-            ilegales ni prohibidas por estos Términos, no infringir los derechos
-            de propiedad intelectual de MB Retrofit Almería ni de terceros, y no
-            utilizar nuestro sitio para propagar contenido malicioso, spam o
-            virus informáticos. Nos reservamos el derecho de suspender o
-            cancelar el acceso al sitio si detectamos un uso indebido.
-          </p>
-
-          <h2>9. Propiedad intelectual</h2>
-          <p>
-            Todo el contenido de este sitio web, incluyendo textos, gráficos,
-            logotipos, imágenes y software, está protegido por derechos de autor
-            y otras leyes de propiedad intelectual. No puedes reproducir,
-            distribuir, modificar ni utilizar este contenido sin nuestro
-            consentimiento explícito.
-          </p>
-
-          <h2>10. Enlaces a terceros</h2>
-          <p>
-            Nuestro sitio puede contener enlaces a otros sitios web. No somos
-            responsables del contenido ni de las políticas de privacidad de
-            estos sitios externos.
-          </p>
-
-          <h2>11. Modificaciones de los términos</h2>
-          <p>
-            Nos reservamos el derecho de modificar estos Términos y Condiciones
-            en cualquier momento. Cualquier cambio será publicado en esta página
-            con una actualización de la fecha.
-          </p>
-
-          <h2>12. Ley aplicable</h2>
-          <p>
-            Estos Términos y Condiciones se rigen por las leyes de España.
-            Cualquier disputa relacionada con el uso del sitio o con la
-            prestación de servicios será resuelta en los tribunales de Almería.
-          </p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navegación</p>
+          <div class="footer__links">
+            <a href="index.php" class="footer__link">Inicio</a>
+            <a href="servicios.php" class="footer__link">Servicios</a>
+            <a href="contacto.php" class="footer__link">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <div class="footer__links">
+            <a href="politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
+            <a href="terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__grid">
-          <div>
-            <div class="footer__brand-name">MBR Almería</div>
-            <div class="footer__brand-sub">Mercedes Specialist</div>
-            <p class="footer__brand-text">
-              Especialistas en coding SCN y retrofits para Mercedes-Benz en
-              Almería. Diagnóstico oficial con Xentry, Vediamo y DTS Monaco.
-              Garantía 1 año.
-            </p>
-          </div>
-          <div>
-            <p class="footer__col-title">Navegación</p>
-            <div class="footer__links">
-              <a href="index.php" class="footer__link">Inicio</a>
-              <a href="servicios.php" class="footer__link">Servicios</a>
-              <a href="contacto.php" class="footer__link">Contacto</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Legal</p>
-            <div class="footer__links">
-              <a href="politica-de-privacidad.php" class="footer__link"
-                >Política de privacidad</a
-              >
-              <a href="terminos-y-condiciones.php" class="footer__link"
-                >Términos y condiciones</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <span class="footer__copy"
-            >© <span id="year"></span> MBR Almería. Todos los derechos
-            reservados.</span
-          >
-          <span class="footer__made"
-            >MBR Almería - Mercedes-Benz Specialist</span
-          >
-        </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© <span id="year"></span> MBR Almería. Todos los derechos
+          reservados.</span>
+        <span class="footer__made">MBR Almería - Mercedes-Benz Specialist</span>
       </div>
-    </footer>
-    <script src="js/main.js"></script>
-    <script>
-      const BASE_URL = <?= json_encode(BASE_URL) ?>;
-      const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
-    </script>
-    <script src="js/chat-widget.js"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    const BASE_URL = <?= json_encode(BASE_URL) ?>;
+    const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
+  </script>
+  <script src="js/chat-widget.js"></script>
+</body>
+
 </html>

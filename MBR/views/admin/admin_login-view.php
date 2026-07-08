@@ -35,7 +35,7 @@
     </form>
 </body>
 <script>
-    document.getElementById('togglePassword').addEventListener('click', function () {
+    document.getElementById('togglePassword').addEventListener('click', function() {
         const input = document.getElementById('password');
 
         if (input.type === 'password') {

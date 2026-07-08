@@ -22,6 +22,7 @@
                 window.location.href = '?borrar=' + id;
             }
         }
+
         function marcarLeido(id) {
             window.location.href = '?leido=' + id;
         }

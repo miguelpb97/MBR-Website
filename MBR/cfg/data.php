@@ -182,11 +182,22 @@ function slugify(string $text): string
 {
     // Sustitución manual de acentos y caracteres especiales (sin depender de iconv/locale)
     $map = [
-        'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u',
-        'Á' => 'a', 'É' => 'e', 'Í' => 'i', 'Ó' => 'o', 'Ú' => 'u',
-        'ñ' => 'n', 'Ñ' => 'n',
-        'ü' => 'u', 'Ü' => 'u',
-        'ç' => 'c', 'Ç' => 'c',
+        'á' => 'a',
+        'é' => 'e',
+        'í' => 'i',
+        'ó' => 'o',
+        'ú' => 'u',
+        'Á' => 'a',
+        'É' => 'e',
+        'Í' => 'i',
+        'Ó' => 'o',
+        'Ú' => 'u',
+        'ñ' => 'n',
+        'Ñ' => 'n',
+        'ü' => 'u',
+        'Ü' => 'u',
+        'ç' => 'c',
+        'Ç' => 'c',
     ];
 
     $text = strtr($text, $map);

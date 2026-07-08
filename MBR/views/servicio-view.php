@@ -6,141 +6,142 @@ $slug_variante = $_GET['variante'] ?? '';
 $slug_servicio = $_GET['servicio'] ?? '';
 
 if (!$slug_variante || !$slug_servicio) {
-    header('Location: /servicios');
-    exit;
+  header('Location: /servicios');
+  exit;
 }
 
 $servicio  = null;
 $not_found = false;
 
 try {
-    $found = buscarServicioPorSlug($slug_variante, $slug_servicio);
+  $found = buscarServicioPorSlug($slug_variante, $slug_servicio);
 
-    if (!$found) {
-        $not_found = true;
-        http_response_code(404);
-    } else {
-        $servicio = $found;
-        $compatibilidad = cargarCompatibilidad($servicio['id']);
-    }
-
-} catch (PDOException $e) {
+  if (!$found) {
     $not_found = true;
-    http_response_code(500);
+    http_response_code(404);
+  } else {
+    $servicio = $found;
+    $compatibilidad = cargarCompatibilidad($servicio['id']);
+  }
+} catch (PDOException $e) {
+  $not_found = true;
+  http_response_code(500);
 }
 
 // --- Datos para SEO ---
 $page_title    = $not_found
-    ? 'Servicio no encontrado - MBR Almería'
-    : htmlspecialchars($servicio['titulo']) . ' · ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' - MBR Almería';
+  ? 'Servicio no encontrado - MBR Almería'
+  : htmlspecialchars($servicio['titulo']) . ' · ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' - MBR Almería';
 
 $page_desc     = $not_found
-    ? 'El servicio solicitado no está disponible.'
-    : (
-        $servicio['descripcion']
-            ? htmlspecialchars(mb_substr(strip_tags($servicio['descripcion']), 0, 155)) . '…'
-            : 'Servicio de coding SCN y retrofit para ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' en MBR Almería.'
-      );
+  ? 'El servicio solicitado no está disponible.'
+  : (
+    $servicio['descripcion']
+    ? htmlspecialchars(mb_substr(strip_tags($servicio['descripcion']), 0, 155)) . '…'
+    : 'Servicio de coding SCN y retrofit para ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' en MBR Almería.'
+  );
 
 $canonical_path = $not_found
-    ? '/servicios.php'
-    : '/servicio/' . slugify($servicio['variante']) . '/' . slugify($servicio['titulo']);
+  ? '/servicios.php'
+  : '/servicio/' . slugify($servicio['variante']) . '/' . slugify($servicio['titulo']);
 
 $canonical     = 'https://' . $_SERVER['HTTP_HOST'] . $canonical_path;
 $imagen_og     = (!$not_found && $servicio['imagen'])
-    ? 'https://' . $_SERVER['HTTP_HOST'] . '/img/servicios/' . htmlspecialchars($servicio['imagen'])
-    : 'https://' . $_SERVER['HTTP_HOST'] . '/img/mbr_logo_blanco_sin_fondo.png';
+  ? 'https://' . $_SERVER['HTTP_HOST'] . '/img/servicios/' . htmlspecialchars($servicio['imagen'])
+  : 'https://' . $_SERVER['HTTP_HOST'] . '/img/mbr_logo_blanco_sin_fondo.png';
 
 // Si acceden sin slug (servicio.php?id=42) o con slug desactualizado,
 // redirige 301 a la URL canónica para evitar contenido duplicado
 if (!$not_found) {
-    $current_path = $_SERVER['REQUEST_URI'];
-    if (strpos($current_path, $canonical_path) === false) {
-        header("Location: {$canonical_path}", true, 301);
-        exit;
-    }
+  $current_path = $_SERVER['REQUEST_URI'];
+  if (strpos($current_path, $canonical_path) === false) {
+    header("Location: {$canonical_path}", true, 301);
+    exit;
+  }
 }
 ?>
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><?= $page_title ?></title>
-    <meta name="description" content="<?= $page_desc ?>" />
-    <link rel="canonical" href="<?= $canonical ?>" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph -->
-    <meta property="og:type"        content="product" />
-    <meta property="og:title"       content="<?= $page_title ?>" />
-    <meta property="og:description" content="<?= $page_desc ?>" />
-    <meta property="og:url"         content="<?= $canonical ?>" />
-    <meta property="og:image"       content="<?= $imagen_og ?>" />
-    <meta property="og:locale"      content="es_ES" />
-    <meta property="og:site_name"   content="MBR Almería" />
+  <title><?= $page_title ?></title>
+  <meta name="description" content="<?= $page_desc ?>" />
+  <link rel="canonical" href="<?= $canonical ?>" />
 
-    <!-- Schema.org (ld+json) para Google Rich Results -->
-    <?php if (!$not_found): ?>
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="<?= $page_title ?>" />
+  <meta property="og:description" content="<?= $page_desc ?>" />
+  <meta property="og:url" content="<?= $canonical ?>" />
+  <meta property="og:image" content="<?= $imagen_og ?>" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="MBR Almería" />
+
+  <!-- Schema.org (ld+json) para Google Rich Results -->
+  <?php if (!$not_found): ?>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "<?= addslashes($servicio['titulo']) ?>",
-      "description": "<?= addslashes(strip_tags($servicio['descripcion'] ?? '')) ?>",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "MBR Almería",
-        "url": "https://<?= $_SERVER['HTTP_HOST'] ?>"
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "<?= addslashes($servicio['titulo']) ?>",
+        "description": "<?= addslashes(strip_tags($servicio['descripcion'] ?? '')) ?>",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "MBR Almería",
+          "url": "https://<?= $_SERVER['HTTP_HOST'] ?>"
+        }
+        <?php if ($servicio['precio'] !== null): ?>,
+          "offers": {
+            "@type": "Offer",
+            "price": "<?= number_format($servicio['precio'], 2, '.', '') ?>",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        <?php endif; ?>
+        <?php if ($servicio['imagen']): ?>,
+          "image": "<?= $imagen_og ?>"
+        <?php endif; ?>
       }
-      <?php if ($servicio['precio'] !== null): ?>
-      ,"offers": {
-        "@type": "Offer",
-        "price": "<?= number_format($servicio['precio'], 2, '.', '') ?>",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      }
-      <?php endif; ?>
-      <?php if ($servicio['imagen']): ?>
-      ,"image": "<?= $imagen_og ?>"
-      <?php endif; ?>
-    }
     </script>
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <link rel="icon"        href="<?= BASE_URL ?>/img/mbr_logo_new.ico"  type="image/x-icon" />
-    <link rel="mask-icon"   href="<?= BASE_URL ?>/img/mbr_logo_new.svg"  color="#000000" />
-    <link rel="stylesheet"  href="<?= BASE_URL ?>/css/styles.css" />
-    <link rel="stylesheet"  href="<?= BASE_URL ?>/css/chat-widget.css" />
-  </head>
-  <body>
+  <link rel="icon" href="<?= BASE_URL ?>/img/mbr_logo_new.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="<?= BASE_URL ?>/img/mbr_logo_new.svg" color="#000000" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/chat-widget.css" />
+</head>
 
-    <!-- NAVBAR -->
-    <nav class="navbar scrolled" id="navbar">
-      <div class="navbar__inner">
-        <a href="<?= BASE_URL ?>/index.php" class="navbar__logo">
-          <img class="navbar__logo" src="<?= BASE_URL ?>/img/mbr_logo_blanco_sin_fondo.png" alt="Logo" height="75rem" width="75rem" />
-        </a>
-        <div class="navbar__links">
-          <a href="<?= BASE_URL ?>/index.php"     class="navbar__link">Inicio</a>
-          <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
-          <a href="<?= BASE_URL ?>/contacto.php"  class="navbar__link">Contacto</a>
-          <a href="<?= BASE_URL ?>/contacto.php"  class="btn btn--primary navbar__cta">Pedir Cita</a>
-        </div>
-        <button class="navbar__burger" id="burger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar__inner">
+      <a href="<?= BASE_URL ?>/index.php" class="navbar__logo">
+        <img class="navbar__logo" src="<?= BASE_URL ?>/img/mbr_logo_blanco_sin_fondo.png" alt="Logo" height="75rem" width="75rem" />
+      </a>
+      <div class="navbar__links">
+        <a href="<?= BASE_URL ?>/index.php" class="navbar__link">Inicio</a>
+        <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
+        <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link">Contacto</a>
+        <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary navbar__cta">Pedir Cita</a>
       </div>
-    </nav>
-
-    <div class="navbar__mobile" id="mobileMenu">
-      <a href="<?= BASE_URL ?>/index.php"     class="navbar__link">Inicio</a>
-      <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
-      <a href="<?= BASE_URL ?>/contacto.php"  class="navbar__link">Contacto</a>
-      <a href="<?= BASE_URL ?>/contacto.php"  class="btn btn--primary">Pedir Cita</a>
+      <button class="navbar__burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <?php if ($not_found): ?>
+  <div class="navbar__mobile" id="mobileMenu">
+    <a href="<?= BASE_URL ?>/index.php" class="navbar__link">Inicio</a>
+    <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active">Servicios</a>
+    <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link">Contacto</a>
+    <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary">Pedir Cita</a>
+  </div>
+
+  <?php if ($not_found): ?>
 
     <!-- 404 -->
     <div class="page-header">
@@ -157,7 +158,7 @@ if (!$not_found) {
       </div>
     </section>
 
-    <?php else: ?>
+  <?php else: ?>
 
     <!-- PAGE HEADER -->
     <div class="page-header">
@@ -178,8 +179,7 @@ if (!$not_found) {
             <?php if ($servicio['imagen']): ?>
               <img
                 src="<?= BASE_URL ?>/img/servicios/<?= htmlspecialchars($servicio['imagen']) ?>"
-                alt="<?= htmlspecialchars($servicio['titulo']) ?> para <?= htmlspecialchars($servicio['modelo']) ?>"
-              />
+                alt="<?= htmlspecialchars($servicio['titulo']) ?> para <?= htmlspecialchars($servicio['modelo']) ?>" />
             <?php else: ?>
               <div style="width:100%;height:100%;min-height:260px;display:flex;align-items:center;justify-content:center;">
                 <span style="font-family:var(--font-mono);font-size:.75rem;color:var(--carbon-600);letter-spacing:.15em;">SIN IMAGEN</span>
@@ -213,12 +213,12 @@ if (!$not_found) {
 
             <!-- Descripción -->
             <?php if ($servicio['descripcion']): ?>
-            <div>
-              <span class="section-label">Descripción</span>
-              <p style="color:var(--carbon-400);font-size:.9rem;line-height:1.8;">
-                <?= nl2br(htmlspecialchars($servicio['descripcion'])) ?>
-              </p>
-            </div>
+              <div>
+                <span class="section-label">Descripción</span>
+                <p style="color:var(--carbon-400);font-size:.9rem;line-height:1.8;">
+                  <?= nl2br(htmlspecialchars($servicio['descripcion'])) ?>
+                </p>
+              </div>
             <?php endif; ?>
 
           </div>
@@ -241,48 +241,49 @@ if (!$not_found) {
       </div>
     </section>
 
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__grid">
-          <div>
-            <div class="footer__brand-name">MBR Almería</div>
-            <div class="footer__brand-sub">Mercedes Specialist</div>
-            <p class="footer__brand-text">
-              Especialistas en coding SCN y retrofits para Mercedes-Benz en Almería.
-              Diagnóstico oficial con Xentry, Vediamo y DTS Monaco. Garantía 1 año.
-            </p>
-          </div>
-          <div>
-            <p class="footer__col-title">Navegación</p>
-            <div class="footer__links">
-              <a href="<?= BASE_URL ?>/index.php"     class="footer__link">Inicio</a>
-              <a href="<?= BASE_URL ?>/servicios.php" class="footer__link">Servicios</a>
-              <a href="<?= BASE_URL ?>/contacto.php"  class="footer__link">Contacto</a>
-            </div>
-          </div>
-          <div>
-            <p class="footer__col-title">Legal</p>
-            <div class="footer__links">
-              <a href="<?= BASE_URL ?>/politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
-              <a href="<?= BASE_URL ?>/terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
-            </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">MBR Almería</div>
+          <div class="footer__brand-sub">Mercedes Specialist</div>
+          <p class="footer__brand-text">
+            Especialistas en coding SCN y retrofits para Mercedes-Benz en Almería.
+            Diagnóstico oficial con Xentry, Vediamo y DTS Monaco. Garantía 1 año.
+          </p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navegación</p>
+          <div class="footer__links">
+            <a href="<?= BASE_URL ?>/index.php" class="footer__link">Inicio</a>
+            <a href="<?= BASE_URL ?>/servicios.php" class="footer__link">Servicios</a>
+            <a href="<?= BASE_URL ?>/contacto.php" class="footer__link">Contacto</a>
           </div>
         </div>
-        <div class="footer__bottom">
-          <span class="footer__copy">© <span id="year"></span> MBR Almería. Todos los derechos reservados.</span>
-          <span class="footer__made">MBR Almería - Mercedes-Benz Specialist</span>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <div class="footer__links">
+            <a href="<?= BASE_URL ?>/politica-de-privacidad.php" class="footer__link">Política de privacidad</a>
+            <a href="<?= BASE_URL ?>/terminos-y-condiciones.php" class="footer__link">Términos y condiciones</a>
+          </div>
         </div>
       </div>
-    </footer>
+      <div class="footer__bottom">
+        <span class="footer__copy">© <span id="year"></span> MBR Almería. Todos los derechos reservados.</span>
+        <span class="footer__made">MBR Almería - Mercedes-Benz Specialist</span>
+      </div>
+    </div>
+  </footer>
 
-    <script src="<?= BASE_URL ?>/js/main.js"></script>
-    <script>
-      const BASE_URL = <?= json_encode(BASE_URL) ?>;
-      const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
-    </script>
-    <script src="<?= BASE_URL ?>/js/chat-widget.js"></script>
-  </body>
+  <script src="<?= BASE_URL ?>/js/main.js"></script>
+  <script>
+    const BASE_URL = <?= json_encode(BASE_URL) ?>;
+    const PHONE_NUMBER = <?= json_encode(PHONE_NUMBER) ?>;
+  </script>
+  <script src="<?= BASE_URL ?>/js/chat-widget.js"></script>
+</body>
+
 </html>

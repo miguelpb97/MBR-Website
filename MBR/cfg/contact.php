@@ -43,7 +43,9 @@ $turnstileToken  = $body['turnstileToken'] ?? '';
 $turnstileSecret = CF_SECRET;
 
 if ($turnstileToken) {
-    $verify = file_get_contents(CF_URL, false,
+    $verify = file_get_contents(
+        CF_URL,
+        false,
         stream_context_create([
             'http' => [
                 'method'  => 'POST',
@@ -109,7 +111,6 @@ try {
 
     http_response_code(201);
     echo json_encode(['success' => true, 'message' => 'Consulta recibida correctamente']);
-
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => 'Error al guardar la consulta']);
