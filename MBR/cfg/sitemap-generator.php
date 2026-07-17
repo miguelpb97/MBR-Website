@@ -6,7 +6,7 @@ header('Content-Type: application/xml; charset=utf-8');
 $host = $_SERVER['HTTP_HOST'];
 $base = 'https://' . $host;
 
-// --- Páginas estáticas ---
+// Páginas estáticas
 $estaticas = [
     ['loc' => '/',                          'priority' => '1.0'],
     ['loc' => '/servicios',                 'priority' => '0.9'],
@@ -15,7 +15,7 @@ $estaticas = [
     ['loc' => '/politica-de-privacidad',    'priority' => '0.3'],
 ];
 
-// --- Combinaciones variante + servicio (una URL por cada fila de variant_has_service) ---
+// Combinaciones variante + servicio (una URL por cada fila de variant_has_service)
 try {
     $pdo = getDB();
     $stmt = $pdo->query("
