@@ -1,15 +1,22 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-function cargarModelos(): array
+function cargarModelos(string $lang): array
 {
     $pdo = getDB();
 
-    $sql = "SELECT id_vehicle, name AS nombre, image_url AS imagen 
-            FROM vehicle 
-            ORDER BY name";
+    $sql = "
+        SELECT 
+            v.id_vehicle,
+            COALESCE(vt.name, v.name) AS nombre,
+            v.image_url AS imagen
+        FROM vehicle v
+        LEFT JOIN vehicle_translation vt ON vt.id_vehicle = v.id_vehicle AND vt.lang = ?
+        ORDER BY nombre
+    ";
 
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$lang]);
     $rows = $stmt->fetchAll();
 
     $modelos = [];
@@ -49,23 +56,26 @@ function cargarVariantes(int $id_vehicle): array
     return $variantes;
 }
 
-function cargarServicios(int $id_variant): array
+function cargarServicios(int $id_variant, string $lang): array
 {
     $pdo = getDB();
 
-    $stmt = $pdo->prepare("
+    $sql = "
         SELECT 
             s.id_service AS id,
-            s.name AS titulo,
+            COALESCE(st.name, s.name) AS titulo,
             s.price AS precio,
             v.name AS variante
         FROM variant_has_service vhs
         JOIN service s ON s.id_service = vhs.service_id
         JOIN variant v ON v.id_variant = vhs.variant_id
+        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
         WHERE vhs.variant_id = ? AND s.stock = 1
-        ORDER BY s.name
-    ");
-    $stmt->execute([$id_variant]);
+        ORDER BY titulo
+    ";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$lang, $id_variant]);
     $rows = $stmt->fetchAll();
 
     foreach ($rows as &$row) {
@@ -75,17 +85,21 @@ function cargarServicios(int $id_variant): array
     return $rows;
 }
 
-function cargarModelo(int $id): ?array
+function cargarModelo(int $id, string $lang): ?array
 {
     $pdo = getDB();
 
     $stmt = $pdo->prepare("
-        SELECT id_vehicle, name AS nombre, image_url AS imagen
-        FROM vehicle
-        WHERE id_vehicle = ?
+        SELECT 
+            v.id_vehicle,
+            COALESCE(vt.name, v.name) AS nombre,
+            v.image_url AS imagen
+        FROM vehicle v
+        LEFT JOIN vehicle_translation vt ON vt.id_vehicle = v.id_vehicle AND vt.lang = ?
+        WHERE v.id_vehicle = ?
         LIMIT 1
     ");
-    $stmt->execute([$id]);
+    $stmt->execute([$lang, $id]);
     $row = $stmt->fetch();
 
     if (!$row) return null;
@@ -120,15 +134,15 @@ function cargarVariante(int $id_variant): ?array
     ];
 }
 
-function cargarServicio(int $id): ?array
+function cargarServicio(int $id, string $lang): ?array
 {
     $pdo = getDB();
 
     $stmt = $pdo->prepare("
         SELECT 
             s.id_service,
-            s.name AS titulo,
-            s.description AS descripcion,
+            COALESCE(st.name, s.name) AS titulo,
+            COALESCE(st.description, s.description) AS descripcion,
             s.price AS precio,
             s.image_url AS imagen,
             v.name AS modelo,
@@ -137,10 +151,11 @@ function cargarServicio(int $id): ?array
         LEFT JOIN variant_has_service vhs ON vhs.service_id = s.id_service
         LEFT JOIN variant va ON va.id_variant = vhs.variant_id
         LEFT JOIN vehicle v ON v.id_vehicle = va.vehicle_id
+        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
         WHERE s.id_service = ?
         LIMIT 1
     ");
-    $stmt->execute([$id]);
+    $stmt->execute([$lang, $id]);
     $row = $stmt->fetch();
 
     if (!$row) return null;
@@ -150,26 +165,26 @@ function cargarServicio(int $id): ?array
     return $row;
 }
 
-function cargarCompatibilidad(int $id_service): array
+function cargarCompatibilidad(int $id_service, string $lang): array
 {
     $pdo = getDB();
 
     $stmt = $pdo->prepare("
         SELECT
             vh.id_vehicle,
-            vh.name AS modelo,
+            COALESCE(vht.name, vh.name) AS modelo,
             v.id_variant,
             v.name AS variante
         FROM variant_has_service vhs
         JOIN variant v  ON v.id_variant = vhs.variant_id
         JOIN vehicle vh ON vh.id_vehicle = v.vehicle_id
+        LEFT JOIN vehicle_translation vht ON vht.id_vehicle = vh.id_vehicle AND vht.lang = ?
         WHERE vhs.service_id = ?
-        ORDER BY vh.name ASC, v.name ASC
+        ORDER BY modelo ASC, v.name ASC
     ");
-    $stmt->execute([$id_service]);
+    $stmt->execute([$lang, $id_service]);
     $rows = $stmt->fetchAll();
 
-    // Agrupa variantes por modelo: ['Clase A' => ['W176', 'W177'], ...]
     $agrupado = [];
     foreach ($rows as $row) {
         $agrupado[$row['modelo']][] = $row['variante'];
@@ -180,7 +195,6 @@ function cargarCompatibilidad(int $id_service): array
 
 function slugify(string $text): string
 {
-    // Sustitución manual de acentos y caracteres especiales (sin depender de iconv/locale)
     $map = [
         'á' => 'a',
         'é' => 'e',
@@ -208,15 +222,19 @@ function slugify(string $text): string
     return $text !== '' ? $text : 'servicio';
 }
 
-function buscarServicioPorSlug(string $slug_variante, string $slug_servicio): ?array
+function buscarServicioPorSlug(string $slug_variante, string $slug_servicio, string $lang): ?array
 {
     $pdo = getDB();
 
+    // El slug siempre se compara contra el nombre original en español
+    // (s.name), así la URL no cambia según el idioma activo.
+    // El contenido devuelto sí usa $lang (con fallback a s.name/description si falta traducción).
     $stmt = $pdo->prepare("
         SELECT
             s.id_service  AS id,
-            s.name        AS titulo,
-            s.description AS descripcion,
+            COALESCE(st.name, s.name) AS titulo,
+            COALESCE(st.description, s.description) AS descripcion,
+            s.name        AS titulo_slug_base,
             s.price       AS precio,
             s.image_url   AS imagen,
             v.id_variant  AS id_variante,
@@ -227,15 +245,17 @@ function buscarServicioPorSlug(string $slug_variante, string $slug_servicio): ?a
         JOIN variant_has_service vhs ON vhs.service_id = s.id_service
         JOIN variant             v   ON v.id_variant   = vhs.variant_id
         JOIN vehicle             vh  ON vh.id_vehicle  = v.vehicle_id
+        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
         WHERE s.stock = 1
         ORDER BY s.name ASC
     ");
-    $stmt->execute();
+    $stmt->execute([$lang]);
     $rows = $stmt->fetchAll();
 
     foreach ($rows as $row) {
-        if (slugify($row['variante']) === $slug_variante && slugify($row['titulo']) === $slug_servicio) {
+        if (slugify($row['variante']) === $slug_variante && slugify($row['titulo_slug_base']) === $slug_servicio) {
             $row['precio'] = $row['precio'] !== null ? (float) $row['precio'] : null;
+            unset($row['titulo_slug_base']); // dato interno, no hace falta devolverlo
             return $row;
         }
     }

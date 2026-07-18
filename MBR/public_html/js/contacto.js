@@ -16,7 +16,7 @@ if (form) {
       '[name="cf-turnstile-response"]',
     )?.value;
     if (!token) {
-      showError("Completa la verificación de seguridad");
+      showError(FORM_I18N.error_turnstile);
       return;
     }
 
@@ -30,12 +30,12 @@ if (form) {
     };
 
     if (!data.name || !data.email || !data.message) {
-      showError("Nombre, email y mensaje son obligatorios");
+      showError(FORM_I18N.error_required);
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
+    submitBtn.textContent = FORM_I18N.sending;
     hideError();
 
     try {
@@ -46,19 +46,19 @@ if (form) {
       });
 
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Error al enviar");
+      if (!res.ok) throw new Error(json.error || FORM_I18N.error_generic);
 
       wrapper.innerHTML = `
         <div class="form__success">
           <div class="form__success-icon">✓</div>
-          <p class="form__success-title">Consulta enviada</p>
-          <p class="form__success-text">Nos pondremos en contacto contigo lo antes posible.</p>
+          <p class="form__success-title">${FORM_I18N.success_title}</p>
+          <p class="form__success-text">${FORM_I18N.success_text}</p>
         </div>
       `;
     } catch (err) {
       showError(err.message);
       submitBtn.disabled = false;
-      submitBtn.textContent = "Enviar consulta";
+      submitBtn.textContent = FORM_I18N.submit_btn;
       if (window.turnstile) window.turnstile.reset();
     }
   });

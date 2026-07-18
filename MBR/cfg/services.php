@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/../public_html/includes/translate.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
@@ -9,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 $id_variant = isset($_GET['id_variant']) ? (int) $_GET['id_variant'] : 0;
+$lang = isset($_GET['lang']) && in_array($_GET['lang'], get_available_languages(), true)
+    ? $_GET['lang']
+    : 'es';
 
 if (!$id_variant) {
     http_response_code(400);
@@ -17,7 +21,7 @@ if (!$id_variant) {
 }
 
 try {
-    $servicios = cargarServicios($id_variant);
+    $servicios = cargarServicios($id_variant, $lang);
     echo json_encode(array_values($servicios), JSON_UNESCAPED_UNICODE);
 } catch (PDOException $e) {
     http_response_code(500);

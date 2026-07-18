@@ -1,7 +1,7 @@
 const API = {
-  vehicles: `${BASE_URL}/api/vehicles.php`,
-  variants: (id) => `${BASE_URL}/api/variants.php?id_vehicle=${id}`,
-  services: (id) => `${BASE_URL}/api/services.php?id_variant=${id}`,
+  vehicles: `${BASE_URL}/api/vehicles.php?lang=${CURRENT_LANG}`,
+  variants: (id) => `${BASE_URL}/api/variants.php?id_vehicle=${id}&lang=${CURRENT_LANG}`,
+  services: (id) => `${BASE_URL}/api/services.php?id_variant=${id}&lang=${CURRENT_LANG}`,
 };
 
 // Helpers
@@ -19,7 +19,7 @@ function slugify(text) {
     text
       .toString()
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") // quita tildes
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "") || "servicio"
@@ -32,7 +32,7 @@ function renderModels(vehicles) {
   grid.innerHTML = "";
 
   if (!vehicles.length) {
-    showError(grid, "No hay modelos disponibles.");
+    showError(grid, I18N.no_models);
     return;
   }
 
@@ -58,14 +58,12 @@ async function selectModel(vehicle, btn) {
     .forEach((b) => b.classList.remove("active"));
   btn.classList.add("active");
 
-  // Oculta servicios previos
   document.getElementById("servicesSection").style.display = "none";
 
-  // Muestra sección variantes con skeleton
   const variantsSection = document.getElementById("variantsSection");
   variantsSection.style.display = "block";
   document.getElementById("variantsLabel").textContent =
-    `${vehicle.nombre} · Variantes`;
+    `${vehicle.nombre} · ${I18N.variants_suffix}`;
   document.getElementById("variantsList").innerHTML = `
     <div class="skeleton" style="height:40px;width:120px;"></div>
     <div class="skeleton" style="height:40px;width:100px;"></div>
@@ -83,10 +81,7 @@ async function selectModel(vehicle, btn) {
     const variants = await res.json();
     renderVariants(variants, vehicle.nombre);
   } catch {
-    showError(
-      document.getElementById("variantsList"),
-      "Error al cargar las variantes.",
-    );
+    showError(document.getElementById("variantsList"), I18N.error_variants);
   }
 }
 
@@ -96,7 +91,7 @@ function renderVariants(variants, modelName) {
   list.innerHTML = "";
 
   if (!variants.length) {
-    showError(list, "No hay variantes disponibles para este modelo.");
+    showError(list, I18N.no_variants);
     return;
   }
 
@@ -121,7 +116,7 @@ async function selectVariant(variant, modelName) {
   const servicesSection = document.getElementById("servicesSection");
   servicesSection.style.display = "block";
   document.getElementById("servicesLabel").textContent =
-    `Servicios disponibles · ${variant.nombre}`;
+    `${I18N.services_label} · ${variant.nombre}`;
 
   const grid = document.getElementById("servicesGrid");
   grid.innerHTML = `
@@ -142,7 +137,7 @@ async function selectVariant(variant, modelName) {
     const services = await res.json();
     renderServices(services, variant.nombre);
   } catch {
-    showError(grid, "Error al cargar los servicios.");
+    showError(grid, I18N.error_services);
   }
 }
 
@@ -152,22 +147,19 @@ function renderServices(services, variantName) {
   grid.innerHTML = "";
 
   if (!services.length) {
-    grid.innerHTML =
-      '<p class="services__empty">No hay servicios disponibles para esta variante.</p>';
+    grid.innerHTML = `<p class="services__empty">${I18N.no_services}</p>`;
     return;
   }
 
   services.forEach((service) => {
-    // <a> con href real → Google puede rastrear la URL
     const item = document.createElement("a");
     item.className = "service-item";
     item.href = `${BASE_URL}/servicio/${slugify(service.variante)}/${slugify(service.titulo)}`;
 
-    // Precio formateado
     const precioHTML =
       service.precio !== null
         ? `<div class="service-item__price">${parseInt(service.precio)} €</div>`
-        : `<div class="service-item__price">Consultar</div>`;
+        : `<div class="service-item__price">${I18N.price_consult}</div>`;
 
     item.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:1rem;flex:1;">
@@ -190,7 +182,7 @@ async function init() {
     const vehicles = await res.json();
     renderModels(vehicles);
   } catch {
-    showError(grid, "Error al cargar los modelos.");
+    showError(grid, I18N.error_models);
   }
 }
 

@@ -28,6 +28,7 @@ define('EMAIL', 'example@email.com');
 define('IG_USER', 'example'); // sin uso de momento
 define('SCHEDULE', '8:00 a 15:00 L-V');
 
+/* Instancia BBDD */
 function getDB(): PDO
 {
     static $pdo = null;

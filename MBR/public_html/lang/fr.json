@@ -1,0 +1,227 @@
+{
+  "meta_title": "MBR Almería - Codage et Retrofits Mercedes-Benz à Almería",
+  "meta_description": "Spécialistes du codage SCN, du diagnostic et des retrofits pour Mercedes-Benz à Almería. Diagnostic officiel avec Xentry, Vediamo et DTS Monaco.",
+  "og_title": "MBR Almería - Codage et Retrofits Mercedes-Benz",
+  "og_description": "Spécialistes du codage SCN et des retrofits pour Mercedes-Benz à Almería. Xentry, Vediamo et DTS Monaco. Garantie 1 an.",
+
+  "nav_home": "Accueil",
+  "nav_products": "Services",
+  "nav_contact": "Contact",
+  "nav_btn_book_service": "Prendre rendez-vous",
+  "nav_menu_aria": "Menu",
+
+  "hero_label": "Spécialiste Mercedes-Benz",
+  "hero_subtitle": "Spécialistes du codage SCN et des retrofits pour Mercedes-Benz à Almería. Activation de fonctions, diagnostic avec Xentry et Vediamo, et assistance à distance pour toute l'Espagne.",
+  "hero_btn_services": "Voir les services",
+  "hero_btn_contact": "Nous contacter",
+  "hero_scroll_text": "Défiler",
+
+  "about_label": "Qui sommes-nous",
+  "about_title_pre": "Passion pour",
+  "about_title_em": "l'ingénierie allemande",
+  "about_text_1": "Nous sommes spécialistes du codage SCN et des retrofits pour Mercedes-Benz à Almería. Nous travaillons avec des logiciels officiels — Xentry, Vediamo et DTS Monaco — et proposons des solutions rapides, sûres et garanties 1 an.",
+  "about_text_2": "Nous proposons également une assistance en ligne pour les clients situés en dehors de la province.",
+
+  "whatwedo_label": "Ce que nous faisons",
+  "whatwedo_title": "Services spécialisés",
+  "whatwedo_card1_title": "Codage Mercedes",
+  "whatwedo_card1_text": "Activation de fonctions cachées, personnalisation et adaptations via le codage SCN officiel pour Mercedes-Benz. Compatible avec les modèles à partir de 2010.",
+  "whatwedo_card2_title": "Retrofits",
+  "whatwedo_card2_text": "Installation et codage d'équipements d'origine Mercedes-Benz : CarPlay, écrans MBUX, caméra 360°, systèmes d'aide à la conduite, feux de route adaptatifs et bien plus encore.",
+  "whatwedo_card3_title": "Diagnostic",
+  "whatwedo_card3_text": "Diagnostic professionnel avec Xentry DAS pour Mercedes-Benz : lecture et effacement des codes défaut, adaptations, mises à jour SCN et valeurs réelles en temps réel.",
+
+  "tools_label": "Avec quoi nous travaillons",
+  "tools_title_pre": "Outils de",
+  "tools_title_em": "diagnostic officiels",
+  "tool1_name": "Xentry / DAS",
+  "tool1_desc": "Logiciel officiel de diagnostic Mercedes-Benz",
+  "tool2_name": "Vediamo",
+  "tool2_desc": "Logiciel d'ingénierie pour la programmation avancée des calculateurs",
+  "tool3_name": "DTS Monaco",
+  "tool3_desc": "Diagnostic et codage de nouvelle génération",
+  "tool4_name": "MB Star C6",
+  "tool4_desc": "Interface DoIP/CAN pour véhicules modernes",
+
+  "faq_label": "FAQ",
+  "faq_title": "Questions fréquentes",
+  "faq_q1": "Qu'est-ce qu'un codage SCN ?",
+  "faq_a1": "Il s'agit d'un processus permettant de calibrer le logiciel du ou des calculateurs du véhicule afin d'adapter l'électronique à ses caractéristiques spécifiques, en actualisant et en optimisant son fonctionnement pour offrir une meilleure expérience à l'utilisateur.",
+  "faq_q2": "Vais-je perdre la garantie officielle de mon véhicule ?",
+  "faq_a2": "Non, le processus est réalisé en toute sécurité par codage SCN, sans manipuler aucune pièce du véhicule ni altérer le logiciel d'origine d'aucun calculateur. Par sécurité, la configuration est toujours sauvegardée avant et après les modifications effectuées.",
+  "faq_q3": "Combien de temps prend un service ?",
+  "faq_a3": "Généralement entre 30 minutes et 2 heures, selon le nombre de services convenus et leur difficulté.",
+  "faq_q4": "Vos services m'intéressent, où puis-je vous trouver ?",
+  "faq_a4": "Nous ne disposons pas d'atelier, mais nous intervenons directement sur votre véhicule à Almería ville, sans frais de déplacement. Nous réalisons également des interventions en dehors de la ville ou de la province, avec un supplément de déplacement.",
+  "faq_q5": "Je ne suis pas d'Almería mais l'un de vos services m'intéresse, que puis-je faire ?",
+  "faq_a5": "Si vous disposez du matériel nécessaire et avez besoin d'aide, nous pouvons vous assister à distance. Nous avons une grande expérience en retrofits et en codage. L'assistance à distance nécessite une connexion internet stable là où le travail de codage sera effectué, ainsi qu'un logiciel comme TeamViewer ou AnyDesk. Si vous ne disposez pas du logiciel de codage du véhicule, nous vous le fournirons.",
+  "faq_q6": "Les travaux de codage SCN sont-ils garantis ?",
+  "faq_a6": "Oui, nous offrons une garantie d'1 an pour tout travail de codage ou de retrofit.",
+
+  "footer_brand_sub": "Spécialiste Mercedes",
+  "footer_brand_text": "Spécialistes du codage SCN et des retrofits pour Mercedes-Benz à Almería. Diagnostic officiel avec Xentry, Vediamo et DTS Monaco. Garantie 1 an.",
+  "footer_nav_title": "Navigation",
+  "footer_link_home": "Accueil",
+  "footer_link_services": "Services",
+  "footer_link_contact": "Contact",
+  "footer_legal_title": "Mentions légales",
+  "footer_link_privacy": "Politique de confidentialité",
+  "footer_link_terms": "Conditions générales",
+  "footer_copy_rest": "MBR Almería. Tous droits réservés.",
+  "footer_made": "MBR Almería - Spécialiste Mercedes-Benz",
+
+  "contact_meta_title": "Contact - MBR Almería",
+  "contact_meta_description": "Contactez MBR Almería pour demander des informations sur nos services de codage et de retrofit.",
+
+  "contact_intro": "Vous pouvez nous écrire directement via le formulaire ci-dessous, par {email} ou par {whatsapp}. Nous vous répondrons dans les meilleurs délais.",
+  "contact_intro_email_label": "email",
+  "contact_schedule": "Horaires : {schedule}",
+
+  "form_name_label": "Nom",
+  "form_name_placeholder": "Votre nom",
+  "form_email_label": "Email",
+  "form_phone_label": "Téléphone",
+  "form_model_label": "Modèle",
+  "form_model_placeholder": "Ex : C220d W205 2018",
+  "form_message_label": "Message",
+  "form_message_placeholder": "Décrivez le service dont vous avez besoin...",
+  "form_submit_btn": "Envoyer la demande",
+  "form_legal_pre": "En envoyant, vous acceptez notre",
+  "form_legal_link": "politique de confidentialité",
+
+  "services_meta_title": "Services - MBR Almería",
+  "services_meta_description": "Catalogue des services de codage et de retrofit pour Mercedes-Benz.",
+  "services_catalog_label": "Catalogue",
+  "services_title_pre": "Sélectionnez votre",
+  "services_title_em": "Mercedes-Benz",
+  "services_variants_label": "Variantes",
+  "services_available_label": "Services disponibles",
+  "services_disclaimer_1": "* Tous les modèles affichés peuvent présenter des erreurs dans leur description, ou des services et/ou variantes manquants.",
+  "services_disclaimer_2": "** Les prix indiqués correspondent à chaque service pris individuellement. Une remise sur volume s'applique pour plusieurs codages.",
+  "services_contact_cta": "Pour toute question, {link}.",
+  "services_contact_link_label": "contactez-nous",
+
+  "services_js_no_models": "Aucun modèle disponible.",
+  "services_js_no_variants": "Aucune variante disponible pour ce modèle.",
+  "services_js_no_services": "Aucun service disponible pour cette variante.",
+  "services_js_error_models": "Erreur lors du chargement des modèles.",
+  "services_js_error_variants": "Erreur lors du chargement des variantes.",
+  "services_js_error_services": "Erreur lors du chargement des services.",
+  "services_js_variants_suffix": "Variantes",
+  "services_js_price_consult": "Nous consulter",
+
+  "service_detail_404_label": "Erreur 404",
+  "service_detail_404_title": "Service introuvable",
+  "service_detail_404_title_pre": "Service",
+  "service_detail_404_title_em": "introuvable",
+  "service_detail_404_desc": "Le service demandé n'est pas disponible.",
+  "service_detail_404_text": "Ce service n'existe pas ou n'est plus disponible.",
+  "service_detail_404_btn": "Voir tous les services",
+
+  "service_detail_default_desc_pre": "Service de codage SCN et retrofit pour",
+  "service_detail_default_desc_post": "chez MBR Almería.",
+
+  "service_detail_img_alt_for": "pour",
+  "service_detail_no_image": "SANS IMAGE",
+  "service_detail_price_label": "Prix",
+  "service_detail_price_consult": "Nous consulter",
+  "service_detail_cta_interested": "Ça m'intéresse",
+  "service_detail_description_label": "Description",
+  "service_detail_compat_label": "Compatible avec",
+
+  "privacy_meta_title": "Politique de confidentialité - MBR Almería",
+  "legal_label": "Mentions légales",
+  "privacy_title_pre": "Politique de",
+  "privacy_title_em": "confidentialité",
+
+  "privacy_h1": "1. Introduction",
+  "privacy_p1": "Chez MBR Almería, nous accordons une grande importance à la protection de votre vie privée. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous utilisez notre site web, conformément au Règlement général sur la protection des données (RGPD) et à la loi organique espagnole 3/2018 relative à la protection des données personnelles et à la garantie des droits numériques (LOPDGDD).",
+
+  "privacy_h2": "2. Responsable du traitement",
+  "privacy_p2": "Le responsable du traitement de vos données personnelles est MBR Almería, domicilié à Almería, en Espagne. Pour toute question relative au traitement de vos données, vous pouvez nous contacter via le formulaire de contact disponible sur le site web ou par email à l'adresse {email}.",
+
+  "privacy_h3": "3. Informations que nous collectons",
+  "privacy_p3_intro": "Nous collectons les informations personnelles que vous nous fournissez volontairement via notre formulaire de contact, telles que :",
+  "privacy_p3_item1": "Nom.",
+  "privacy_p3_item2": "Adresse email.",
+  "privacy_p3_item3": "Téléphone (si renseigné).",
+  "privacy_p3_item4": "Données du véhicule (si renseignées).",
+  "privacy_p3_item5": "La demande en question.",
+  "privacy_p3_outro": "Nous ne collectons aucune donnée de manière automatique, hormis celles strictement nécessaires au fonctionnement technique du site.",
+
+  "privacy_h4": "4. Finalité et base juridique du traitement",
+  "privacy_p4": "Les informations collectées sont utilisées exclusivement pour répondre à vos demandes formulées via le formulaire de contact, et pour améliorer nos services. La base légale légitimant ce traitement est le consentement exprès de la personne concernée lors de l'envoi du formulaire, conformément à l'article 6.1.a du RGPD.",
+
+  "privacy_h5": "5. Durée de conservation",
+  "privacy_p5": "Vos données seront conservées pendant le temps nécessaire pour traiter votre demande et, une fois la relation terminée, pendant les délais légalement établis. Passé ce délai, les données seront supprimées de manière sécurisée.",
+
+  "privacy_h6": "6. Protection des données",
+  "privacy_p6": "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, perte ou altération. Cependant, aucune transmission de données via internet ne peut être garantie totalement sécurisée.",
+
+  "privacy_h7": "7. Absence de cession de données à des tiers",
+  "privacy_p7": "Nous ne partageons, ne vendons ni ne cédons vos informations personnelles à des tiers. Nous ne pourrons communiquer vos données qu'en cas d'obligation légale, d'ordonnance judiciaire, ou lorsque cela est nécessaire pour protéger nos droits légitimes.",
+
+  "privacy_h8": "8. Vos droits",
+  "privacy_p8": "Vous pouvez à tout moment exercer vos droits d'accès, de rectification, d'effacement, d'opposition, de portabilité et de limitation du traitement de vos données personnelles en nous contactant via le formulaire de contact ou l'adresse email indiquée. Vous avez également le droit de déposer une réclamation auprès de l'Agence espagnole de protection des données ({aepd_link}) si vous estimez que le traitement de vos données n'est pas conforme à la réglementation en vigueur.",
+
+  "privacy_h9": "9. Liens vers d'autres sites",
+  "privacy_p9": "Notre site peut contenir des liens vers d'autres sites web. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites. Nous vous recommandons de lire la politique de confidentialité de tout site que vous visitez via un lien depuis le nôtre.",
+
+  "privacy_h10": "10. Modifications de cette politique",
+  "privacy_p10": "Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment afin de l'adapter aux évolutions législatives ou de nos services. Toute modification sera publiée sur cette page et indiquera la date de la dernière mise à jour. Nous vous recommandons de la consulter régulièrement.",
+
+  "privacy_h11": "11. Loi applicable",
+  "privacy_p11": "Cette politique de confidentialité est régie par la législation espagnole et européenne en matière de protection des données. Tout litige relatif au traitement des données personnelles sera résolu conformément à cette législation, les tribunaux d'Almería étant compétents.",
+
+  "terms_meta_title": "Conditions générales - MBR Almería",
+  "terms_title_pre": "Conditions",
+  "terms_title_em": "générales",
+
+  "terms_h1": "1. Introduction",
+  "terms_p1": "Bienvenue chez MBR Almería (ci-après « nous » ou « notre site »). En accédant à notre site web et en l'utilisant, vous acceptez d'être lié par ces Conditions générales, ainsi que par notre Politique de confidentialité. Si vous n'êtes pas d'accord avec une partie de ces conditions, nous vous prions de ne pas utiliser notre site.",
+
+  "terms_h2": "2. Description du service",
+  "terms_p2": "MBR Almería propose des services spécialisés de codage, de diagnostic et de retrofit pour les véhicules Mercedes-Benz. Via notre formulaire de contact, les utilisateurs peuvent demander des informations complémentaires ou nous contacter pour obtenir plus de détails sur nos services.",
+
+  "terms_h3": "3. Devis et acceptation du service",
+  "terms_p3": "Tout travail sera précédé d'un devis détaillé communiqué au client avant le début de toute intervention. L'acceptation expresse du devis, qu'elle soit verbale, écrite ou par comportement concluant, constitue une autorisation d'exécuter les travaux convenus. MBR Almería se réserve le droit de ne débuter aucun travail sans cette acceptation préalable.",
+
+  "terms_h4": "4. Garantie",
+  "terms_p4": "Nous offrons une garantie d'1 an pour tout travail de codage ou de retrofit réalisé. La garantie couvre exclusivement les travaux exécutés par MBR Almería et n'inclut pas les dommages résultant de manipulations ultérieures par le client ou des tiers, ni de matériel non homologué installé sur le véhicule.",
+
+  "terms_h5": "5. Responsabilité",
+  "terms_p5": "Les services sont réalisés avec des outils de diagnostic officiels Mercedes-Benz. Nous déclinons toute responsabilité pour les dommages résultant de modifications antérieures non déclarées par le client, de matériel tiers installé sur le véhicule, ou d'un usage abusif des fonctions activées après le service. L'utilisation de notre site web se fait à vos propres risques. Nous ne sommes pas responsables des dommages directs, indirects, accessoires ou consécutifs résultant de l'utilisation du site ou de l'impossibilité d'y accéder.",
+
+  "terms_h6": "6. Déplacement",
+  "terms_p6": "Les services réalisés à Almería ville n'entraînent aucun frais de déplacement. Les interventions en dehors de la ville ou de la province entraîneront un supplément de déplacement, convenu au préalable avec le client et inclus dans le devis.",
+
+  "terms_h7": "7. Assistance à distance",
+  "terms_p7": "Pour l'assistance à distance, le client devra disposer du matériel nécessaire, d'une connexion internet stable et d'un logiciel d'assistance à distance (TeamViewer ou AnyDesk). Si le client ne dispose pas du logiciel de codage du véhicule, MB Retrofit Almería le fournira selon les conditions convenues.",
+
+  "terms_h8": "8. Utilisation du site",
+  "terms_p8": "En utilisant ce site, vous vous engagez à ne pas mener d'activités illégales ou interdites par ces Conditions, à ne pas porter atteinte aux droits de propriété intellectuelle de MB Retrofit Almería ou de tiers, et à ne pas utiliser notre site pour diffuser du contenu malveillant, du spam ou des virus informatiques. Nous nous réservons le droit de suspendre ou d'annuler l'accès au site en cas d'usage abusif détecté.",
+
+  "terms_h9": "9. Propriété intellectuelle",
+  "terms_p9": "Tout le contenu de ce site web, y compris les textes, graphiques, logos, images et logiciels, est protégé par le droit d'auteur et d'autres lois sur la propriété intellectuelle. Vous ne pouvez pas reproduire, distribuer, modifier ni utiliser ce contenu sans notre consentement explicite.",
+
+  "terms_h10": "10. Liens vers des tiers",
+  "terms_p10": "Notre site peut contenir des liens vers d'autres sites web. Nous ne sommes pas responsables du contenu ni des politiques de confidentialité de ces sites externes.",
+
+  "terms_h11": "11. Modifications des présentes conditions",
+  "terms_p11": "Nous nous réservons le droit de modifier ces Conditions générales à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour.",
+
+  "terms_h12": "12. Loi applicable",
+  "terms_p12": "Ces Conditions générales sont régies par les lois espagnoles. Tout litige relatif à l'utilisation du site ou à la prestation de services sera résolu devant les tribunaux d'Almería.",
+
+  "chat_aria_label": "Contact",
+  "chat_greeting": "👋 Bonjour ! Comment pouvons-nous vous aider avec votre Mercedes ?",
+  "chat_wp_button": "Discuter sur WhatsApp",
+  "chat_wp_message": "Bonjour, je souhaiterais obtenir des informations sur vos services...",
+
+  "form_error_turnstile": "Veuillez compléter la vérification de sécurité",
+  "form_error_required": "Le nom, l'email et le message sont obligatoires",
+  "form_error_generic": "Erreur lors de l'envoi",
+  "form_sending": "Envoi en cours...",
+  "form_success_title": "Demande envoyée",
+  "form_success_text": "Nous vous répondrons dans les meilleurs délais."
+}
