@@ -1,10 +1,11 @@
 const API = {
   vehicles: `${BASE_URL}/api/vehicles.php?lang=${CURRENT_LANG}`,
-  variants: (id) => `${BASE_URL}/api/variants.php?id_vehicle=${id}&lang=${CURRENT_LANG}`,
-  services: (id) => `${BASE_URL}/api/services.php?id_variant=${id}&lang=${CURRENT_LANG}`,
+  variants: (id) =>
+    `${BASE_URL}/api/variants.php?id_vehicle=${id}&lang=${CURRENT_LANG}`,
+  services: (id) =>
+    `${BASE_URL}/api/services.php?id_variant=${id}&lang=${CURRENT_LANG}`,
 };
 
-// Helpers
 function showError(container, msg) {
   container.innerHTML = `<p style="color:var(--carbon-500);font-family:var(--font-mono);font-size:.8rem;">${msg}</p>`;
 }
@@ -13,7 +14,6 @@ function imgSrc(path, folder) {
   return path ? `${BASE_URL}/img/${folder}/${path}` : null;
 }
 
-// Convierte "Coding Luces LED" -> "coding-luces-led"
 function slugify(text) {
   return (
     text
@@ -26,7 +26,6 @@ function slugify(text) {
   );
 }
 
-// Render modelos
 function renderModels(vehicles) {
   const grid = document.getElementById("modelsGrid");
   grid.innerHTML = "";
@@ -51,7 +50,6 @@ function renderModels(vehicles) {
   });
 }
 
-// Seleccionar modelo --> carga variantes
 async function selectModel(vehicle, btn) {
   document
     .querySelectorAll(".model-card")
@@ -85,7 +83,6 @@ async function selectModel(vehicle, btn) {
   }
 }
 
-// Render variantes
 function renderVariants(variants, modelName) {
   const list = document.getElementById("variantsList");
   list.innerHTML = "";
@@ -111,7 +108,6 @@ function renderVariants(variants, modelName) {
   });
 }
 
-// Seleccionar variante --> carga servicios
 async function selectVariant(variant, modelName) {
   const servicesSection = document.getElementById("servicesSection");
   servicesSection.style.display = "block";
@@ -141,7 +137,6 @@ async function selectVariant(variant, modelName) {
   }
 }
 
-// Render servicios — ahora con <a> real para SEO
 function renderServices(services, variantName) {
   const grid = document.getElementById("servicesGrid");
   grid.innerHTML = "";
@@ -154,7 +149,7 @@ function renderServices(services, variantName) {
   services.forEach((service) => {
     const item = document.createElement("a");
     item.className = "service-item";
-    item.href = `${BASE_URL}/servicio/${slugify(service.variante)}/${slugify(service.titulo)}`;
+    item.href = `${BASE_URL}/servicio/${slugify(service.variante)}/${service.slug}?lang=${CURRENT_LANG}`;
 
     const precioHTML =
       service.precio !== null
@@ -174,7 +169,6 @@ function renderServices(services, variantName) {
   });
 }
 
-// Init
 async function init() {
   const grid = document.getElementById("modelsGrid");
   try {

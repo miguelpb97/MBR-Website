@@ -64,6 +64,7 @@ function cargarServicios(int $id_variant, string $lang): array
         SELECT 
             s.id_service AS id,
             COALESCE(st.name, s.name) AS titulo,
+            s.name AS titulo_es,
             s.price AS precio,
             v.name AS variante
         FROM variant_has_service vhs
@@ -80,9 +81,49 @@ function cargarServicios(int $id_variant, string $lang): array
 
     foreach ($rows as &$row) {
         $row['precio'] = $row['precio'] !== null ? (float) $row['precio'] : null;
+        $row['slug'] = slugify($row['titulo_es']); // SIEMPRE del español, nunca de $lang
+        unset($row['titulo_es']);
     }
 
     return $rows;
+}
+
+function buscarServicioPorSlug(string $slug_variante, string $slug_servicio, string $lang): ?array
+{
+    $pdo = getDB();
+
+    $stmt = $pdo->prepare("
+        SELECT
+            s.id_service  AS id,
+            COALESCE(st.name, s.name) AS titulo,
+            COALESCE(st.description, s.description) AS descripcion,
+            s.name        AS titulo_es,
+            s.price       AS precio,
+            s.image_url   AS imagen,
+            v.id_variant  AS id_variante,
+            v.name        AS variante,
+            vh.id_vehicle AS id_modelo,
+            vh.name       AS modelo
+        FROM service s
+        JOIN variant_has_service vhs ON vhs.service_id = s.id_service
+        JOIN variant             v   ON v.id_variant   = vhs.variant_id
+        JOIN vehicle             vh  ON vh.id_vehicle  = v.vehicle_id
+        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
+        WHERE s.stock = 1
+        ORDER BY s.name ASC
+    ");
+    $stmt->execute([$lang]);
+    $rows = $stmt->fetchAll();
+
+    foreach ($rows as $row) {
+        if (slugify($row['variante']) === $slug_variante && slugify($row['titulo_es']) === $slug_servicio) {
+            $row['precio'] = $row['precio'] !== null ? (float) $row['precio'] : null;
+            // OJO: ya NO se hace unset — lo necesitamos en servicio-view.php para el canónico
+            return $row;
+        }
+    }
+
+    return null;
 }
 
 function cargarModelo(int $id, string $lang): ?array
@@ -195,70 +236,52 @@ function cargarCompatibilidad(int $id_service, string $lang): array
 
 function slugify(string $text): string
 {
-    $map = [
-        'á' => 'a',
-        'é' => 'e',
-        'í' => 'i',
-        'ó' => 'o',
-        'ú' => 'u',
-        'Á' => 'a',
-        'É' => 'e',
-        'Í' => 'i',
-        'Ó' => 'o',
-        'Ú' => 'u',
-        'ñ' => 'n',
-        'Ñ' => 'n',
-        'ü' => 'u',
-        'Ü' => 'u',
-        'ç' => 'c',
-        'Ç' => 'c',
-    ];
+    if (class_exists('Normalizer')) {
+        // Descompone (Ö -> O + diéresis combinante) y elimina las marcas diacríticas
+        $text = Normalizer::normalize($text, Normalizer::FORM_D);
+        $text = preg_replace('/\p{Mn}/u', '', $text);
+    } else {
+        // Fallback manual si no está la extensión intl, ampliado a ES/DE/FR/IT
+        $map = [
+            'á' => 'a',
+            'é' => 'e',
+            'í' => 'i',
+            'ó' => 'o',
+            'ú' => 'u',
+            'Á' => 'a',
+            'É' => 'e',
+            'Í' => 'i',
+            'Ó' => 'o',
+            'Ú' => 'u',
+            'ñ' => 'n',
+            'Ñ' => 'n',
+            'ü' => 'u',
+            'Ü' => 'u',
+            'ç' => 'c',
+            'Ç' => 'c',
+            'ä' => 'a',
+            'Ä' => 'a',
+            'ö' => 'o',
+            'Ö' => 'o',
+            'ß' => 'ss',
+            'à' => 'a',
+            'â' => 'a',
+            'è' => 'e',
+            'ê' => 'e',
+            'ë' => 'e',
+            'î' => 'i',
+            'ï' => 'i',
+            'ô' => 'o',
+            'ù' => 'u',
+            'û' => 'u',
+            'œ' => 'oe',
+        ];
+        $text = strtr($text, $map);
+    }
 
-    $text = strtr($text, $map);
     $text = strtolower($text);
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
     $text = trim($text, '-');
 
     return $text !== '' ? $text : 'servicio';
-}
-
-function buscarServicioPorSlug(string $slug_variante, string $slug_servicio, string $lang): ?array
-{
-    $pdo = getDB();
-
-    // El slug siempre se compara contra el nombre original en español
-    // (s.name), así la URL no cambia según el idioma activo.
-    // El contenido devuelto sí usa $lang (con fallback a s.name/description si falta traducción).
-    $stmt = $pdo->prepare("
-        SELECT
-            s.id_service  AS id,
-            COALESCE(st.name, s.name) AS titulo,
-            COALESCE(st.description, s.description) AS descripcion,
-            s.name        AS titulo_slug_base,
-            s.price       AS precio,
-            s.image_url   AS imagen,
-            v.id_variant  AS id_variante,
-            v.name        AS variante,
-            vh.id_vehicle AS id_modelo,
-            vh.name       AS modelo
-        FROM service s
-        JOIN variant_has_service vhs ON vhs.service_id = s.id_service
-        JOIN variant             v   ON v.id_variant   = vhs.variant_id
-        JOIN vehicle             vh  ON vh.id_vehicle  = v.vehicle_id
-        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
-        WHERE s.stock = 1
-        ORDER BY s.name ASC
-    ");
-    $stmt->execute([$lang]);
-    $rows = $stmt->fetchAll();
-
-    foreach ($rows as $row) {
-        if (slugify($row['variante']) === $slug_variante && slugify($row['titulo_slug_base']) === $slug_servicio) {
-            $row['precio'] = $row['precio'] !== null ? (float) $row['precio'] : null;
-            unset($row['titulo_slug_base']); // dato interno, no hace falta devolverlo
-            return $row;
-        }
-    }
-
-    return null;
 }

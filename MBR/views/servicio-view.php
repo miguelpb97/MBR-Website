@@ -33,6 +33,8 @@ try {
 }
 
 // --- Datos para SEO ---
+$base_path = parse_url(BASE_URL, PHP_URL_PATH) ?? '';
+
 $page_title    = $not_found
   ? t('service_detail_404_title') . ' - MBR Almería'
   : htmlspecialchars($servicio['titulo']) . ' · ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' - MBR Almería';
@@ -45,19 +47,27 @@ $page_desc     = $not_found
     : t('service_detail_default_desc_pre') . ' ' . htmlspecialchars($servicio['modelo']) . ' ' . htmlspecialchars($servicio['variante']) . ' ' . t('service_detail_default_desc_post')
   );
 
-$canonical_path = $not_found
+$canonical_path = $base_path . ($not_found
   ? '/servicios.php'
-  : '/servicio/' . slugify($servicio['variante']) . '/' . slugify($servicio['titulo']);
+  : '/servicio/' . slugify($servicio['variante']) . '/' . slugify($servicio['titulo_es']));
 
-$canonical     = 'https://' . $_SERVER['HTTP_HOST'] . $canonical_path;
+$canonical     = BASE_URL . ($not_found
+  ? '/servicios.php'
+  : '/servicio/' . slugify($servicio['variante']) . '/' . slugify($servicio['titulo_es']));
+
 $imagen_og     = (!$not_found && $servicio['imagen'])
-  ? 'https://' . $_SERVER['HTTP_HOST'] . '/img/servicios/' . htmlspecialchars($servicio['imagen'])
-  : 'https://' . $_SERVER['HTTP_HOST'] . '/img/mbr_logo_blanco_sin_fondo.png';
+  ? BASE_URL . '/img/servicios/' . htmlspecialchars($servicio['imagen'])
+  : BASE_URL . '/img/mbr_logo_blanco_sin_fondo.png';
 
 if (!$not_found) {
   $current_path = $_SERVER['REQUEST_URI'];
   if (strpos($current_path, $canonical_path) === false) {
-    header("Location: {$canonical_path}", true, 301);
+    $query = $_SERVER['QUERY_STRING'] ?? '';
+    parse_str($query, $query_params);
+    unset($query_params['variante'], $query_params['servicio']);
+    $redirect_url = $canonical_path . (!empty($query_params) ? '?' . http_build_query($query_params) : '');
+
+    header("Location: {$redirect_url}", true, 301);
     exit;
   }
 }
@@ -307,7 +317,7 @@ if (!$not_found) {
                         'wp_message' => t('chat_wp_message'),
                       ]) ?>;
   </script>
-  <script src="js/chat-widget.js"></script>
+  <script src="<?= BASE_URL ?>/js/chat-widget.js"></script>
 </body>
 
 </html>
