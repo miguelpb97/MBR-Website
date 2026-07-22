@@ -356,7 +356,7 @@ VALUES
         '¿Dudas sobre si el kilometraje de su vehículo ha sido manipulado? Te ayudamos a descubrirlo.',
         50.00,
         'service-img.png',
-        1
+        0
     ),
     (
         14,
