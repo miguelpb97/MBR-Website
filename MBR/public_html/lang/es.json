@@ -11,7 +11,7 @@
   "nav_menu_aria": "Menú",
 
   "hero_label": "Mercedes-Benz Specialist",
-  "hero_subtitle": "Especialistas en coding SCN y retrofits para Mercedes-Benz en Almería. Activación de funciones, diagnóstico con Xentry y Vediamo, y asistencia remota para toda España.",
+  "hero_subtitle": "Especialistas en coding SCN y retrofits para Mercedes-Benz en Almería. Activación de funciones, diagnóstico con Xentry y Vediamo, y asistencia remota.",
   "hero_btn_services": "Ver Servicios",
   "hero_btn_contact": "Contactar",
   "hero_scroll_text": "Scroll",
@@ -124,6 +124,7 @@
   "service_detail_img_alt_for": "para",
   "service_detail_no_image": "SIN IMAGEN",
   "service_detail_price_label": "Precio",
+  "service_tax": "IVA NO INCLUIDO",
   "service_detail_price_consult": "Consultar",
   "service_detail_cta_interested": "Me interesa",
   "service_detail_description_label": "Descripción",

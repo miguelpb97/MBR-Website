@@ -11,7 +11,7 @@
   "nav_menu_aria": "Menu",
 
   "hero_label": "Specialista Mercedes-Benz",
-  "hero_subtitle": "Specialisti in codifica SCN e retrofit per Mercedes-Benz ad Almería. Attivazione funzioni, diagnosi con Xentry e Vediamo, e assistenza remota in tutta la Spagna.",
+  "hero_subtitle": "Specialisti in codifica SCN e retrofit per Mercedes-Benz ad Almería. Attivazione funzioni, diagnosi con Xentry e Vediamo, e assistenza remota.",
   "hero_btn_services": "Vedi i servizi",
   "hero_btn_contact": "Contattaci",
   "hero_scroll_text": "Scorri",
@@ -124,6 +124,7 @@
   "service_detail_img_alt_for": "per",
   "service_detail_no_image": "NESSUNA IMMAGINE",
   "service_detail_price_label": "Prezzo",
+  "service_tax": "IVA NON INCLUSA",
   "service_detail_price_consult": "Su richiesta",
   "service_detail_cta_interested": "Sono interessato",
   "service_detail_description_label": "Descrizione",
