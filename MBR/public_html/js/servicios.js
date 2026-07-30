@@ -40,9 +40,14 @@ function renderModels(vehicles) {
     btn.className = "model-card";
     btn.dataset.id = vehicle.id_vehicle;
 
+    const imageHTML = vehicle.imagen
+      ? `<img src="img/vehiculos/${vehicle.imagen}" alt="${vehicle.nombre}" class="model-card__image" loading="lazy" />`
+      : "";
+
     btn.innerHTML = `
       <div class="model-card__line"></div>
       <div class="model-card__name">${vehicle.nombre}</div>
+      ${imageHTML}
     `;
 
     btn.addEventListener("click", () => selectModel(vehicle, btn));
@@ -96,7 +101,16 @@ function renderVariants(variants, modelName) {
     const btn = document.createElement("button");
     btn.className = "variant-btn";
     btn.dataset.id = variant.id_variant;
-    btn.textContent = variant.nombre;
+
+    const imageHTML = variant.imagen
+      ? `<img src="img/vehiculos/${variant.imagen}" alt="${variant.nombre}" class="variant-btn__image" loading="lazy" />`
+      : "";
+
+    btn.innerHTML = `
+      <span class="variant-btn__name">${variant.nombre}</span>
+      ${imageHTML}
+    `;
+
     btn.addEventListener("click", () => {
       document
         .querySelectorAll(".variant-btn")

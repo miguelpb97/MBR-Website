@@ -199,11 +199,6 @@ $translations  = load_translations($current_lang);
           <p class="tool-card__name"><?= t('tool3_name') ?></p>
           <p class="tool-card__desc"><?= t('tool3_desc') ?></p>
         </div>
-        <div class="tool-card">
-          <div class="tool-card__line"></div>
-          <p class="tool-card__name"><?= t('tool4_name') ?></p>
-          <p class="tool-card__desc"><?= t('tool4_desc') ?></p>
-        </div>
       </div>
     </div>
   </section>

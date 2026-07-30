@@ -617,7 +617,7 @@ select {
 
 .whatwedo__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
@@ -636,7 +636,7 @@ select {
 
 .tools__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
 
@@ -798,6 +798,15 @@ select {
   margin-top: 0.25rem;
 }
 
+.model-card__image {
+  display: block;
+  width: 100%;
+  max-width: 110px;
+  height: 70px;
+  object-fit: contain;
+  margin: 0.75rem auto 0;
+}
+
 /* Variantes */
 .variants__label {
   margin-bottom: 1rem;
@@ -811,6 +820,9 @@ select {
 }
 
 .variant-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0.5rem 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -821,6 +833,15 @@ select {
   background: none;
   cursor: pointer;
   transition: all var(--transition);
+}
+
+.variant-btn__image {
+  display: block;
+  width: 100%;
+  max-width: 90px;
+  height: 60px;
+  object-fit: contain;
+  margin: 0.5rem auto 0;
 }
 
 .variant-btn:hover {
@@ -1215,10 +1236,6 @@ select {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .tools__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .models__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1249,10 +1266,6 @@ select {
   .whatwedo__grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-
-  .tools__grid {
-    grid-template-columns: 1fr 1fr;
   }
 
   .services__grid {
