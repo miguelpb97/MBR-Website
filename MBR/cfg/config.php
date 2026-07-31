@@ -14,6 +14,11 @@ define('ADMIN_PASS', 'example');
 define('BASE_URL', '/MBR-Website/MBR/public_html'); // local
 // define('BASE_URL', ''); // producción
 
+/* PayPal data */
+define('PAYPAL_CLIENT_ID', 'tu_client_id');
+define('PAYPAL_CLIENT_SECRET', 'tu_client_secret');
+define('PAYPAL_MODE', 'sandbox'); // cambia a 'live' cuando esté probado
+
 /* CloudFlare */
 define('CF_SITEKEY', '1x00000000000000000000AA');
 define('CF_SECRET', '1x0000000000000000000000000000000AA');

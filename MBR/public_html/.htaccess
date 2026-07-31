@@ -6,6 +6,8 @@ RewriteRule ^index\.php$ https://www.mbretrofitalmeria.es/ [R=301,L]
 # Redirecciones de URLs antiguas a nuevas (301)
 RewriteCond %{THE_REQUEST} \s/+servicios\.php[\s?] [NC]
 RewriteRule ^servicios\.php$ /servicios [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+store\.php[\s?] [NC]
+RewriteRule ^store\.php$ /store [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+contacto\.php[\s?] [NC]
 RewriteRule ^contacto\.php$ /contacto [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+terminos-y-condiciones\.php[\s?] [NC]
@@ -17,6 +19,7 @@ RewriteRule ^servicio/([a-z0-9-]+)/([a-z0-9-]+)/?$ servicio.php?variante=$1&serv
 # URLs limpias internas
 RewriteRule ^$ index.php [QSA,L]
 RewriteRule ^servicios/?$ servicios.php [QSA,L]
+RewriteRule ^store/?$ store.php [QSA,L]
 RewriteRule ^contacto/?$ contacto.php [QSA,L]
 RewriteRule ^terminos-y-condiciones/?$ terminos-y-condiciones.php [QSA,L]
 RewriteRule ^politica-de-privacidad/?$ politica-de-privacidad.php [QSA,L]

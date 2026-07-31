@@ -285,3 +285,40 @@ function slugify(string $text): string
 
     return $text !== '' ? $text : 'servicio';
 }
+
+function cargarProductos(string $lang): array
+{
+    $pdo = getDB();
+
+    // Catálogo plano: todos los servicios en stock, sin agrupar por variante.
+    // Si un mismo servicio está ligado a varias variantes, DISTINCT evita duplicados.
+    $sql = "
+        SELECT DISTINCT
+            s.id_service AS id,
+            COALESCE(st.name, s.name) AS nombre,
+            s.price AS precio,
+            s.image_url AS imagen,
+            s.stock AS stock
+        FROM service s
+        LEFT JOIN service_translation st ON st.id_service = s.id_service AND st.lang = ?
+        WHERE s.stock = 1
+        ORDER BY nombre
+    ";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$lang]);
+    $rows = $stmt->fetchAll();
+
+    $productos = [];
+    foreach ($rows as $row) {
+        $productos[] = [
+            'id'     => $row['id'],
+            'nombre' => $row['nombre'],
+            'precio' => $row['precio'] !== null ? (float) $row['precio'] : null,
+            'imagen' => $row['imagen'],
+            'stock'  => (bool) $row['stock'],
+        ];
+    }
+
+    return $productos;
+}

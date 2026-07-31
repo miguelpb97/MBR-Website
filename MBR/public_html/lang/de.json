@@ -7,6 +7,7 @@
   "nav_home": "Startseite",
   "nav_products": "Dienstleistungen",
   "nav_contact": "Kontakt",
+  "nav_store": "Shop",
   "nav_btn_book_service": "Termin buchen",
   "nav_menu_aria": "Menü",
 
@@ -107,6 +108,32 @@
   "services_js_error_services": "Fehler beim Laden der Dienstleistungen.",
   "services_js_variants_suffix": "Varianten",
   "services_js_price_consult": "Preis auf Anfrage",
+
+  "store_meta_title": "Shop - MBR Almería",
+  "store_meta_description": "Suchen Sie Originalteile per Referenznummer oder entdecken Sie unser Aftermarket-Zubehör für Mercedes-Benz.",
+  "store_catalog_label": "Shop",
+  "store_title_pre": "Teile und",
+  "store_title_em": "Zubehör",
+  "store_tab_parts": "Originalteile",
+  "store_tab_products": "Produkte",
+
+  "parts_intro": "Suchen Sie ein Originalteil? Geben Sie uns die Referenznummer (falls vorhanden) und wir bestätigen Verfügbarkeit und Preis.",
+  "parts_input_placeholder": "Referenznummer (z. B. A2049052509)",
+  "parts_consult_btn": "Anfragen",
+
+  "products_js_no_products": "Keine Produkte verfügbar.",
+  "products_js_error": "Fehler beim Laden der Produkte.",
+  "products_out_of_stock": "Nicht auf Lager",
+  "products_add_cart_btn": "In den Warenkorb",
+  
+  "cart_title": "Warenkorb",
+  "cart_empty": "Ihr Warenkorb ist leer.",
+  "cart_total": "Gesamt",
+  "cart_close": "Warenkorb schließen",
+  "cart_remove": "Entfernen",
+  "cart_processing": "Wird bearbeitet...",
+  "cart_checkout_error": "Die Zahlung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+  "cart_success": "Zahlung erfolgreich! Wir melden uns in Kürze bei Ihnen, um Ihre Bestellung zu bearbeiten.",
 
   "service_detail_404_label": "Fehler 404",
   "service_detail_404_title": "Dienstleistung nicht gefunden",

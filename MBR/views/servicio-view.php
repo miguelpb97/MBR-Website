@@ -139,6 +139,7 @@ if (!$not_found) {
         <a href="<?= BASE_URL ?>/index.php" class="navbar__link"><?= t('nav_home') ?></a>
         <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
         <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
+        <a href="<?= BASE_URL ?>/store.php" class="navbar__link"><?= t('nav_store') ?></a>
         <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
           <?php foreach (get_available_languages() as $l): ?>
@@ -160,6 +161,7 @@ if (!$not_found) {
     <a href="<?= BASE_URL ?>/index.php" class="navbar__link"><?= t('nav_home') ?></a>
     <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
     <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
+    <a href="<?= BASE_URL ?>/store.php" class="navbar__link"><?= t('nav_store') ?></a>
     <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
     <div class="navbar__lang">
@@ -290,6 +292,7 @@ if (!$not_found) {
             <a href="<?= BASE_URL ?>/index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="<?= BASE_URL ?>/servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
             <a href="<?= BASE_URL ?>/contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
+            <a href="<?= BASE_URL ?>/store.php" class="footer__link"><?= t('nav_store') ?></a>
           </div>
         </div>
         <div>

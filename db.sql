@@ -57,6 +57,34 @@ CREATE TABLE
         CONSTRAINT `fk_vhi_variant` FOREIGN KEY (`variant_id`) REFERENCES `variant` (`id_variant`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
+-- Pedidos generados desde el carrito de la store
+CREATE TABLE
+    customer_order (
+        id_order INT AUTO_INCREMENT PRIMARY KEY,
+        paypal_order_id VARCHAR(64) UNIQUE,
+        customer_name VARCHAR(150),
+        customer_email VARCHAR(150),
+        status VARCHAR(20) NOT NULL DEFAULT 'pending', -- pending, paid, failed, cancelled
+        total DECIMAL(10, 2) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        paid_at TIMESTAMP NULL
+    );
+
+-- Líneas del pedido. Referencia a tu tabla `service` (los productos salen de ahí).
+-- Se guarda nombre_snapshot y unit_price por si el servicio cambia de nombre/precio
+-- más adelante — el pedido histórico no debe cambiar retroactivamente.
+CREATE TABLE
+    order_item (
+        id_order_item INT AUTO_INCREMENT PRIMARY KEY,
+        id_order INT NOT NULL,
+        id_service INT NOT NULL,
+        nombre_snapshot VARCHAR(150) NOT NULL,
+        quantity INT NOT NULL DEFAULT 1,
+        unit_price DECIMAL(10, 2) NOT NULL,
+        FOREIGN KEY (id_order) REFERENCES customer_order (id_order) ON DELETE CASCADE,
+        FOREIGN KEY (id_service) REFERENCES service (id_service)
+    );
+
 -- Traducciones de vehículos (Clase A, Clase C...)
 CREATE TABLE
     IF NOT EXISTS `vehicle_translation` (
@@ -362,7 +390,7 @@ VALUES
         14,
         'Diagnóstico básico',
         'Lectura y/o borrado de fallos.',
-        35.00,
+        NULL,
         'service-img.png',
         1
     ),
@@ -545,18 +573,18 @@ VALUES
     (
         40,
         'Pack coding básico',
-        'Pack de coding básico para modelos en los que la cantidad de servicios de coding es muy reducida.',
-        150.00,
+        '5 codings a elegir para su vehículo, menos el menú AMG.',
+        100.00,
         'service-img.png',
-        0
+        1
     ),
     (
         41,
         'Pack coding avanzado',
-        'Pack de coding avanzado para modelos en los que la cantidad de servicios de coding es más amplia.',
-        200.00,
+        'Todos los codings posibles para su vehículo, incluyendo el menú AMG.',
+        180.00,
         'service-img.png',
-        0
+        1
     ),
     (
         42,

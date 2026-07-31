@@ -6,6 +6,7 @@
 
   "nav_home": "Inicio",
   "nav_products": "Servicios",
+  "nav_store": "Tienda",
   "nav_contact": "Contacto",
   "nav_btn_book_service": "Pedir Cita",
   "nav_menu_aria": "Menú",
@@ -108,6 +109,32 @@
   "services_js_variants_suffix": "Variantes",
   "services_js_price_consult": "Consultar",
 
+  "store_meta_title": "Tienda - MBR Almería",
+  "store_meta_description": "Busca repuestos originales por referencia o descubre nuestros accesorios y piezas aftermarket para Mercedes-Benz.",
+  "store_catalog_label": "Tienda",
+  "store_title_pre": "Repuestos y",
+  "store_title_em": "accesorios",
+  "store_tab_parts": "Repuestos originales",
+  "store_tab_products": "Productos",
+
+  "parts_intro": "¿Buscas una pieza original? Indícanos la referencia (si la tienes) y te confirmamos disponibilidad y precio.",
+  "parts_input_placeholder": "Número de referencia (ej: A2049052509)",
+  "parts_consult_btn": "Consultar",
+
+  "products_js_no_products": "No hay productos disponibles.",
+  "products_js_error": "Error al cargar los productos.",
+  "products_add_cart_btn": "Añadir al carrito",
+  "products_out_of_stock": "Agotado",
+
+  "cart_title": "Carrito",
+  "cart_empty": "Tu carrito está vacío.",
+  "cart_total": "Total",
+  "cart_close": "Cerrar carrito",
+  "cart_remove": "Quitar",
+  "cart_processing": "Procesando...",
+  "cart_checkout_error": "No se pudo completar el pago. Inténtalo de nuevo.",
+  "cart_success": "¡Pago realizado! Te contactaremos en breve para gestionar tu pedido.",
+
   "service_detail_404_label": "Error 404",
   "service_detail_404_title": "Servicio no encontrado",
   "service_detail_404_title_pre": "Servicio",
@@ -171,7 +198,7 @@
 
   "privacy_h11": "11. Ley aplicable",
   "privacy_p11": "Esta Política de Privacidad se rige por la legislación española y europea en materia de protección de datos. Cualquier disputa relacionada con el tratamiento de datos personales será resuelta conforme a dicha legislación, siendo competentes los tribunales de Almería.",
-  
+
   "terms_meta_title": "Términos y Condiciones - MBR Almería",
   "terms_title_pre": "Términos y",
   "terms_title_em": "condiciones",
@@ -215,7 +242,7 @@
   "chat_greeting": "👋 ¡Hola! ¿En qué podemos ayudarte con tu Mercedes?",
   "chat_wp_button": "Chatear por WhatsApp",
   "chat_wp_message": "Hola, me interesaría obtener información sobre vuestros servicios...",
-  
+
   "form_error_turnstile": "Completa la verificación de seguridad",
   "form_error_required": "Nombre, email y mensaje son obligatorios",
   "form_error_generic": "Error al enviar",
