@@ -1319,6 +1319,15 @@ select {
   border-top: 1px solid var(--carbon-800);
 }
 
+.cart-drawer__row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--carbon-400);
+  margin-bottom: 0.4rem;
+}
+
 .cart-drawer__total {
   display: flex;
   justify-content: space-between;

@@ -56,9 +56,14 @@ if (empty($lineItems)) {
     exit;
 }
 
-$total = round($total, 2);
+$subtotal = round($total, 2);
 
-// 1. Creamos el pedido en PayPal
+// IVA_RATE debe coincidir con la constante del mismo nombre en js/cart.js
+$ivaRate = defined('IVA_RATE') ? IVA_RATE : 0.21;
+$iva = round($subtotal * $ivaRate, 2);
+$totalConIva = round($subtotal + $iva, 2);
+
+// 1. Creamos el pedido en PayPal (se cobra el importe CON IVA)
 $paypalItems = array_map(fn($li) => [
     'name'        => mb_substr($li['nombre'], 0, 127),
     'quantity'    => (string) $li['quantity'],
@@ -70,9 +75,10 @@ $paypalOrderPayload = [
     'purchase_units' => [[
         'amount' => [
             'currency_code' => 'EUR',
-            'value' => number_format($total, 2, '.', ''),
+            'value' => number_format($totalConIva, 2, '.', ''),
             'breakdown' => [
-                'item_total' => ['currency_code' => 'EUR', 'value' => number_format($total, 2, '.', '')],
+                'item_total' => ['currency_code' => 'EUR', 'value' => number_format($subtotal, 2, '.', '')],
+                'tax_total'  => ['currency_code' => 'EUR', 'value' => number_format($iva, 2, '.', '')],
             ],
         ],
         'items' => $paypalItems,
@@ -93,10 +99,10 @@ $paypalOrderId = $result['body']['id'];
 $pdo->beginTransaction();
 
 $stmt = $pdo->prepare("
-    INSERT INTO customer_order (paypal_order_id, status, total)
-    VALUES (?, 'pending', ?)
+    INSERT INTO customer_order (paypal_order_id, status, subtotal, tax, total)
+    VALUES (?, 'pending', ?, ?, ?)
 ");
-$stmt->execute([$paypalOrderId, $total]);
+$stmt->execute([$paypalOrderId, $subtotal, $iva, $totalConIva]);
 $idOrder = $pdo->lastInsertId();
 
 $stmtItem = $pdo->prepare("

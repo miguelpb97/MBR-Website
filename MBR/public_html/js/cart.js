@@ -1,4 +1,5 @@
 const CART_KEY = "mbr_cart";
+const IVA_RATE = 0.21; // 21% España — si cambia, actualízalo también en api/paypal-create-order.php
 
 function getCart() {
   try {
@@ -50,8 +51,14 @@ function changeQty(id, delta) {
   }
 }
 
-function cartTotal(cart) {
-  return cart.reduce((sum, i) => sum + i.precio * i.qty, 0);
+function cartTotals(cart) {
+  const subtotal = cart.reduce((sum, i) => sum + i.precio * i.qty, 0);
+  const iva = subtotal * IVA_RATE;
+  return {
+    subtotal: Math.round(subtotal * 100) / 100,
+    iva: Math.round(iva * 100) / 100,
+    total: Math.round((subtotal + iva) * 100) / 100,
+  };
 }
 
 function formatPrice(n) {
@@ -63,6 +70,8 @@ function renderCart() {
   const cart = getCart();
   const badge = document.getElementById("cartBadge");
   const itemsEl = document.getElementById("cartItems");
+  const subtotalEl = document.getElementById("cartSubtotal");
+  const ivaEl = document.getElementById("cartIva");
   const totalEl = document.getElementById("cartTotal");
   const payPalContainer = document.getElementById("paypal-button-container");
 
@@ -72,6 +81,8 @@ function renderCart() {
 
   if (!cart.length) {
     itemsEl.innerHTML = `<p class="cart-drawer__empty">${I18N.cart_empty}</p>`;
+    subtotalEl.textContent = formatPrice(0);
+    ivaEl.textContent = formatPrice(0);
     totalEl.textContent = formatPrice(0);
     payPalContainer.style.display = "none";
     return;
@@ -83,7 +94,7 @@ function renderCart() {
     .map(
       (item) => `
     <div class="cart-item">
-      ${item.imagen ? `<img src="img/servicios/${item.imagen}" alt="${item.nombre}" class="cart-item__image" loading="lazy" />` : ""}
+      ${item.imagen ? `<img src="img/${item.imagen}" alt="${item.nombre}" class="cart-item__image" loading="lazy" />` : ""}
       <div class="cart-item__info">
         <span class="cart-item__name">${item.nombre}</span>
         <span class="cart-item__price">${formatPrice(item.precio)}</span>
@@ -99,7 +110,10 @@ function renderCart() {
     )
     .join("");
 
-  totalEl.textContent = formatPrice(cartTotal(cart));
+  const totals = cartTotals(cart);
+  subtotalEl.textContent = formatPrice(totals.subtotal);
+  ivaEl.textContent = formatPrice(totals.iva);
+  totalEl.textContent = formatPrice(totals.total);
 }
 
 /* ---------- Drawer open/close ---------- */

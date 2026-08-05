@@ -130,6 +130,14 @@ $translations  = load_translations($current_lang);
     <div class="cart-drawer__items" id="cartItems"></div>
 
     <div class="cart-drawer__footer">
+      <div class="cart-drawer__row">
+        <span><?= t('cart_subtotal') ?></span>
+        <span id="cartSubtotal">0,00 €</span>
+      </div>
+      <div class="cart-drawer__row">
+        <span><?= t('cart_iva') ?></span>
+        <span id="cartIva">0,00 €</span>
+      </div>
       <div class="cart-drawer__total">
         <span><?= t('cart_total') ?></span>
         <span id="cartTotal">0,00 €</span>

@@ -65,7 +65,9 @@ CREATE TABLE
         customer_name VARCHAR(150),
         customer_email VARCHAR(150),
         status VARCHAR(20) NOT NULL DEFAULT 'pending', -- pending, paid, failed, cancelled
-        total DECIMAL(10, 2) NOT NULL,
+        subtotal DECIMAL(10, 2) NOT NULL, -- suma de líneas, sin IVA
+        tax DECIMAL(10, 2) NOT NULL, -- IVA calculado sobre el subtotal
+        total DECIMAL(10, 2) NOT NULL, -- subtotal + tax, es lo que se cobra en PayPal
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         paid_at TIMESTAMP NULL
     );
@@ -84,6 +86,13 @@ CREATE TABLE
         FOREIGN KEY (id_order) REFERENCES customer_order (id_order) ON DELETE CASCADE,
         FOREIGN KEY (id_service) REFERENCES service (id_service)
     );
+
+-- Si ya habías creado customer_order ANTES de tener el IVA
+-- (con solo la columna `total`), ejecuta esto en vez de recrear la tabla:
+--
+ALTER TABLE customer_order
+ADD COLUMN subtotal DECIMAL(10, 2) NOT NULL DEFAULT 0 AFTER status,
+ADD COLUMN tax DECIMAL(10, 2) NOT NULL DEFAULT 0 AFTER subtotal;
 
 -- Traducciones de vehículos (Clase A, Clase C...)
 CREATE TABLE
