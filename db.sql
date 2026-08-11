@@ -447,7 +447,7 @@ VALUES
         20,
         'Coding Activación de Apple CarPlay/Android Auto',
         'Activamos dicha función si tu unidad NTG es compatible.',
-        50.00,
+        NULL,
         'service-img.png',
         1
     ),
