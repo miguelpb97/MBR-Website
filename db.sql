@@ -57,43 +57,6 @@ CREATE TABLE
         CONSTRAINT `fk_vhi_variant` FOREIGN KEY (`variant_id`) REFERENCES `variant` (`id_variant`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Pedidos generados desde el carrito de la store
-CREATE TABLE
-    customer_order (
-        id_order INT AUTO_INCREMENT PRIMARY KEY,
-        paypal_order_id VARCHAR(64) UNIQUE,
-        customer_name VARCHAR(150),
-        customer_email VARCHAR(150),
-        status VARCHAR(20) NOT NULL DEFAULT 'pending', -- pending, paid, failed, cancelled
-        subtotal DECIMAL(10, 2) NOT NULL, -- suma de líneas, sin IVA
-        tax DECIMAL(10, 2) NOT NULL, -- IVA calculado sobre el subtotal
-        total DECIMAL(10, 2) NOT NULL, -- subtotal + tax, es lo que se cobra en PayPal
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        paid_at TIMESTAMP NULL
-    );
-
--- Líneas del pedido. Referencia a tu tabla `service` (los productos salen de ahí).
--- Se guarda nombre_snapshot y unit_price por si el servicio cambia de nombre/precio
--- más adelante — el pedido histórico no debe cambiar retroactivamente.
-CREATE TABLE
-    order_item (
-        id_order_item INT AUTO_INCREMENT PRIMARY KEY,
-        id_order INT NOT NULL,
-        id_service INT NOT NULL,
-        nombre_snapshot VARCHAR(150) NOT NULL,
-        quantity INT NOT NULL DEFAULT 1,
-        unit_price DECIMAL(10, 2) NOT NULL,
-        FOREIGN KEY (id_order) REFERENCES customer_order (id_order) ON DELETE CASCADE,
-        FOREIGN KEY (id_service) REFERENCES service (id_service)
-    );
-
--- Si ya habías creado customer_order ANTES de tener el IVA
--- (con solo la columna `total`), ejecuta esto en vez de recrear la tabla:
---
-ALTER TABLE customer_order
-ADD COLUMN subtotal DECIMAL(10, 2) NOT NULL DEFAULT 0 AFTER status,
-ADD COLUMN tax DECIMAL(10, 2) NOT NULL DEFAULT 0 AFTER subtotal;
-
 -- Traducciones de vehículos (Clase A, Clase C...)
 CREATE TABLE
     IF NOT EXISTS `vehicle_translation` (
@@ -399,7 +362,7 @@ VALUES
         14,
         'Diagnóstico básico',
         'Lectura y/o borrado de fallos.',
-        NULL,
+        35.00,
         'service-img.png',
         1
     ),
@@ -582,18 +545,18 @@ VALUES
     (
         40,
         'Pack coding básico',
-        '5 codings a elegir para su vehículo, menos el menú AMG.',
-        100.00,
+        'Pack de coding básico para modelos en los que la cantidad de servicios de coding es muy reducida.',
+        150.00,
         'service-img.png',
-        1
+        0
     ),
     (
         41,
         'Pack coding avanzado',
-        'Todos los codings posibles para su vehículo, incluyendo el menú AMG.',
-        180.00,
+        'Pack de coding avanzado para modelos en los que la cantidad de servicios de coding es más amplia.',
+        200.00,
         'service-img.png',
-        1
+        0
     ),
     (
         42,

@@ -35,7 +35,6 @@ $translations  = load_translations($current_lang);
         <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
         <a href="servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
         <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
-        <a href="store.php" class="navbar__link"><?= t('nav_store') ?></a>
         <a href="contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
           <?php foreach (get_available_languages() as $l): ?>
@@ -57,7 +56,6 @@ $translations  = load_translations($current_lang);
     <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
     <a href="servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
     <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
-    <a href="store.php" class="navbar__link"><?= t('nav_store') ?></a>
     <a href="contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
     <div class="navbar__lang">
@@ -111,8 +109,7 @@ $translations  = load_translations($current_lang);
     </div>
     <p style="padding-top: 4rem" class="content-justification-center text-align-center hero__subtitle">
       <?= t('services_disclaimer_1') ?><br>
-      <?= t('services_disclaimer_2') ?><br>
-      <?= t('services_disclaimer_3') ?><br><br>
+      <?= t('services_disclaimer_2') ?><br><br>
       <?= t_html('services_contact_cta', [
         '{link}' => '<a href="contacto.php" style="color: var(--accent-400)">' . t('services_contact_link_label') . '</a>',
       ]) ?>
@@ -133,7 +130,6 @@ $translations  = load_translations($current_lang);
             <a href="index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
             <a href="contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
-            <a href="store.php" class="footer__link"><?= t('nav_store') ?></a>
           </div>
         </div>
         <div>
