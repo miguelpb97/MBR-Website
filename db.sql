@@ -1,4 +1,3 @@
--- DESMARCA LA CASILLA "Habilite la revision de las claves foraneas"
 -- Tabla consultas
 CREATE TABLE
     IF NOT EXISTS `consultas` (
@@ -41,6 +40,7 @@ CREATE TABLE
         `name` VARCHAR(80) NOT NULL,
         `image_url` VARCHAR(100) NULL,
         `vehicle_id` INT NOT NULL,
+        `visible` TINYINT (1) DEFAULT 0,
         PRIMARY KEY (`id_variant`),
         INDEX (`vehicle_id`),
         CONSTRAINT `fk_variant_vehicle` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`id_vehicle`)
@@ -67,15 +67,6 @@ CREATE TABLE
         CONSTRAINT `fk_vt_vehicle` FOREIGN KEY (`id_vehicle`) REFERENCES `vehicle` (`id_vehicle`) ON DELETE CASCADE
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
-INSERT INTO
-    vehicle_translation (id_vehicle, lang, name)
-SELECT
-    id_vehicle,
-    'es',
-    name
-FROM
-    vehicle;
-
 -- Traducciones de servicios (nombre + descripción)
 CREATE TABLE
     IF NOT EXISTS `service_translation` (
@@ -86,16 +77,6 @@ CREATE TABLE
         PRIMARY KEY (`id_service`, `lang`),
         CONSTRAINT `fk_st_service` FOREIGN KEY (`id_service`) REFERENCES `service` (`id_service`) ON DELETE CASCADE
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
-
-INSERT INTO
-    service_translation (id_service, lang, name, description)
-SELECT
-    id_service,
-    'es',
-    name,
-    description
-FROM
-    service;
 
 -- Vehiculos (id_vehicle, name, image_url)
 INSERT INTO
@@ -127,121 +108,143 @@ VALUES
     (1, 'de', 'A-Klasse'),
     (1, 'fr', 'Classe A'),
     (1, 'it', 'Classe A'),
+    (1, 'pt', 'Classe A'),
     -- Clase B
     (2, 'en', 'B-Class'),
     (2, 'de', 'B-Klasse'),
     (2, 'fr', 'Classe B'),
     (2, 'it', 'Classe B'),
+    (2, 'pt', 'Classe B'),
     -- Clase C
     (3, 'en', 'C-Class'),
     (3, 'de', 'C-Klasse'),
     (3, 'fr', 'Classe C'),
     (3, 'it', 'Classe C'),
+    (3, 'pt', 'Classe C'),
     -- Clase CLA
     (4, 'en', 'CLA-Class'),
     (4, 'de', 'CLA-Klasse'),
     (4, 'fr', 'Classe CLA'),
     (4, 'it', 'Classe CLA'),
+    (4, 'pt', 'Classe CLA'),
     -- Clase CLK
     (5, 'en', 'CLK-Class'),
     (5, 'de', 'CLK-Klasse'),
     (5, 'fr', 'Classe CLK'),
     (5, 'it', 'Classe CLK'),
+    (5, 'pt', 'Classe CLK'),
     -- Clase CLS
     (6, 'en', 'CLS-Class'),
     (6, 'de', 'CLS-Klasse'),
     (6, 'fr', 'Classe CLS'),
     (6, 'it', 'Classe CLS'),
+    (6, 'pt', 'Classe CLS'),
     -- Clase E
     (7, 'en', 'E-Class'),
     (7, 'de', 'E-Klasse'),
     (7, 'fr', 'Classe E'),
     (7, 'it', 'Classe E'),
+    (7, 'pt', 'Classe E'),
     -- Clase G
     (8, 'en', 'G-Class'),
     (8, 'de', 'G-Klasse'),
     (8, 'fr', 'Classe G'),
     (8, 'it', 'Classe G'),
+    (8, 'pt', 'Classe G'),
     -- Clase GLA
     (9, 'en', 'GLA-Class'),
     (9, 'de', 'GLA-Klasse'),
     (9, 'fr', 'Classe GLA'),
     (9, 'it', 'Classe GLA'),
+    (9, 'pt', 'Classe GLA'),
     -- Clase M
     (10, 'en', 'M-Class'),
     (10, 'de', 'M-Klasse'),
     (10, 'fr', 'Classe M'),
     (10, 'it', 'Classe M'),
+    (10, 'pt', 'Classe M'),
     -- Clase ML
     (11, 'en', 'ML-Class'),
     (11, 'de', 'ML-Klasse'),
     (11, 'fr', 'Classe ML'),
     (11, 'it', 'Classe ML'),
+    (11, 'pt', 'Classe ML'),
     -- Clase R
     (12, 'en', 'R-Class'),
     (12, 'de', 'R-Klasse'),
     (12, 'fr', 'Classe R'),
     (12, 'it', 'Classe R'),
+    (12, 'pt', 'Classe R'),
     -- Clase S
     (13, 'en', 'S-Class'),
     (13, 'de', 'S-Klasse'),
     (13, 'fr', 'Classe S'),
     (13, 'it', 'Classe S'),
+    (13, 'pt', 'Classe S'),
     -- Clase SLK
     (14, 'en', 'SLK-Class'),
     (14, 'de', 'SLK-Klasse'),
     (14, 'fr', 'Classe SLK'),
     (14, 'it', 'Classe SLK'),
+    (14, 'pt', 'Classe SLK'),
     -- Clase SL
     (15, 'en', 'SL-Class'),
     (15, 'de', 'SL-Klasse'),
     (15, 'fr', 'Classe SL'),
     (15, 'it', 'Classe SL'),
+    (15, 'pt', 'Classe SL'),
     -- Clase V
     (16, 'en', 'V-Class'),
     (16, 'de', 'V-Klasse'),
     (16, 'fr', 'Classe V'),
-    (16, 'it', 'Classe V');
+    (16, 'it', 'Classe V'),
+    (16, 'pt', 'Classe V');
 
--- Variantes (id_variant, name, image_url, vehicle_id)
+-- Variantes (id_variant, name, image_url, vehicle_id, visible)
 INSERT INTO
-    `variant` (`id_variant`, `name`, `image_url`, `vehicle_id`)
+    `variant` (
+        `id_variant`,
+        `name`,
+        `image_url`,
+        `vehicle_id`,
+        `visible`
+    )
 VALUES
-    (1, 'W176 Pre-facelift', 'W176PF.png', 1),
-    (2, 'W176 Facelift', 'W176FL.png', 1),
-    (3, 'W177 Pre-facelift', 'W177PF.png', 1),
-    (4, 'W246 Pre-facelift', 'W246PF.png', 2),
-    (5, 'W246 Facelift', 'W246FL.png', 2),
-    (6, 'W247 Pre-facelift', 'W247PF.png', 2),
-    (7, 'W203/S203', 'W203.png', 3),
-    (8, 'W204/S204/X204', 'W204.png', 3),
-    (9, 'W204/S204/X204 Facelift', 'W204FL.png', 3),
-    (10, 'W205/S205/X253', 'W205.png', 3),
-    (11, 'C117/X117 Pre-facelift', 'C117PF.png', 4),
-    (12, 'C117/X117 Facelift', 'C117FL.png', 4),
-    (13, 'C118/X118 Pre-facelift', 'C118PF.png', 4),
-    (14, 'W209', 'W209.png', 5),
-    (15, 'W219/C219', 'W219.png', 6),
-    (16, 'W218/C218', 'W218.png', 6),
-    (17, 'W211/S211', 'W211.png', 7),
-    (18, 'W212/S212/A207/C207', 'W212.png', 7),
-    (19, 'W212 Facelift', 'W212FL.png', 7),
-    (20, 'W213', 'W213.png', 7),
-    (21, 'W213 Facelift', 'W213FL.png', 7),
-    (22, 'W463', 'W463.png', 8),
-    (23, 'X156 Pre-facelift', 'X156PF.png', 9),
-    (24, 'X156 Facelift', 'X156FL.png', 9),
-    (25, 'X157 Pre-facelift', 'X157PF.png', 9),
-    (26, 'W164/X164', 'X164.png', 10),
-    (27, 'W166/X166', 'W166.png', 11),
-    (28, 'W251', 'W251.png', 12),
-    (29, 'S221/W216', 'S221.png', 13),
-    (30, 'S222/W217', 'W222.png', 13),
-    (31, 'R171', 'R171.png', 14),
-    (32, 'R172', 'R172.png', 14),
-    (33, 'R230', 'R230.png', 15),
-    (34, 'R231', 'R231.png', 15),
-    (35, 'W447', 'W447.png', 16);
+    (1, 'W176 Pre-facelift', 'W176PF.png', 1, 1),
+    (2, 'W176 Facelift', 'W176FL.png', 1, 1),
+    (3, 'W177 Pre-facelift', 'W177PF.png', 1, 1),
+    (4, 'W246 Pre-facelift', 'W246PF.png', 2, 1),
+    (5, 'W246 Facelift', 'W246FL.png', 2, 1),
+    (6, 'W247 Pre-facelift', 'W247PF.png', 2, 1),
+    (7, 'W203/S203', 'W203.png', 3, 1),
+    (8, 'W204/S204/X204', 'W204.png', 3, 1),
+    (9, 'W204/S204/X204 Facelift', 'W204FL.png', 3, 1),
+    (10, 'W205/S205/X253', 'W205.png', 3, 1),
+    (11, 'C117/X117 Pre-facelift', 'C117PF.png', 4, 1),
+    (12, 'C117/X117 Facelift', 'C117FL.png', 4, 1),
+    (13, 'C118/X118 Pre-facelift', 'C118PF.png', 4, 1),
+    (14, 'W209', 'W209.png', 5, 1),
+    (15, 'W219/C219', 'W219.png', 6, 1),
+    (16, 'W218/C218', 'W218.png', 6, 1),
+    (17, 'W211/S211', 'W211.png', 7, 1),
+    (18, 'W212/S212/A207/C207', 'W212.png', 7, 1),
+    (19, 'W212 Facelift', 'W212FL.png', 7, 1),
+    (20, 'W213', 'W213.png', 7, 1),
+    (21, 'W213 Facelift', 'W213FL.png', 7, 0),
+    (22, 'W463', 'W463.png', 8, 1),
+    (23, 'X156 Pre-facelift', 'X156PF.png', 9, 1),
+    (24, 'X156 Facelift', 'X156FL.png', 9, 1),
+    (25, 'X157 Pre-facelift', 'X157PF.png', 9, 1),
+    (26, 'W164/X164', 'X164.png', 10, 1),
+    (27, 'W166/X166', 'W166.png', 11, 1),
+    (28, 'W251', 'W251.png', 12, 1),
+    (29, 'S221/W216', 'S221.png', 13, 1),
+    (30, 'S222/W217', 'W222.png', 13, 1),
+    (31, 'R171', 'R171.png', 14, 1),
+    (32, 'R172', 'R172.png', 14, 1),
+    (33, 'R230', 'R230.png', 15, 1),
+    (34, 'R231', 'R231.png', 15, 1),
+    (35, 'W447', 'W447.png', 16, 1);
 
 -- Servicios (id_service, name, descripcion, price, image_url, stock) 
 INSERT INTO
@@ -416,8 +419,8 @@ VALUES
     ),
     (
         21,
-        'Coding Alargar tiempo luces de bienvenida',
-        'Alargamos la duración de dicha animación a 8 segundos (tiempo personalizable).',
+        'Coding Welcome Home',
+        'Activamos la luz de bienvenida en vehículos con faros LED(luz de posicion de color azul durante X segundos al desbloquear) El tiempo es personalizable.',
         30.00,
         'service-img.png',
         1
@@ -460,7 +463,7 @@ VALUES
         'El cuadro de instrumentos mostrará la cantidad de litros de combustible restantes en el depósito.',
         30.00,
         'service-img.png',
-        1
+        0
     ),
     (
         28,
@@ -610,15 +613,39 @@ VALUES
         48,
         'Coding Renovar cuadro de instrumentos',
         'Si has instalado un cuadro de instrumentos usado, te ayudamos a virginizarlo y emparejarlo con la EZS.',
-        130.00,
+        NULL,
         'service-img.png',
-        1
+        0
     ),
     (
         49,
         'Coding Menú AMG en cuadro de instrumentos',
         'Codificamos el menú AMG en tu cuadro de instrumentos.',
-        100.00,
+        NULL,
+        'service-img.png',
+        1
+    ),
+    (
+        50,
+        'Coding Visualizar Litros/galones de combustible',
+        'Hacemos que tu cuadro de instrumentos visualice litros/galones de combustible en vez de porcentaje.',
+        30.00,
+        'service-img.png',
+        1
+    ),
+    (
+        51,
+        'Coding Coming Home',
+        'Al desbloquear el vehículo, se encienderán las luces cortas y de posición para una mejor visibilidad.',
+        30.00,
+        'service-img.png',
+        1
+    ),
+    (
+        52,
+        'Coding Realidad aumentada permanente',
+        'Hacemos que la realidad aumentada se muestre permanentemente.',
+        50.00,
         'service-img.png',
         1
     );
@@ -902,6 +929,24 @@ VALUES
         'en',
         'Coding AMG Menu in Instrument Cluster',
         'We code the AMG menu into your instrument cluster.'
+    ),
+    (
+        50,
+        'en',
+        'Coding Fuel Display Liters/Gallons',
+        'We make your instrument cluster display fuel in liters/gallons instead of percentage.'
+    ),
+    (
+        51,
+        'en',
+        'Coding Coming Home',
+        'When unlocking the vehicle, the low beam and position lights will turn on for better visibility.'
+    ),
+    (
+        52,
+        'en',
+        'Coding Permanent Augmented Reality',
+        'We make the augmented reality display permanent.'
     );
 
 -- Servicios DEUTSCH
@@ -1183,6 +1228,24 @@ VALUES
         'de',
         'Codierung AMG-Menü im Kombiinstrument',
         'Wir codieren das AMG-Menü in Ihrem Kombiinstrument.'
+    ),
+    (
+        50,
+        'de',
+        'Codierung Anzeige Liter/Gallonen Kraftstoff',
+        'Wir stellen dein Kombiinstrument so um, dass der Kraftstoff in Liter/Gallonen statt in Prozent angezeigt wird.'
+    ),
+    (
+        51,
+        'de',
+        'Codierung Coming Home',
+        'Beim Entriegeln des Fahrzeugs schalten sich das Abblendlicht und die Standlichter für eine bessere Sicht ein.'
+    ),
+    (
+        52,
+        'de',
+        'Codierung Permanente Augmented Reality',
+        'Wir stellen die Augmented-Reality-Anzeige so ein, dass sie dauerhaft angezeigt wird.'
     );
 
 -- Servicios FRANÇAIS
@@ -1464,6 +1527,24 @@ VALUES
         'fr',
         'Codage Menu AMG dans le combiné d''instruments',
         'Nous codons le menu AMG dans votre combiné d''instruments.'
+    ),
+    (
+        50,
+        'fr',
+        'Codage Affichage Litres/Gallons de carburant',
+        'Nous configurons votre tableau de bord pour afficher le carburant en litres/gallons au lieu du pourcentage.'
+    ),
+    (
+        51,
+        'fr',
+        'Codage Coming Home',
+        'Lors du déverrouillage du véhicule, les feux de croisement et de position s''allumeront pour une meilleure visibilité.'
+    ),
+    (
+        52,
+        'fr',
+        'Codage Réalité augmentée permanente',
+        'Nous configurons l''affichage de la réalité augmentée pour qu''il soit permanent.'
     );
 
 -- Servicios ITALIANO
@@ -1745,6 +1826,323 @@ VALUES
         'it',
         'Codifica Menu AMG nel quadro strumenti',
         'Codifichiamo il menu AMG nel tuo quadro strumenti.'
+    ),
+    (
+        50,
+        'it',
+        'Codifica Visualizzazione Litri/Galloni carburante',
+        'Facciamo in modo che il tuo cruscotto visualizzi il carburante in litri/galloni invece che in percentuale.'
+    ),
+    (
+        51,
+        'it',
+        'Codifica Coming Home',
+        'Allo sblocco del veicolo, si accenderanno gli anabbaglianti e le luci di posizione per una migliore visibilità.'
+    ),
+    (
+        52,
+        'it',
+        'Codifica Realtà aumentata permanente',
+        'Facciamo in modo che la realtà aumentata venga visualizzata permanentemente.'
+    );
+
+-- Servicios PORTUGUÊS
+INSERT INTO
+    service_translation (id_service, lang, name, description)
+VALUES
+    (
+        1,
+        'pt',
+        'Codificação Desativar Start-Stop Automático',
+        'Com esta codificação, o seu veículo deixará de ativar o sistema Start-Stop automático sempre que ligar o motor. Fazemo-lo através do método oficial, sem alterar a cablagem original nem instalar dispositivos "bypass".'
+    ),
+    (
+        2,
+        'pt',
+        'Codificação Alarme Perimetral EDW',
+        'Ativamos o alarme perimetral EDW. Este dispara quando deteta a abertura de qualquer porta com o veículo trancado. 90% dos veículos da marca não incluem este extra de série.'
+    ),
+    (
+        3,
+        'pt',
+        'Codificação Pressão dos Pneus de kPa para bar',
+        'Alteramos a unidade de medida da pressão dos pneus no seu quadro de instrumentos de kPa para bar.'
+    ),
+    (
+        4,
+        'pt',
+        'Codificação Sinal Sonoro ao Trancar o Veículo',
+        'Um breve sinal sonoro ao trancar o veículo. Ativamos o menu desta função no quadro de instrumentos para que possa ligá-la ou desligá-la sempre que quiser.'
+    ),
+    (
+        5,
+        'pt',
+        'Codificação Som do Parktronic na Zona Amarela',
+        'Fazemos com que o seu Parktronic emita também um aviso acústico na zona amarela. (Por norma, só apita na zona vermelha).'
+    ),
+    (
+        6,
+        'pt',
+        'Codificação Pisca de 3 para 6 Piscadelas',
+        'Ao usar a função de pisca rápido, em vez de 3 piscadelas fará 6 (valor personalizável).'
+    ),
+    (
+        7,
+        'pt',
+        'Codificação Desativar Aviso Sonoro do Cinto de Segurança',
+        'Desativamos o aviso sonoro do cinto de segurança emitido pelo quadro de instrumentos (o aviso visual e sonoro do sistema permanece ativo).'
+    ),
+    (
+        8,
+        'pt',
+        'Codificação Teste de Varrimento dos Ponteiros no Quadro de Instrumentos',
+        'Teste de varrimento dos ponteiros no quadro de instrumentos ao ligar a ignição. Alguns veículos não têm esta função consoante o equipamento e/ou o ano.'
+    ),
+    (
+        9,
+        'pt',
+        'Codificação Aviso de Tampa do Depósito Aberta',
+        'Se começar a conduzir com a tampa do depósito de combustível aberta, será exibido um aviso no quadro de instrumentos.'
+    ),
+    (
+        10,
+        'pt',
+        'Desbloqueio de Velocidade Máxima (Não-AMG)',
+        'Removemos o limitador eletrónico de velocidade máxima do seu veículo.'
+    ),
+    (
+        11,
+        'pt',
+        'Desbloqueio de Velocidade Máxima (AMG)',
+        'Removemos o limitador eletrónico de velocidade máxima de 250 km/h do seu veículo AMG.'
+    ),
+    (
+        12,
+        'pt',
+        'Codificação Emotion Start (AMG)',
+        'Pequenos estalos e "bangs" no arranque, apenas quando o motor está à temperatura de funcionamento.'
+    ),
+    (
+        13,
+        'pt',
+        'Verificação da Quilometragem Real',
+        'Não tem a certeza se a quilometragem do seu veículo foi adulterada? Ajudamo-lo a descobrir.'
+    ),
+    (
+        14,
+        'pt',
+        'Diagnóstico Básico',
+        'Leitura e/ou eliminação de códigos de avaria.'
+    ),
+    (
+        15,
+        'pt',
+        'Diagnóstico Avançado',
+        'Leitura e/ou eliminação de códigos de avaria, valores em tempo real, testes de componentes, etc.'
+    ),
+    (
+        16,
+        'pt',
+        'Apoio em Retrofits',
+        'Ajudamo-lo com qualquer retrofit que necessite de codificação SCN. O preço pode variar consoante a dificuldade.'
+    ),
+    (
+        17,
+        'pt',
+        'Retrofit NTG5.0, NTG5S1 ou Garmin',
+        'Se o seu veículo tem NTG 4.5 ou 4.7, ajudamo-lo a fazer o retrofit para NTG5.0, NTG5S1 ou Garmin.'
+    ),
+    (
+        18,
+        'pt',
+        'Retrofit da Câmara de Marcha-Atrás Original',
+        'Fazemos o retrofit da câmara de marcha-atrás original, código SA 218.'
+    ),
+    (
+        19,
+        'pt',
+        'Retrofit de Espelhos com Fecho Elétrico',
+        'Fazemos o retrofit do extra de espelhos com fecho elétrico, código SA 500.'
+    ),
+    (
+        20,
+        'pt',
+        'Codificação Ativação Apple CarPlay/Android Auto',
+        'Ativamos esta função se a sua unidade NTG for compatível.'
+    ),
+    (
+        21,
+        'pt',
+        'Codificação Prolongar Duração das Luzes de Boas-Vindas',
+        'Prolongamos a duração desta animação para 8 segundos (tempo personalizável).'
+    ),
+    (
+        22,
+        'pt',
+        'Codificação Ativar Menu de Luz Ambiente na Unidade de Rádio',
+        'Se o seu veículo for compatível, ativamos este menu na unidade NTG e realizamos a codificação necessária na unidade SAM.'
+    ),
+    (
+        23,
+        'pt',
+        'Retrofit Comand NTG5S1',
+        'Se o seu veículo tem NTG 5.0 ou Garmin, ajudamo-lo a fazer o retrofit de uma unidade NTG5S1.'
+    ),
+    (
+        24,
+        'pt',
+        'Codificação Luzes de Cruzamento ao Destrancar',
+        'Ao destrancar o veículo, as luzes de cruzamento acender-se-ão.'
+    ),
+    (
+        26,
+        'pt',
+        'Codificação Memória do Modo de Condução',
+        'Com esta codificação, o seu carro vai memorizar o último modo de condução utilizado para o próximo arranque, sem limite de tempo (por norma, só memoriza durante 4 horas).'
+    ),
+    (
+        27,
+        'pt',
+        'Codificação Mostrar Combustível Restante em Litros',
+        'O quadro de instrumentos mostrará a quantidade de combustível restante no depósito, em litros.'
+    ),
+    (
+        28,
+        'pt',
+        'Codificação Mostrar Autonomia Restante em km',
+        'Com esta ativação, será sempre mostrada a autonomia restante em km em vez do ícone de reabastecimento.'
+    ),
+    (
+        29,
+        'pt',
+        'Codificação Ajuste de Volume e Frequência do Parktronic',
+        'Alteramos o volume e a frequência do aviso sonoro do sistema Parktronic.'
+    ),
+    (
+        30,
+        'pt',
+        'Codificação Faróis de Nevoeiro como Luzes de Curva',
+        'Ao virar, o farol de nevoeiro do lado correspondente à curva acender-se-á.'
+    ),
+    (
+        31,
+        'pt',
+        'Codificação Prolongar o Tempo de Desligamento da Unidade de Rádio',
+        'Prolongamos o tempo que a unidade demora a desligar-se depois de desligar a ignição.'
+    ),
+    (
+        32,
+        'pt',
+        'Codificação Ativar Reprodução de Vídeo em Movimento',
+        'Ativamos a reprodução de vídeo com o veículo em movimento na sua unidade Comand.'
+    ),
+    (
+        34,
+        'pt',
+        'Retrofit de Saídas de Ar com Luz Ambiente',
+        'Retrofit de saídas de ar com luz ambiente, com cores personalizáveis através de uma app no smartphone.'
+    ),
+    (
+        35,
+        'pt',
+        'Retrofit de Saídas de Ar com Luz Ambiente',
+        'Retrofit de saídas de ar com luz ambiente, com cores personalizáveis a partir da unidade de rádio NTG.'
+    ),
+    (
+        36,
+        'pt',
+        'Retrofit de Limpa Para-brisas Automático',
+        'Requer substituição do sensor, incluída no preço.'
+    ),
+    (
+        38,
+        'pt',
+        'Codificação Pisca Automático ao Virar o Volante',
+        'Ao virar o volante, o pisca correspondente ativa-se automaticamente na direção da curva.'
+    ),
+    (
+        39,
+        'pt',
+        'Codificação Máximos Automáticos IHC',
+        'Se o seu veículo tiver reconhecimento de sinais de trânsito, podemos ativar adicionalmente esta função caso ainda não a tenha.'
+    ),
+    (
+        40,
+        'pt',
+        'Pacote Básico de Codificação',
+        'Pacote básico de codificação para modelos em que o número de serviços de codificação disponíveis é muito limitado.'
+    ),
+    (
+        41,
+        'pt',
+        'Pacote Avançado de Codificação',
+        'Pacote avançado de codificação para modelos em que o número de serviços de codificação disponíveis é mais alargado.'
+    ),
+    (
+        42,
+        'pt',
+        'Codificação Faróis Halogéneo para Bi-Xénon',
+        'Se está a fazer o retrofit destes faróis, ajudamo-lo a codificá-los.'
+    ),
+    (
+        43,
+        'pt',
+        'Codificação Faróis Halogéneo para LED',
+        'Se está a fazer o retrofit destes faróis, ajudamo-lo a codificá-los.'
+    ),
+    (
+        44,
+        'pt',
+        'Codificação Faróis Bi-Xénon para LED',
+        'Se está a fazer o retrofit destes faróis, ajudamo-lo a codificá-los.'
+    ),
+    (
+        45,
+        'pt',
+        'Codificação Ar Condicionado Permanente',
+        'Sempre que ligar o climatizador, o modo A/C ativar-se-á automaticamente.'
+    ),
+    (
+        46,
+        'pt',
+        'Codificação Recirculação de Ar Permanente',
+        'Sempre que ligar o climatizador, a recirculação de ar ativar-se-á automaticamente.'
+    ),
+    (
+        47,
+        'pt',
+        'Codificação Luzes Diurnas Traseiras',
+        'Com esta codificação, as luzes traseiras também se acenderão juntamente com as luzes diurnas.'
+    ),
+    (
+        48,
+        'pt',
+        'Codificação Renovação do Quadro de Instrumentos',
+        'Se instalou um quadro de instrumentos usado, ajudamo-lo a repô-lo para o estado virgem e a emparelhá-lo com o EZS.'
+    ),
+    (
+        49,
+        'pt',
+        'Codificação Menu AMG no Quadro de Instrumentos',
+        'Codificamos o menu AMG no seu quadro de instrumentos.'
+    ),
+    (
+        50,
+        'pt',
+        'Codificação Visualização Litros/Galões de combustível',
+        'Fazemos com que o seu quadro de instrumentos mostre o combustível em litros/galões em vez de percentagem.'
+    ),
+    (
+        51,
+        'pt',
+        'Codificação Coming Home',
+        'Ao destrancar o veículo, os máximos-mínimos e as luzes de presença acender-se-ão para uma melhor visibilidade.'
+    ),
+    (
+        52,
+        'pt',
+        'Codificação Realidade aumentada permanente',
+        'Fazemos com que a realidade aumentada seja exibida permanentemente.'
     );
 
 -- Relaciones entre servicios/items y variantes (variant_id, service_id)
@@ -1844,7 +2242,9 @@ VALUES
     (3, 41),
     (3, 48),
     (3, 49),
-    (3, 20);
+    (3, 20),
+    (3, 51),
+    (3, 52);
 
 -- W246 prefacelift
 INSERT INTO
@@ -1933,7 +2333,9 @@ VALUES
     (6, 16),
     (6, 39),
     (6, 40),
-    (6, 41);
+    (6, 41),
+    (6, 51),
+    (6, 52);
 
 -- W203/S203
 INSERT INTO
@@ -1995,6 +2397,7 @@ VALUES
     (10, 3),
     (10, 6),
     (10, 7),
+    (10, 9),
     (10, 27),
     (10, 28),
     (10, 10),
@@ -2008,7 +2411,9 @@ VALUES
     (10, 40),
     (10, 41),
     (10, 48),
-    (10, 49);
+    (10, 49),
+    (10, 51),
+    (10, 21);
 
 -- C117/X117 prefacelift
 INSERT INTO
@@ -2108,7 +2513,9 @@ VALUES
     (13, 40),
     (13, 41),
     (13, 48),
-    (13, 49);
+    (13, 49),
+    (13, 51),
+    (13, 52);
 
 -- W209 
 INSERT INTO
@@ -2225,7 +2632,7 @@ INSERT INTO
 VALUES
     (20, 1),
     (20, 7),
-    (20, 27),
+    (20, 9),
     (20, 28),
     (20, 10),
     (20, 11),
@@ -2237,7 +2644,11 @@ VALUES
     (20, 40),
     (20, 41),
     (20, 48),
-    (20, 49);
+    (20, 49),
+    (20, 50),
+    (20, 51),
+    (20, 2),
+    (20, 20);
 
 -- W213 Facelift
 INSERT INTO
@@ -2245,7 +2656,7 @@ INSERT INTO
 VALUES
     (21, 1),
     (21, 7),
-    (21, 27),
+    (21, 9),
     (21, 28),
     (21, 10),
     (21, 11),
@@ -2257,7 +2668,12 @@ VALUES
     (21, 40),
     (21, 41),
     (21, 48),
-    (21, 49);
+    (21, 49),
+    (21, 50),
+    (21, 51),
+    (21, 2),
+    (21, 20),
+    (21, 52);
 
 -- W463
 INSERT INTO
@@ -2371,7 +2787,9 @@ VALUES
     (25, 40),
     (25, 41),
     (25, 48),
-    (25, 49);
+    (25, 49),
+    (25, 51),
+    (25, 52);
 
 -- W164/X164
 INSERT INTO
@@ -2559,3 +2977,5 @@ VALUES
     (35, 16),
     (35, 48),
     (35, 49);
+
+-- DESMARCA LA CASILLA "Habilite la revision de las claves foraneas"

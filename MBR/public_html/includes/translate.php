@@ -3,10 +3,11 @@
 
 const LANGUAGES = [
     'es' => ['label' => 'Español', 'flag' => 'fi-es', 'html' => 'es-ES'],
-    'en' => ['label' => 'English', 'flag' => 'fi-gb', 'html' => 'en-US'],
     'fr' => ['label' => 'Français', 'flag' => 'fi-fr', 'html' => 'fr-FR'],
-    'de' => ['label' => 'Deutsch',  'flag' => 'fi-de', 'html' => 'de-DE'],
+    'pt' => ['label' => 'Portugués', 'flag' => 'fi-pt', 'html' => 'pt-PT'],
     'it' => ['label' => 'Italiano', 'flag' => 'fi-it', 'html' => 'it-IT'],
+    'de' => ['label' => 'Deutsch',  'flag' => 'fi-de', 'html' => 'de-DE'],
+    'en' => ['label' => 'English', 'flag' => 'fi-gb', 'html' => 'en-US'],
 ];
 
 function get_available_languages(): array

@@ -159,7 +159,8 @@ function cargarVariante(int $id_variant): ?array
     $stmt = $pdo->prepare("
         SELECT id_variant, name AS nombre, image_url AS imagen, vehicle_id
         FROM variant
-        WHERE id_variant = ?
+        WHERE id_variant = ? AND visible = 1
+        ORDER BY id
         LIMIT 1
     ");
     $stmt->execute([$id_variant]);
