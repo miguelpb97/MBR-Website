@@ -34,6 +34,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
       <div class="navbar__links">
         <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
         <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+        <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
         <a href="contacto.php" class="navbar__link active"><?= t('nav_contact') ?></a>
         <a href="contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
@@ -55,6 +56,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
   <div class="navbar__mobile" id="mobileMenu">
     <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
     <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+    <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
     <a href="contacto.php" class="navbar__link active"><?= t('nav_contact') ?></a>
     <a href="contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
@@ -77,8 +79,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
         <?= t_html('contact_intro', [
           '{email}' => '<a href="mailto:' . htmlspecialchars(EMAIL) . '" style="color: var(--accent-400)">' . t('contact_intro_email_label') . '</a>',
           '{whatsapp}' => '<a style="color: var(--color-wp)" href="https://api.whatsapp.com/send/?phone=' . htmlspecialchars(PHONE_NUMBER) . '">WhatsApp</a>',
-        ]) ?><br>
-        <?= t_html('contact_schedule', ['{schedule}' => htmlspecialchars(SCHEDULE)]) ?>
+        ]) ?>
       </p>
     </div>
   </div>
@@ -155,6 +156,7 @@ $SERVICIO = $_GET['servicio'] ?? '';
           <div class="footer__links">
             <a href="index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
+            <a href="faq.php" class="footer__link"><?= t('footer_link_faq') ?></a>
             <a href="contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
           </div>
         </div>

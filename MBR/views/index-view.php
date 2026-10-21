@@ -61,6 +61,7 @@ $translations  = load_translations($current_lang);
       <div class="navbar__links">
         <a href="index.php" class="navbar__link active"><?= t('nav_home') ?></a>
         <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+        <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
         <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
         <a href="contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
@@ -83,6 +84,7 @@ $translations  = load_translations($current_lang);
   <div class="navbar__mobile" id="mobileMenu">
     <a href="index.php" class="navbar__link active"><?= t('nav_home') ?></a>
     <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+    <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
     <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
     <a href="contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
@@ -203,78 +205,6 @@ $translations  = load_translations($current_lang);
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section--darker">
-    <div class="container">
-      <div class="faq__header">
-        <div class="accent-line accent-line--center"></div>
-        <span class="section-label"><?= t('faq_label') ?></span>
-        <h2 class="section-title"><?= t('faq_title') ?></h2>
-      </div>
-      <div class="faq__list">
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q1') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a1') ?></p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q2') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a2') ?></p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q3') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a3') ?></p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q4') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a4') ?></p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q5') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a5') ?></p>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question">
-            <?= t('faq_q6') ?>
-            <span class="faq__icon">+</span>
-          </button>
-          <div class="faq__answer">
-            <p><?= t('faq_a6') ?></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
@@ -289,6 +219,7 @@ $translations  = load_translations($current_lang);
           <div class="footer__links">
             <a href="index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
+            <a href="faq.php" class="footer__link"><?= t('footer_link_faq') ?></a>
             <a href="contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
           </div>
         </div>

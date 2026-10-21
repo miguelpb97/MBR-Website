@@ -7,6 +7,8 @@
   "nav_home": "Home",
   "nav_products": "Servizi",
   "nav_contact": "Contatti",
+  "nav_faq": "FAQ",
+
   "nav_btn_book_service": "Prenota",
   "nav_menu_aria": "Menu",
 
@@ -55,6 +57,7 @@
   "faq_a5": "Se disponi dell'hardware necessario e hai bisogno di aiuto, possiamo assisterti da remoto. Abbiamo ampia esperienza in retrofit e codifica. Per l'assistenza remota è necessaria una connessione internet stabile dove verrà eseguito il lavoro di codifica e un software come TeamViewer o AnyDesk. Se non disponi del software di codifica del veicolo, te lo forniremo noi.",
   "faq_q6": "I lavori di codifica SCN hanno garanzia?",
   "faq_a6": "Sì, offriamo una garanzia di 1 anno per qualsiasi lavoro di codifica o retrofit.",
+  "faq_meta_title": "FAQ - MBR Almería",
 
   "footer_brand_sub": "Specialista Mercedes",
   "footer_brand_text": "Specialisti in codifica SCN e retrofit per Mercedes-Benz ad Almería. Diagnosi ufficiale con Xentry, Vediamo e DTS Monaco. Garanzia 1 anno.",
@@ -67,6 +70,7 @@
   "footer_link_terms": "Termini e condizioni",
   "footer_copy_rest": "MBR Almería. Tutti i diritti riservati.",
   "footer_made": "MBR Almería - Specialista Mercedes-Benz",
+   "footer_link_faq": "FAQ",
 
   "contact_meta_title": "Contatti - MBR Almería",
   "contact_meta_description": "Contatta MBR Almería per richiedere informazioni sui nostri servizi di codifica e retrofit.",

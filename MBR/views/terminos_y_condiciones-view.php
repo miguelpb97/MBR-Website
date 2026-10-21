@@ -33,6 +33,7 @@ $translations  = load_translations($current_lang);
       <div class="navbar__links">
         <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
         <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+        <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
         <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
         <a href="contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
@@ -54,6 +55,7 @@ $translations  = load_translations($current_lang);
   <div class="navbar__mobile" id="mobileMenu">
     <a href="index.php" class="navbar__link"><?= t('nav_home') ?></a>
     <a href="servicios.php" class="navbar__link"><?= t('nav_products') ?></a>
+    <a href="faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
     <a href="contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
     <a href="contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
@@ -132,6 +134,7 @@ $translations  = load_translations($current_lang);
           <div class="footer__links">
             <a href="index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
+            <a href="faq.php" class="footer__link"><?= t('footer_link_faq') ?></a>
             <a href="contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
           </div>
         </div>

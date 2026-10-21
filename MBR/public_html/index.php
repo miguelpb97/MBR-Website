@@ -12,6 +12,7 @@ $views = [
     '/'                 => 'index-view.php',
     '/index'            => 'index-view.php',
     '/servicios'        => 'servicios-view.php',
+    '/faq'              => 'faq-view.php',
     '/contacto'         => 'contacto-view.php',
     '/politica-de-privacidad'       => 'privacidad-view.php',
     '/terminos-y-condiciones'       => 'terminos-view.php',

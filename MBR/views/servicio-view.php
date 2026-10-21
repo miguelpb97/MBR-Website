@@ -138,6 +138,7 @@ if (!$not_found) {
       <div class="navbar__links">
         <a href="<?= BASE_URL ?>/index.php" class="navbar__link"><?= t('nav_home') ?></a>
         <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
+        <a href="<?= BASE_URL ?>/faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
         <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
         <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary navbar__cta"><?= t('nav_btn_book_service') ?></a>
         <div class="navbar__lang">
@@ -159,6 +160,7 @@ if (!$not_found) {
   <div class="navbar__mobile" id="mobileMenu">
     <a href="<?= BASE_URL ?>/index.php" class="navbar__link"><?= t('nav_home') ?></a>
     <a href="<?= BASE_URL ?>/servicios.php" class="navbar__link active"><?= t('nav_products') ?></a>
+    <a href="<?= BASE_URL ?>/faq.php" class="navbar__link"><?= t('nav_faq') ?></a>
     <a href="<?= BASE_URL ?>/contacto.php" class="navbar__link"><?= t('nav_contact') ?></a>
     <a href="<?= BASE_URL ?>/contacto.php" class="btn btn--primary"><?= t('nav_btn_book_service') ?></a>
 
@@ -289,6 +291,7 @@ if (!$not_found) {
           <div class="footer__links">
             <a href="<?= BASE_URL ?>/index.php" class="footer__link"><?= t('footer_link_home') ?></a>
             <a href="<?= BASE_URL ?>/servicios.php" class="footer__link"><?= t('footer_link_services') ?></a>
+            <a href="<?= BASE_URL ?>/faq.php" class="footer__link"><?= t('footer_link_faq') ?></a>
             <a href="<?= BASE_URL ?>/contacto.php" class="footer__link"><?= t('footer_link_contact') ?></a>
           </div>
         </div>
