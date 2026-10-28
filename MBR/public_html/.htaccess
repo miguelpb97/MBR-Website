@@ -14,6 +14,7 @@ RewriteCond %{THE_REQUEST} \s/+politica-de-privacidad\.php[\s?] [NC]
 RewriteRule ^politica-de-privacidad\.php$ /politica-de-privacidad [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+politica-de-privacidad\.php[\s?] [NC]
 RewriteRule ^faq\.php$ /faq [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+faq\.php[\s?] [NC]
 # Servicios individuales con slug de variante + servicio
 RewriteRule ^servicio/([a-z0-9-]+)/([a-z0-9-]+)/?$ servicio.php?variante=$1&servicio=$2 [L,QSA]
 # URLs limpias internas
