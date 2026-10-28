@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?mbretrofitalmeria\.es$ [NC]
+RewriteRule ^(.*)$ https://www.mbralmeria.es/$1 [R=301,L]
